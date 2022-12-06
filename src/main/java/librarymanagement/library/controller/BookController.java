@@ -56,7 +56,7 @@ public class BookController {
         bookService.delete(bookId);
     }
 
-    @GetMapping("/pagenated/")
+    @GetMapping("/pagenated")
     public ResponseEntity<List<Book>>getAllBorrow(
                         @RequestParam(defaultValue = "0") Integer pageNo,
                         @RequestParam(defaultValue = "10") Integer pageSize,
