@@ -1,0 +1,67 @@
+
+
+<div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">ADD USER</label>
+		<div class="login-form">
+          
+			<div class="sign-in-htm">
+                <form [formGroup]="login" (ngSubmit)="onSubmit()"> -->
+				<div class="group">
+					<label for="user" class="label">Email</label>
+					<input type="text" formControlName="email" name="email" class="input">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input  type="password" class="input" formControlName="password" name="password">
+				</div>
+				<div class="group">
+					<input id="check" type="checkbox" class="check" checked>
+					<label for="check"><span class="icon"></span> Keep me Signed in</label>
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign In">
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<!-- <a href="#forgot">Forgot Password?</a> -->
+				</div>
+                </form>
+			</div>
+        
+			 <div class="sign-up-htm">
+                <form [formGroup]="adduser" (ngSubmit)="add()" >
+				<div class="group">
+					<label for="user" class="label">Name</label>
+					<input type="text" class="input" formControlName="name" name="name">
+				</div>
+                <div class="group">
+					<label for="user" class="label">Email</label>
+					<input type="text" class="input" formControlName="email" name="email">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input  type="password" class="input" formControlName="password" name="password">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Address</label>
+					<input  type="text" class="input" formControlName="address" name="address">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Phone</label>
+					<input  type="number" formControlName="phone" name="phone" class="input">
+				</div>
+				<div class="group">
+					<input type="submit"  class="button" value="sign up" >
+				</div>
+				<!-- <div class="hr"></div>
+				<div class="foot-lnk">
+					<label for="tab-1">Already Member?</label>
+				</div> -->
+                </form>
+			</div> 
+       
+		</div>
+	</div>
+</div>
