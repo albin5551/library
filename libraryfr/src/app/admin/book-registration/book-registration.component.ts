@@ -28,6 +28,7 @@ export class BookRegistrationComponent implements OnInit {
         if(result.bookId){
           console.log(result);
           alert("Added")
+          window.location.reload();
         }
         else{
           alert("not added")

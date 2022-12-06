@@ -12,20 +12,21 @@ import { UserServiceService } from '../service/user/user-service.service';
 export class LoginComponent implements OnInit {
 
   resdata: any;
+  p="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,15}$";
 
   constructor(private authService:AuthServiceService ,private router:Router,private userService:UserServiceService) { }
 
   login:FormGroup=new FormGroup(
     {
       email:new FormControl('',[Validators.required]),
-      password:new FormControl('',[Validators.required])
+      password:new FormControl('',[Validators.required,Validators.pattern(this.p)])
     }
   )
 
   adduser:FormGroup=new FormGroup({
     name:new FormControl('',[Validators.required]),
     email:new FormControl('',[Validators.required]),
-    password:new FormControl('',[Validators.required]),
+    password:new FormControl('',[Validators.required,Validators.pattern(this.p)]),
     address:new FormControl('',[Validators.required]),
     phone: new FormControl('',[Validators.required])
   })
@@ -74,7 +75,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('name',this.resdata.name);
             localStorage.setItem('userid',this.resdata.userId);
             alert("login sucessful");
-            // this.router.navigate(['/admin']);
+            this.router.navigate(['/adminhome']);
           }
            
         }

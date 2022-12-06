@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <h1>EDIT BOOK</h1>
+    <form [formGroup]="editbook" (ngSubmit)="onSubmit()">
+        Book Name <input type="text" formControlName="bookName" value [ngModel]="bookDetail.bookName">
+        <br>
+        Book Author <input type="text" formControlName="bookAuthor" value [ngModel]="bookDetail.bookAuthor">
+        <br>
+        Stock <input type="text" formControlName="stock" value [ngModel]="bookDetail.stock">
+        <br>
+        <button type="submit">Update</button>
+    </form>
+    
+</body>
+</html>

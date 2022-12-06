@@ -1,0 +1,70 @@
+<app-navbar-admin></app-navbar-admin>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+<table style="border: 2px solid #ddd;
+text-align: left;      margin-left: auto;
+    margin-right: auto;" class="center">
+    <tr>
+        <th style="    border: 2px solid rgb(0, 0, 0);
+        text-align: left;padding: 15px;"(click)="this.paginate(0,5,'bookId')">ID</th>
+        <th style="    border: 2px solid rgb(0, 0, 0);
+        text-align: left;padding: 15px;" (click)="this.paginate(0,5,'bookName')">BookName</th>
+        <th style="    border: 2px solid rgb(0, 0, 0);
+        text-align: left;padding: 15px;"(click)="this.paginate(0,5,'bookAuthor')">Author</th>
+        <th style="    border: 2px solid rgb(0, 0, 0);
+        text-align: left;padding: 15px;">Date</th>
+    </tr>
+    <tr *ngFor="let book of result">
+        <td style="    border: 2px solid rgb(0, 0, 0);
+        text-align: left;padding: 15px;">{{book.bookId}}</td>
+        <td style="    border: 2px solid rgb(0, 0, 0);
+        text-align: left;padding: 15px;">{{book.bookName}}</td>
+        <td style="    border: 2px solid rgb(0, 0, 0);
+        text-align: left;padding: 15px;">{{book.bookAuthor}}</td>
+                <td style="    border: 2px solid rgb(0, 0, 0);
+                text-align: left;padding: 15px;">{{book.createDate|date:'yyyy-mm-dd'}}</td>
+
+        <!-- <td style="    border: 2px solid #ddd;
+        text-align: left;padding: 15px;">
+            <button type="submit"[routerLink]="['/editbook',book.bookId]" >Edit</button>
+            <button type="submit" (click)="del(book.bookId)" >Delete</button>
+            <button type="submit" [routerLink]="['/bookdview',book.bookId]">View</button>
+            
+        </td> -->
+
+    </tr>
+    <!-- <div *ngFor="let book of bookDetail;let i=index;">
+        <ul>
+          <li  *ngIf="i%5==0;"><button (click)="paginate(i/5,5,sortBy)" >{{i/5+1}}</button></li>
+       
+        </ul>
+      </div> -->
+      
+</table> 
+<td  *ngFor="let book of bookDetail;let i=index;">
+    <tr class="center" *ngIf="i%5==0;"class="page-item"><button class="but"  (click)="paginate(i/5,5,sortBy)" > {{i/5+1}} </button> &nbsp;</tr>
+    </td>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <!-- <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li> -->
+    
+      <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+      <li class="page-item">
+        <!-- <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a> -->
+      </li>
+    </ul>
+  </nav>
+</body>
+</html>

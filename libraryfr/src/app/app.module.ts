@@ -11,13 +11,27 @@ import { LoginComponent } from './login/login.component';
 import { TokenServiceService } from './service/token-service.service';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { BookRegistrationComponent } from './admin/book-registration/book-registration.component';
+import { ViewBookregComponent } from './admin/view-bookreg/view-bookreg.component';
+import { EditBookComponent } from './admin/edit-book/edit-book.component';
+import { ViewpgTestComponent } from './admin/viewpg-test/viewpg-test.component';
+import { BookDeatilviewComponent } from './admin/book-deatilview/book-deatilview.component';
+import { NavbarAdminComponent } from './admin/navbar-admin/navbar-admin.component';
+import { TestviewComponent } from './admin/testview/testview.component';
+import { BookReportComponent } from './admin/book-report/book-report.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AdminHomeComponent,
-    BookRegistrationComponent
+    BookRegistrationComponent,
+    ViewBookregComponent,
+    EditBookComponent,
+    ViewpgTestComponent,
+    BookDeatilviewComponent,
+    NavbarAdminComponent,
+    TestviewComponent,
+    BookReportComponent
   ],
   imports: [
     BrowserModule,

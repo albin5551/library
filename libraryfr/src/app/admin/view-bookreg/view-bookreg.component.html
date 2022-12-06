@@ -1,0 +1,27 @@
+<app-navbar-admin></app-navbar-admin>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+<table class="center">
+    <tr>
+        <th>BookName</th>
+        <th>Stock</th>
+    </tr>
+    <tr *ngFor="let book of bookDetail">
+        <td>{{book.bookName}}</td>
+        <td>{{book.stock}}</td>
+
+        <td>
+            <button type="submit"[routerLink]="['/editbook',book.bookId]" >Edit</button>
+            <button type="submit" (click)="del(book.bookId)" >Delete</button>
+            <button type="submit" [routerLink]="['/bookdview',book.bookId]">View</button>
+            
+        </td>
+
+    </tr>
+</table>    
+</body>
+</html>
