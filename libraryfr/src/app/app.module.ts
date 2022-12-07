@@ -18,6 +18,7 @@ import { BookDeatilviewComponent } from './admin/book-deatilview/book-deatilview
 import { NavbarAdminComponent } from './admin/navbar-admin/navbar-admin.component';
 import { TestviewComponent } from './admin/testview/testview.component';
 import { BookReportComponent } from './admin/book-report/book-report.component';
+import { UserHomeComponent } from './user/user-home/user-home.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { BookReportComponent } from './admin/book-report/book-report.component';
     BookDeatilviewComponent,
     NavbarAdminComponent,
     TestviewComponent,
-    BookReportComponent
+    BookReportComponent,
+    UserHomeComponent
   ],
   imports: [
     BrowserModule,

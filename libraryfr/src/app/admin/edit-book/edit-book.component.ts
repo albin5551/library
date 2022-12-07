@@ -33,7 +33,7 @@ onSubmit(){
       if(result){
         console.log(result);
         alert("Updated");
-        this.router.navigate(['/viewbook'])
+        this.router.navigate(['/testview'])
       }
     })
   }

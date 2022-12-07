@@ -16,7 +16,7 @@ text-align: left;      margin-left: auto;
         <th style="    border: 2px solid rgb(0, 0, 0);
         text-align: left;padding: 15px;"(click)="this.paginate(0,5,'bookAuthor')">Author</th>
         <th style="    border: 2px solid rgb(0, 0, 0);
-        text-align: left;padding: 15px;">Date</th>
+        text-align: left;padding: 15px;"(click)="this.paginate(0,5,'createDate')">Date</th>
     </tr>
     <tr *ngFor="let book of result">
         <td style="    border: 2px solid rgb(0, 0, 0);
@@ -26,7 +26,7 @@ text-align: left;      margin-left: auto;
         <td style="    border: 2px solid rgb(0, 0, 0);
         text-align: left;padding: 15px;">{{book.bookAuthor}}</td>
                 <td style="    border: 2px solid rgb(0, 0, 0);
-                text-align: left;padding: 15px;">{{book.createDate|date:'yyyy-mm-dd'}}</td>
+                text-align: left;padding: 15px;">{{book.createDate|date:'yyyy-MM-dd'}}</td>
 
         <!-- <td style="    border: 2px solid #ddd;
         text-align: left;padding: 15px;">
