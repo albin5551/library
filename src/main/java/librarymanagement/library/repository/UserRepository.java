@@ -3,7 +3,9 @@ package librarymanagement.library.repository;
 import librarymanagement.library.entity.User;
 import java.util.Collection;
 import java.util.Optional;
- import org.springframework.data.repository.Repository;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.Repository;
 
 public interface UserRepository extends Repository<User, Integer> {
 
@@ -19,4 +21,6 @@ public interface UserRepository extends Repository<User, Integer> {
     void delete(User userId);
 
     Collection<User> findAll();
+    @Query(value = "SELECT * FROM user WHERE email=?",nativeQuery = true)
+    User findByEmailId(String email);
 }
