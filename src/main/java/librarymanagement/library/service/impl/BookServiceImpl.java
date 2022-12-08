@@ -69,4 +69,14 @@ public class BookServiceImpl implements BookService {
                 return new ArrayList<Book>();
             }
     }
+
+    public List<Book>getAllBookStock(Integer pageNo,Integer pageSize,String sortBy){
+        Pageable paging=PageRequest.of(pageNo,pageSize,Sort.by(sortBy));
+        Page<Book> pagedResult=bookRepository.findAllStockNative(paging);
+        if (pagedResult.hasContent()){
+            return pagedResult.getContent();
+        }else{
+            return new ArrayList<Book>();
+        }
+}
 }

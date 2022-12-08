@@ -2,6 +2,7 @@ package librarymanagement.library.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import librarymanagement.library.entity.Otp;
 import librarymanagement.library.entity.User;
@@ -10,6 +11,7 @@ import librarymanagement.library.repository.OtpRepository;
 import librarymanagement.library.repository.UserRepository;
 import librarymanagement.library.service.OtpService;
 
+@Service
 public class OtpServiceImpl implements OtpService {
 
     @Autowired

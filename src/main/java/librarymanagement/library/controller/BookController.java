@@ -67,4 +67,17 @@ public class BookController {
         HttpStatus.OK);
 
     }
+
+
+    @GetMapping("/pagenateds")
+    public ResponseEntity<List<Book>>getAllBookStocks(
+                        @RequestParam(defaultValue = "0") Integer pageNo,
+                        @RequestParam(defaultValue = "10") Integer pageSize,
+                        @RequestParam(defaultValue = "id") String sortBy)
+    {
+        List<Book> list = bookService.getAllBookStock(pageNo, pageSize, sortBy);
+        return new ResponseEntity<List<Book>>(list,new HttpHeaders(),
+        HttpStatus.OK);
+
+    }
 }
