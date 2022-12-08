@@ -8,7 +8,9 @@ import { EditBookComponent } from './admin/edit-book/edit-book.component';
 import { TestviewComponent } from './admin/testview/testview.component';
 import { ViewBookregComponent } from './admin/view-bookreg/view-bookreg.component';
 import { ViewpgTestComponent } from './admin/viewpg-test/viewpg-test.component';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
+import { UserHomeComponent } from './user/user-home/user-home.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/login',pathMatch:'full'},
@@ -20,7 +22,9 @@ const routes: Routes = [
   {path:'bookdview/:id',component:BookDeatilviewComponent},
   {path:'adminhome',component:AdminHomeComponent},
   {path:'testview',component:TestviewComponent},
-  {path:'report',component:BookReportComponent}
+  {path:'report',component:BookReportComponent},
+  {path:'forgotpass',component:ForgotPasswordComponent},
+  {path:'userhome',component:UserHomeComponent}
 ];
 
 @NgModule({

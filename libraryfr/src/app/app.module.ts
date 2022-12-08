@@ -19,6 +19,8 @@ import { NavbarAdminComponent } from './admin/navbar-admin/navbar-admin.componen
 import { TestviewComponent } from './admin/testview/testview.component';
 import { BookReportComponent } from './admin/book-report/book-report.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { UserHomeComponent } from './user/user-home/user-home.component';
     NavbarAdminComponent,
     TestviewComponent,
     BookReportComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { UserHomeComponent } from './user/user-home/user-home.component';
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgToastModule
     
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenServiceService,multi:true}],

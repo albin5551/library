@@ -15,4 +15,12 @@ export class AuthServiceService {
   getToken(){
     return localStorage.getItem('token')||"";
   }
+
+  sendotp(data:any):Observable<any>{
+    return this.http.post('http://localhost:8080/email/emailsentotp',data)
+  }
+
+  verify(data:any):Observable<any>{
+    return this.http.post('http://localhost:8080/verify',data)
+  }
 }
