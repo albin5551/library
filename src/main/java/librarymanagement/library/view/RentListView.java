@@ -17,6 +17,7 @@ private final BookListView bookId;
 private Date rentDate;
 @Temporal(TemporalType.TIMESTAMP)
 private Date returnDate;
+private String status;
 
 
 
@@ -26,6 +27,8 @@ public RentListView(Rent rent){
     this.bookId=new BookListView(rent.getBook());
     this.rentDate=rent.getRentDate();
     this.returnDate=rent.getReturnDate();
+    this.status=rent.getStatus();
+    
 }
     
 
@@ -44,6 +47,12 @@ public Date getRentDate() {
 }
 public Date getReturnDate() {
     return returnDate;
+}
+
+
+
+public String getStatus() {
+    return status;
 }
 
 

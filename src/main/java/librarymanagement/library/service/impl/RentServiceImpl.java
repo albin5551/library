@@ -45,6 +45,7 @@ public class RentServiceImpl implements RentService {
         book.setStock(book.getStock()-1);
         return new RentListView(rentRepository.save(new Rent(form, user, book)));
         
+        
     }
 
     @Override

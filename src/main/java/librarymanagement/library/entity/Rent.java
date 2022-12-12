@@ -32,7 +32,12 @@ public class Rent {
     private Date rentDate;
     @Temporal(TemporalType.TIMESTAMP)
     private Date returnDate;
+    private  String status;
 
+
+public Rent(){
+
+}
 
     public Integer getRentId() {
         return rentId;
@@ -64,22 +69,33 @@ public class Rent {
     public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
     }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    
 
 
 
     public Rent(RentForm form,User user,Book book){
         this.user=user;
         this.book=book;
-        this.rentDate=form.getRentDate();
-        this.returnDate=form.getReturDate();
+        Date dt = new Date();
+        this.rentDate= dt;
+        // this.returnDate=form.getReturDate();
     }
 
 
     public Rent update(RentForm form,User user,Book book){
         this.user=user;
         this.book=book;
-        this.rentDate=form.getRentDate();
-        this.returnDate=form.getReturDate();
+        // this.rentDate=form.getRentDate();
+        Date dt = new Date();
+        this.returnDate=dt;
         return this;
     }
 
@@ -103,6 +119,7 @@ public class Rent {
         return "librarymanagement.library.entity.Rent[ rentId=" + rentId + " ]";
     }
 
+  
 
     
 
