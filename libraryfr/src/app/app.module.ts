@@ -21,6 +21,7 @@ import { BookReportComponent } from './admin/book-report/book-report.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { NgToastModule } from 'ng-angular-popup';
+import { BookListComponent } from './user/book-list/book-list.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { NgToastModule } from 'ng-angular-popup';
     TestviewComponent,
     BookReportComponent,
     UserHomeComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    BookListComponent
   ],
   imports: [
     BrowserModule,
