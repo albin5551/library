@@ -1,5 +1,7 @@
 package librarymanagement.library.form;
 
+import java.time.LocalDateTime;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -15,6 +17,7 @@ public class BookForm {
 
     private Integer stock;
 
+    private LocalDateTime createDate;
 
     
     public String getBookName() {
@@ -39,6 +42,14 @@ public class BookForm {
 
     public void setStock(Integer stock) {
         this.stock = stock;
+    }
+
+    public LocalDateTime getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(LocalDateTime createDate) {
+        this.createDate = createDate;
     }
     
 

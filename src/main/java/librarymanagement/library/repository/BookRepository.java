@@ -3,6 +3,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -28,5 +29,9 @@ public interface BookRepository extends PagingAndSortingRepository <Book,Integer
 
     @Query(value = "SELECT * FROM book where stock !=0",nativeQuery = true)
     public  Page<Book> findAllStockNative(Pageable paging);
+   
+    @Query(value = "update book set stock=stock-1 where book_id=?1", nativeQuery = true)
+    public void updateStock(Integer bookId);
+    
 
 }

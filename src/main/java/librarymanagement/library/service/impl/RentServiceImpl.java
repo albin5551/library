@@ -5,6 +5,7 @@ import java.util.Collection;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import librarymanagement.library.entity.Book;
 import librarymanagement.library.entity.Rent;
@@ -17,6 +18,8 @@ import librarymanagement.library.repository.UserRepository;
 import librarymanagement.library.security.util.SecurityUtil;
 import librarymanagement.library.service.RentService;
 import librarymanagement.library.view.RentListView;
+
+@Service
 
 public class RentServiceImpl implements RentService {
     
@@ -39,7 +42,9 @@ public class RentServiceImpl implements RentService {
     public RentListView add(RentForm form) {
         Book book = bookRepository.findByBookId(form.getBookId());
         User user = userRepository.findById(SecurityUtil.getCurrentUserId()).orElseThrow(NotFoundException::new);
+        book.setStock(book.getStock()-1);
         return new RentListView(rentRepository.save(new Rent(form, user, book)));
+        
     }
 
     @Override
