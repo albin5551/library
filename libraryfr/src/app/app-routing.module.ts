@@ -24,7 +24,7 @@ const routes: Routes = [
   {path:'testview',component:TestviewComponent},
   {path:'report',component:BookReportComponent},
   {path:'forgotpass',component:ForgotPasswordComponent},
-  {path:'userhome',component:UserHomeComponent}
+  {path:'userhome',component:UserHomeComponent},
 ];
 
 @NgModule({
