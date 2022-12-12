@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule,HTTP_INTERCEPTORS} from "@angular/common/http"
+
+
 
 import { LoginComponent } from './login/login.component';
 import { TokenServiceService } from './service/token-service.service';
@@ -23,6 +24,13 @@ import { ForgotPasswordComponent } from './login/forgot-password/forgot-password
 import { NgToastModule } from 'ng-angular-popup';
 import { NavUserComponent } from './user/nav-user/nav-user.component';
 import { BookListComponent } from './user/book-list/book-list.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { ReturnBookComponent } from './user/return-book/return-book.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -38,7 +46,12 @@ import { BookListComponent } from './user/book-list/book-list.component';
     TestviewComponent,
     BookReportComponent,
     UserHomeComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    NavUserComponent,
+    BookListComponent,
+    ReturnBookComponent,
+    
+   
   ],
   imports: [
     BrowserModule,
@@ -47,8 +60,11 @@ import { BookListComponent } from './user/book-list/book-list.component';
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgToastModule
-    
+    NgToastModule,
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule
+  
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenServiceService,multi:true}],
   bootstrap: [AppComponent]

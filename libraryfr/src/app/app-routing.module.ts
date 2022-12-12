@@ -10,6 +10,7 @@ import { ViewBookregComponent } from './admin/view-bookreg/view-bookreg.componen
 import { ViewpgTestComponent } from './admin/viewpg-test/viewpg-test.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
+import { BookListComponent } from './user/book-list/book-list.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path:'report',component:BookReportComponent},
   {path:'forgotpass',component:ForgotPasswordComponent},
   {path:'userhome',component:UserHomeComponent},
+  {path:'bookuview',component:BookListComponent}
 ];
 
 @NgModule({

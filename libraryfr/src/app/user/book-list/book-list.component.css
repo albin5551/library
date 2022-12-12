@@ -1,0 +1,35 @@
+.but{
+    margin-top: 50%;
+    
+    margin-left: 2100%;
+    margin-right: auto;
+} 
+
+button:focus{
+    background:rgb(92, 194, 180);
+}
+button:active{
+    background:rgb(92, 194, 180);
+
+}
+/* 
+.table-book{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.tbl{
+      border: 2px solid rgb(0, 0, 0);
+        text-align: left;
+        /* padding: 15px; */
+}
+
+.tbl_hd{
+    background-color: rgb(180, 196, 209);
+}
+.tbl_tr{
+    border: 1px solid rgb(24, 23, 23) !important;
+    text-align: left;
+    padding: 15px;
+}

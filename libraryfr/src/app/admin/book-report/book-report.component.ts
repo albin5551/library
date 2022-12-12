@@ -41,7 +41,7 @@ paginated:any;
     this.adminService.pagenate(pageNO,pageSize,sortBy).subscribe(
       response=>{
         this.result=response;
-        console.log(this.paginated)
+        console.log(this.paginate)
       }
     )
   }

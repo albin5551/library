@@ -1,1 +1,52 @@
-<p>book-list works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+  <div class="col-md-12">
+    <table class=" col-md-12" style="text-align: left;width: 100%;">
+
+      <tr>
+        <th class="tbl_tr tbl_hd" (click)="this.paginate(0,5,'book_id')">ID</th>
+        <th class="tbl_tr tbl_hd" (click)="this.paginate(0,5,'book_name')">BookName</th>
+        <th class="tbl_tr tbl_hd" (click)="this.paginate(0,5,'book_author')">Author</th>
+        <th class="tbl_tr tbl_hd" (click)="this.paginate(0,5,'create_date')">Date</th>
+      </tr>
+      <tr *ngFor="let book of result">
+        <td class="tbl_tr">{{book.bookId}}</td>
+        <td class="tbl_tr">{{book.bookName}}</td>
+        <td class="tbl_tr">{{book.bookAuthor}}</td>
+        <td class="tbl_tr">{{book.createDate}}</td>
+
+        <td>
+
+          <button type="submit" (click)="rent(book)">RentBook</button>
+
+
+        </td>
+
+      </tr>
+
+
+
+      <!-- <div *ngFor="let book of bookDetail;let i=index;">
+        <ul>
+          <li  *ngIf="i%5==0;"><button (click)="paginate(i/5,5,sortBy)" >{{i/5+1}}</button></li>
+       
+        </ul>
+      </div> -->
+
+    </table>
+  </div>
+  <td *ngFor="let book of bookDetail;let i=index;">
+    <tr class="center" *ngIf="i%5==0;" class="page-item"><button class="but" (click)="paginate(i/5,5,sortBy)"> {{i/5+1}}
+      </button> &nbsp;</tr>
+  </td>
+
+
+</body>
+
+</html>

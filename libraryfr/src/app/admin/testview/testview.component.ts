@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminServiceService } from 'src/app/service/admin/admin-service.service';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-testview',
@@ -7,20 +9,31 @@ import { AdminServiceService } from 'src/app/service/admin/admin-service.service
   styleUrls: ['./testview.component.css']
 })
 export class TestviewComponent implements OnInit {
+
+getServerData($event: Event): any {
+throw new Error('Method not implemented.');
+}
   result: any;
   bookDetail: any;
   i:any=0;
 pageNo:any=0;
 sortBy:any="bookId";
 paginated:any;
+totalrec:any;
 
-  constructor(private adminService:AdminServiceService) { }
+data:Array<any> 
+
+  constructor(private adminService:AdminServiceService) { 
+    this.data=new Array<any>
+  }
 
   ngOnInit(): void {
 
     this.adminService.pagenate(0,5,"bookId").subscribe(response=>{
       this.result=response;
       console.log(this.result);
+      this.data=this.result;
+      this.totalrec=this.data.length;
       
     });
 
@@ -52,5 +65,6 @@ paginated:any;
       window.location.reload();
     })
   }
+
 
 }

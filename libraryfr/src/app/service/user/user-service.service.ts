@@ -18,4 +18,16 @@ export class UserServiceService {
   userEdit(id:any,data:any):Observable<any>{
     return this.http.patch('http://localhost:8080/users/'+id,data);
   }
+  getBook(){
+    return this.http.get('http://localhost:8080/book');
+  }
+  rentBook(data:any){
+    return this.http.post('http://localhost:8080/rent/',data);
+
+  }
+
+  pagenate(pageno:any,pagesize:any,sortby:any){
+    return this.http.get('http://localhost:8080/book/pagenateds?pageNo='+pageno+'&pageSize='+pagesize+'&sortBy='+sortby)
+
+  }
 }

@@ -5,9 +5,10 @@
 
 </head>
 <body>
+  <div style="display: flex; align-items: center; justify-content: center;">
 <table style="border: 2px solid #ddd;
 text-align: left;      margin-left: auto;
-    margin-right: auto;" class="center">
+    margin-right: auto;" class="center col-md-8">
     <tr>
         <th style="    border: 2px solid rgb(0, 0, 0);
         text-align: left;padding: 15px;"(click)="this.paginate(0,5,'bookId')">ID</th>
@@ -45,6 +46,7 @@ text-align: left;      margin-left: auto;
       </div> -->
       
 </table> 
+</div>
 <td  *ngFor="let book of bookDetail;let i=index;">
     <tr class="center" *ngIf="i%5==0;"class="page-item"><button class="but"  (click)="paginate(i/5,5,sortBy)" > {{i/5+1}} </button> &nbsp;</tr>
     </td>
