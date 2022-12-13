@@ -26,10 +26,10 @@ button:active{
 }
 
 .tbl_hd{
-    background-color: rgb(180, 196, 209);
+    /* background-color: rgb(180, 196, 209); */
 }
 .tbl_tr{
-    border: 1px solid rgb(24, 23, 23) !important;
+    border:2px solid rgb(194, 144, 144) !important;
     text-align: left;
     padding: 15px;
 }

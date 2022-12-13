@@ -30,4 +30,13 @@ export class AdminServiceService {
   deletBook(id:any):Observable<any>{
     return this.http.delete('http://localhost:8080/book/'+id)
   }
+
+  retrunview(){
+    return this.http.get('http://localhost:8080/rent')
+  }
+  returnApprove(id :any,data:any){
+    return this.http.put('http://localhost:8080/rent/approve/'+id,data)
+  }
+
+  
 }

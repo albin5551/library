@@ -12,6 +12,7 @@
                 <th>UserName</th>
                 <th>BookName</th>
                 <th>RentDate</th>
+                <th>ReturnDate</th>
                 <th>Status</th>
             </tr>
             <tr *ngFor="let rent of rentDetails">
@@ -19,8 +20,9 @@
                 <td>{{rent.user.name}}</td>
                 <td>{{rent.book.bookName}}</td>
                 <td>{{rent.rentDate}}</td>
+                <td>{{rent.returnDate}}</td>
                 <td>{{rent.status}}</td>
-                <button type="submit" [disabled]="rent.status=='PROCESSING'||rent.status=='ACCEPTED'" (click)="returnBook(rent) ">Return</button>
+                <button type="submit" [disabled]="rent.status=='ACCEPTED'" (click)="returnVerify(rent)">Confirm</button>
             </tr>
         </table>
     </div>

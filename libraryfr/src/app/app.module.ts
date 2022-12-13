@@ -28,6 +28,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { ReturnBookComponent } from './user/return-book/return-book.component';
+import { ReturnViewComponent } from './admin/return-view/return-view.component';
 
 
 
@@ -50,6 +51,7 @@ import { ReturnBookComponent } from './user/return-book/return-book.component';
     NavUserComponent,
     BookListComponent,
     ReturnBookComponent,
+    ReturnViewComponent,
     
    
   ],
@@ -63,7 +65,8 @@ import { ReturnBookComponent } from './user/return-book/return-book.component';
     NgToastModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    
   
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenServiceService,multi:true}],
