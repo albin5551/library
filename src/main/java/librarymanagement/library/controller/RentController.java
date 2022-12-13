@@ -1,5 +1,6 @@
 package librarymanagement.library.controller;
 
+import java.security.Principal;
 import java.util.Collection;
 
 import javax.validation.Valid;
@@ -41,10 +42,19 @@ public class RentController {
     public RentListView get(@PathVariable("rentId")Integer rentId){
         return rentService.get(rentId);
     }
+    @GetMapping("/list/user")
+        public Collection<Rent>list1(Principal p){
+        return  rentService.list1();
+    }
 
     @PutMapping("/{rentId}")
     public RentListView update(@PathVariable("rentId") Integer rentId,@Valid @RequestBody RentForm form){
         return rentService.update(rentId, form);
+    }
+
+    @PutMapping("/approve/{rentId}")
+    public RentListView rentApprove(@PathVariable("rentId") Integer rentId,@Valid @RequestBody RentForm form){
+        return rentService.rentApprove(rentId, form);
     }
 
     @DeleteMapping("/{rentId}")

@@ -58,8 +58,8 @@ public class RentServiceImpl implements RentService {
 
     @Override
     @Transactional
-    public RentListView update(Integer orderId, RentForm form) throws NotFoundException {
-        return rentRepository.findById(orderId)
+    public RentListView update(Integer rentId, RentForm form) throws NotFoundException {
+        return rentRepository.findById(rentId)
                 .map((rent) -> {
                     Book book = bookRepository.findByBookId(form.getBookId());
                     User user = userRepository.findById(SecurityUtil.getCurrentUserId())
@@ -71,6 +71,22 @@ public class RentServiceImpl implements RentService {
 
 
     @Override
+    @Transactional
+    public RentListView rentApprove(Integer rentId, RentForm form) throws NotFoundException {
+        return rentRepository.findById(rentId)
+                .map((rent) -> {
+                    Book book = bookRepository.findByBookId(form.getBookId());
+                    User user = userRepository.findById(SecurityUtil.getCurrentUserId())
+                            .orElseThrow(NotFoundException::new);
+                            book.setStock(book.getStock()+1);
+                    return new RentListView(
+                            rentRepository.save(rent.returnApprove(form, user, book)));
+                }).orElseThrow(NotFoundException::new);
+                
+    }
+
+
+    @Override
 @Transactional
 public void delete(Integer orderId) throws NotFoundException {
     bookRepository.delete(
@@ -78,6 +94,13 @@ public void delete(Integer orderId) throws NotFoundException {
 
     );
 }
+
+@Override
+public Collection<Rent>list1(){
+    return rentRepository.findAllByUserUserId(SecurityUtil.getCurrentUserId());
+}
+
+
 
 }
 

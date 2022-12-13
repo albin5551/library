@@ -96,8 +96,21 @@ public Rent(){
         // this.rentDate=form.getRentDate();
         Date dt = new Date();
         this.returnDate=dt;
+        this.setStatus("PROCESSING");
         return this;
     }
+
+
+    public Rent returnApprove(RentForm form,User user,Book book){
+        this.user=user;
+        this.book=book;
+        // this.rentDate=form.getRentDate();
+        Date dt = new Date();
+        this.returnDate=dt;
+        this.setStatus("ACCEPTED");
+        return this;
+    }
+
 
     @Override
     public int hashCode() {
