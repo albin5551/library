@@ -38,5 +38,10 @@ export class AdminServiceService {
     return this.http.put('http://localhost:8080/rent/approve/'+id,data)
   }
 
+  pagenated(pageno:any,pagesize:any,sortby:any){
+    return this.http.get('http://localhost:8080/rent/pagenated?pageNo='+pageno+'&pageSize='+pagesize+'&sortBy='+sortby)
+
+  }
+
   
 }

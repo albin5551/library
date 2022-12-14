@@ -12,6 +12,9 @@ export class UserServiceService {
   addUser(data:any):Observable<any>{
     return this.http.post('http://localhost:8080/users',data);
   }
+  getUser(){
+    return this.http.get('http://localhost:8080/users');
+  }
   getUserId(id:any):Observable<any>{
     return this.http.get('http://localhost:8080/users/'+id);
   }

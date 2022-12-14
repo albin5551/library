@@ -1,3 +1,5 @@
+<app-nav-user></app-nav-user>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,32 +13,54 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-aria.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-messages.min.js"></script>
-    
-    <!-- Angular Material Javascript now available via Google CDN; version 1.2.1 used here -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.2.1/angular-material.min.js"></script>
+
+  <!-- Angular Material Javascript now available via Google CDN; version 1.2.1 used here -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.2.1/angular-material.min.js"></script>
 </head>
 
 <body>
   <div class="col-md-12">
-    <table class=" col-md-12"  style="text-align: left;width: 100%;">
+    <table class=" col-md-12" style="text-align: left;width: 100%;">
 
       <tr class="tbl_tr tbl_hd">
-        <th class="tbl_tr tbl_hd"(click)="this.paginate(0,5,'book_id')">ID</th>
-        <th class="tbl_tr tbl_hd"(click)="this.paginate(0,5,'book_name')">BookName</th>
-        <th class="tbl_tr tbl_hd"(click)="this.paginate(0,5,'book_author')">Author</th>
-        <th class="tbl_tr tbl_hd" (click)="this.paginate(0,5,'create_date')">Date</th>
+        <th class="tbl_tr tbl_hd">ID<svg (click)="sortfn('book_id')" xmlns="http://www.w3.org/2000/svg"
+            width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill tbl_tr_" viewBox="0 0 16 16">
+            <path
+              d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+          </svg></th>
+        <th class="tbl_tr tbl_hd" >BookName<svg (click)="sortfn('book_name')"
+            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-caret-down-fill tbl_tr_" viewBox="0 0 16 16">
+            <path
+              d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+          </svg></th>
+        <th class="tbl_tr tbl_hd" >Author<svg (click)="sortfn('book_author')"
+            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-caret-down-fill tbl_tr_" viewBox="0 0 16 16">
+            <path
+              d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+          </svg></th>
+        <th class="tbl_tr tbl_hd" style="width:12%" >Date<svg (click)="sortfn('create_date')"
+            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-caret-down-fill tbl_tr_" viewBox="0 0 16 16">
+            <path
+              d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+          </svg></th>
+        <th class="tbl_tr tbl_hd">Action</th>
       </tr>
-      <tr class="tbl_tr tbl_hd" *ngFor="let book of result">
-        <td class="tbl_tr tbl_hd" >{{book.bookId}}</td>
-        <td class="tbl_tr tbl_hd">{{book.bookName}}</td>
-        <td class="tbl_tr tbl_hd">{{book.bookAuthor}}</td>
-        <td class="tbl_tr tbl_hd">{{book.createDate}}</td>
+      <tr class="tbl_tr tbl_hd" *ngFor="let book of result | paginate 
+      : {
+          itemsPerPage: tableSize,
+          currentPage: page,
+          totalItems: count
+        };">
+        <td class="tbl_tr tbl_hd_">{{book.bookId}}</td>
+        <td class="tbl_tr tbl_hd_">{{book.bookName}}</td>
+        <td class="tbl_tr tbl_hd_">{{book.bookAuthor}}</td>
+        <td class="tbl_tr tbl_hd_">{{book.createDate|date:'short'}}</td>
 
-        <td>
-
-          <button type="submit" (click)="rent(book)">RentBook</button>
-
-
+        <td class="btn_div">
+          <button type="submit" class="btn" (click)="rent(book)">RentBook</button>
         </td>
 
       </tr>
@@ -52,10 +76,15 @@
 
     </table>
   </div>
-  <td *ngFor="let book of bookDetail;let i=index;">
+  <!-- <td *ngFor="let book of bookDetail;let i=index;">
     <tr class="center" *ngIf="i%5==0;" class="page-item"><button class="but" (click)="paginate(i/5,5,sortBy)"> {{i/5+1}}
       </button> &nbsp;</tr>
-  </td>
+  </td> -->
+
+  <div class="d-flex justify-content-center">
+    <pagination-controls (pageChange)="onTableDataChange(page=$event)">
+    </pagination-controls>
+</div>
 
 
 </body>

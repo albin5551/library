@@ -1,31 +1,60 @@
+<app-navbar-admin></app-navbar-admin>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   
-</head>
-<body>
 
-    <div>
-        <table>     
+<head>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.2.1/angular-material.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-messages.min.js"></script>
+
+    <!-- Angular Material Javascript now available via Google CDN; version 1.2.1 used here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.2.1/angular-material.min.js"></script>
+
+</head>
+
+<body class="m-4">
+    <div class="col-md-12 divt card ">
+        <table class=" col-md-12 table" style="text-align: left;width: 100%;">
             <tr>
-                <th>ID</th>
-                <th>UserName</th>
-                <th>BookName</th>
-                <th>RentDate</th>
-                <th>ReturnDate</th>
-                <th>Status</th>
+                <th class="tbl_tr tbl_hd">ID</th>
+                <th class="tbl_tr tbl_hd">UserName</th>
+                <th class="tbl_tr tbl_hd">BookName</th>
+                <th class="tbl_tr tbl_hd" style="width:12%">RentDate</th>
+                <th class="tbl_tr tbl_hd" style="width:12%">ReturnDate</th>
+                <th class="tbl_tr tbl_hd">Status</th>
+                <th class="tbl_tr tbl_hd"> Action</th>
             </tr>
-            <tr *ngFor="let rent of rentDetails">
-                <td>{{rent.rentId}}</td>
-                <td>{{rent.user.name}}</td>
-                <td>{{rent.book.bookName}}</td>
-                <td>{{rent.rentDate}}</td>
-                <td>{{rent.returnDate}}</td>
-                <td>{{rent.status}}</td>
-                <button type="submit" [disabled]="rent.status=='ACCEPTED'" (click)="returnVerify(rent)">Confirm</button>
+            <tr *ngFor="let rent of rentDetails |paginate 
+            : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+              };">
+                <td class="tbl_tr tbl_hd">{{rent.rentId}}</td>
+                <td class="tbl_tr tbl_hd">{{rent.user.name}}</td>
+                <td class="tbl_tr tbl_hd">{{rent.book.bookName}}</td>
+                <td class="tbl_tr tbl_hd">{{rent.rentDate|date:'short'}}</td>
+                <td class="tbl_tr tbl_hd">{{rent.returnDate|date:'short'}}</td>
+                <td class="tbl_tr tbl_hd">{{rent.status}}</td>
+                <td class="tbl_tr tbl_hd">
+                    <button *ngIf="rent.status=='ACCEPTED'||rent.status=='PROCESSING' " type="submit" class="btn"
+                        [disabled]="rent.status=='ACCEPTED' " (click)="returnVerify(rent)">Confirm</button>
+                </td>
             </tr>
         </table>
+
+        <div class="d-flex justify-content-center">
+            <pagination-controls (pageChange)="onTableDataChange(page=$event)">
+            </pagination-controls>
+        </div>
     </div>
-    
+
 </body>
+
 </html>

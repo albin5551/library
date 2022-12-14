@@ -7,9 +7,75 @@ th, td {
     padding: 15px;
   }
   */
-  .but{
+/* .but{
     margin-top: 50%;
     
     margin-left: 2100%;
     margin-right: auto;
-} 
+}  */
+
+
+
+.but {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:focus {
+  background: rgb(92, 194, 180);
+}
+
+button:active {
+  background: rgb(92, 194, 180);
+
+}
+
+/* 
+.table-book{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.tbl {
+  border: 2px solid rgb(0, 0, 0);
+  text-align: left;
+  /* padding: 15px; */
+}
+
+.tbl_hd {
+  width: 5%;
+}
+
+.tbl_hd_ {
+  word-break: break-all;
+}
+
+.tbl_tr {
+  border: 2px solid rgb(173, 121, 121) !important;
+  text-align: left;
+  padding: 15px;
+}
+
+.tbl_tr_:hover {
+  color: rgb(77, 166, 224);
+}
+
+.tbl_tr_:active {
+  color: rgb(33, 206, 42);
+}
+
+.btn_div {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  width: 60px;
+  /* background-color: rgb(121, 179, 218); */
+  border: none;
+  padding: 5px;
+}

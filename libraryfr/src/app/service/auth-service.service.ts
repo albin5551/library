@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpBackend, HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthServiceService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private httpBackend: HttpBackend) { }
   login(data: any):Observable<any>{
     return this.http.post('http://localhost:8080/login',data);
   }
@@ -23,4 +23,14 @@ export class AuthServiceService {
   verify(data:any):Observable<any>{
     return this.http.post('http://localhost:8080/verify',data)
   }
+
+
+ sendotpw(data:any):Observable <any>{
+  return this.httpBackend
+  .handle(new HttpRequest('POST','http://localhost:8080/email/emailsentotp',data));
+ }
+ verifyotp(data:any):Observable <any>{
+  return this.httpBackend
+  .handle(new HttpRequest('POST','http://localhost:8080/verify',data));
+ }
 }

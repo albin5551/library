@@ -29,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { ReturnBookComponent } from './user/return-book/return-book.component';
 import { ReturnViewComponent } from './admin/return-view/return-view.component';
+import { AddUserComponent } from './admin/add-user/add-user.component';
 
 
 
@@ -52,6 +53,7 @@ import { ReturnViewComponent } from './admin/return-view/return-view.component';
     BookListComponent,
     ReturnBookComponent,
     ReturnViewComponent,
+    AddUserComponent,
     
    
   ],

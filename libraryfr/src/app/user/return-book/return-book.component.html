@@ -1,26 +1,43 @@
+<app-nav-user></app-nav-user>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.2.1/angular-material.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-messages.min.js"></script>
+
+    <!-- Angular Material Javascript now available via Google CDN; version 1.2.1 used here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.2.1/angular-material.min.js"></script>
    
 </head>
-<body>
+<body class="m-4">
 
-    <div>
-        <table>     
+    <div class="col-md-12 divt card ">
+        <table class=" col-md-12 table" style="text-align: left;width: 100%;">     
             <tr>
                 <th>ID</th>
                 <th>UserName</th>
                 <th>BookName</th>
                 <th>RentDate</th>
+                <th>ReturnDate</th>
                 <th>Status</th>
+                <th>Action</th>
+
             </tr>
             <tr *ngFor="let rent of rentDetails">
                 <td>{{rent.rentId}}</td>
                 <td>{{rent.user.name}}</td>
                 <td>{{rent.book.bookName}}</td>
-                <td>{{rent.rentDate}}</td>
+                <td>{{rent.rentDate|date:'short'}}</td>
+                <td>{{rent.returnDate|date:'short'}}</td>
                 <td>{{rent.status}}</td>
-                <button type="submit" [disabled]="rent.status=='PROCESSING'||rent.status=='ACCEPTED'" (click)="returnBook(rent) ">Return</button>
+                <button type="submit" class="btn btn-primary" [disabled]="rent.status=='PROCESSING'||rent.status=='ACCEPTED'" (click)="returnBook(rent) ">Return</button>
             </tr>
         </table>
     </div>

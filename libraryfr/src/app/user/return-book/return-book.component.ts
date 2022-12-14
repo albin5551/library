@@ -24,6 +24,7 @@ export class ReturnBookComponent implements OnInit {
   //  this.id=localStorage.getItem('userid')
     this.userService.rentDetails().subscribe(result=>{
       this.rentDetails=result;
+      console.log(this.rentDetails);
       // console.log(this.rentDetails);
     })
   }

@@ -16,20 +16,35 @@ throw new Error('Method not implemented.');
   result: any;
   bookDetail: any;
   i:any=0;
-pageNo:any=0;
+pageNo:any=1;
 sortBy:any="bookId";
 paginated:any;
 totalrec:any;
 
-data:Array<any> 
+
+//POSTS: any;
+page:number=1;
+count: any;
+tableSize: number = 5;
+//tableSizes: any = [3, 6, 9, 12];
+ProdData: any;
+sortedData: any;
+a:any;
+b:any;
+searchResult:any
+searchData:any
+sort:string="bookId";
+len: any;
+
+data:any
 
   constructor(private adminService:AdminServiceService) { 
-    this.data=new Array<any>
+ 
   }
 
   ngOnInit(): void {
 
-    this.adminService.pagenate(0,5,"bookId").subscribe(response=>{
+    this.adminService.pagenate(this.page,this.tableSize,this.sort).subscribe(response=>{
       this.result=response;
       console.log(this.result);
       this.data=this.result;
@@ -39,9 +54,32 @@ data:Array<any>
 
     this.adminService.getBook().subscribe(result=>{
       this.bookDetail=result;
+      this.count=this.bookDetail.length;
       console.log(this.bookDetail);
+      console.log(this.count)
     })
   }
+
+
+  sortfn(a:any){
+    
+    this.sort=a;      
+    this.page=this.page;
+    this.tableSize=5;
+    this.ngOnInit();        
+
+  }
+
+  onTableDataChange(event:any) {
+    
+    console.log(event)
+      this.adminService.pagenate(event,this.tableSize,this.sort).subscribe((result=>{
+        this.data=result;
+        console.log(this.data)
+      }),
+      );        
+    }
+  
 
 
   paginate(pageNO:any,pageSize:any,sortBy:any){

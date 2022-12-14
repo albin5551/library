@@ -14,11 +14,28 @@ export class BookListComponent implements OnInit {
   i: any;
   paginated: any;
 
+
+  data: any;
+  
+//POSTS: any;
+page:number=1;
+count: any;
+tableSize: number = 5;
+//tableSizes: any = [3, 6, 9, 12];
+ProdData: any;
+sortedData: any;
+a:any;
+b:any;
+searchResult:any
+searchData:any
+sort:string="book_id";
+len: any;
+
   constructor(private userService:UserServiceService) { }
 
   ngOnInit(): void {
 
-    this.userService.pagenate(0,5,"book_id").subscribe(response=>{
+    this.userService.pagenate(this.page,this.tableSize,this.sort).subscribe(response=>{
       this.result=response;
       console.log(this.result);
       
@@ -27,9 +44,34 @@ export class BookListComponent implements OnInit {
 
     this.userService.getBook().subscribe(result=>{
       this.bookDetail=result;
+      // console.log(this.bookDetail);
+      this.count=this.bookDetail.length;
       console.log(this.bookDetail);
+      console.log(this.count)
     })
   }
+
+
+  onTableDataChange(event:any) {
+    
+    console.log(event)
+      this.userService.pagenate(event,this.tableSize,this.sort).subscribe((res=>{
+        this.result=res;
+        console.log(this.result)
+      }),
+      );        
+    }
+
+    sortfn(a:any){
+    
+      this.sort=a;      
+      this.page=this.page;
+      this.tableSize=5;
+      this.ngOnInit();        
+  
+    }
+
+  
 
   paginate(pageNO:any,pageSize:any,sortBy:any){
 

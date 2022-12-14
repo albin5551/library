@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthServiceService } from 'src/app/service/auth-service.service';
 import { NgToastService } from 'ng-angular-popup';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
@@ -26,7 +27,7 @@ export class ForgotPasswordComponent implements OnInit {
   })
   email: any;
 flag:any=0; 
-  constructor(private emails:AuthServiceService,private toast:NgToastService) { }
+  constructor(private emails:AuthServiceService,private toast:NgToastService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -34,22 +35,22 @@ flag:any=0;
   SaveData() {
     this.ObjForgetForm.value.email=this.email;
     console.log(this.ObjForgetForm.value.email);
-    this.emails.verify(this.ObjForgetForm.value).subscribe(result=>{
-
-      alert("password has been Updated")
+    this.emails.verifyotp(this.ObjForgetForm.value).subscribe(result=>{
+    this.otpsuccess();
+      this.router.navigate(['/login']);
     })
 
     
   }
   openPopup() {
-    this.flag=1;
+    // this.flag=1;
     this.email=this.ObjForm.value.sentto;
     if(this.ObjForm.valid){
     
-    this.emails.sendotp(this.ObjForm.value).subscribe(result=>{
+    this.emails.sendotpw(this.ObjForm.value).subscribe(result=>{
 
      console.log(result);
-      
+     
     })
     this.openSuccess();
     this.displayStyle = "block";
@@ -61,8 +62,13 @@ flag:any=0;
   }
 
   openSuccess(){
+    this.flag=1;
     this.toast.success({detail:'OTP Sent Success',summary:'Otp Has been Sent to your mail', duration:5000,position:'tr'})
     }
+
+    otpsuccess(){
+      this.toast.success({detail:'Password changed',summary:'Otp Has been Sent to your mail', duration:5000,position:'tr'})
+      }
 
     test(){
       this.openSuccess();
