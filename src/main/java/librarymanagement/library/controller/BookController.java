@@ -62,7 +62,7 @@ public class BookController {
                         @RequestParam(defaultValue = "10") Integer pageSize,
                         @RequestParam(defaultValue = "id") String sortBy)
     {
-        List<Book> list = bookService.getAllBook(pageNo, pageSize, sortBy);
+        List<Book> list = bookService.getAllBook(pageNo-1, pageSize, sortBy);
         return new ResponseEntity<List<Book>>(list,new HttpHeaders(),
         HttpStatus.OK);
 
@@ -75,7 +75,7 @@ public class BookController {
                         @RequestParam(defaultValue = "10") Integer pageSize,
                         @RequestParam(defaultValue = "id") String sortBy)
     {
-        List<Book> list = bookService.getAllBookStock(pageNo, pageSize, sortBy);
+        List<Book> list = bookService.getAllBookStock(pageNo-1, pageSize, sortBy);
         return new ResponseEntity<List<Book>>(list,new HttpHeaders(),
         HttpStatus.OK);
 

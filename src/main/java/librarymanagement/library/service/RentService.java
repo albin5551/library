@@ -1,6 +1,7 @@
 package librarymanagement.library.service;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -18,6 +19,7 @@ public interface RentService {
     void delete(Integer rentId) throws NotFoundException;
     RentListView rentApprove(Integer rentId,  RentForm form);
     Collection<Rent> list1();
+    List<Rent>getAllRent(Integer pageNo,Integer pageSize,String sortBy);
     
     
 }

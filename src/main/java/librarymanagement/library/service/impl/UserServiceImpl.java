@@ -23,6 +23,7 @@ import librarymanagement.library.view.UserView;
 
 import java.security.cert.CertPathValidatorException.Reason;
 import java.util.Collection;
+import java.util.*;
 
 import javax.transaction.Transactional;
 
@@ -50,6 +51,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserView add(UserForm form) {
+
+       Optional< User> user= userRepository.findByEmail(form.getEmail());
+       if(user.isPresent()){
+        throw badRequestException();
+       }
         return new UserView(userRepository.save(new User(
                 form.getName(),
                 form.getEmail(),
