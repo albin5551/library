@@ -15,6 +15,8 @@ import librarymanagement.library.entity.Book;
 
 
 public interface BookRepository extends PagingAndSortingRepository <Book,Integer> {
+    
+    // @Query(value = "SELECT * FROM book where status = 1",nativeQuery = true)
     Collection<Book>findAll();
 
     Book save(Book book);
@@ -24,14 +26,18 @@ public interface BookRepository extends PagingAndSortingRepository <Book,Integer
     void delete(Book bookId);
 
     Book findByBookId(Integer bookId);
+
     
+    @Query(value = "SELECT * FROM book WHERE status = 1",nativeQuery = true)
     public Page<Book>findAll(Pageable paging);
 
-    @Query(value = "SELECT * FROM book where stock !=0",nativeQuery = true)
+
+
+    @Query(value = "SELECT * FROM book where stock !=0 AND status = 1",nativeQuery = true)
     public  Page<Book> findAllStockNative(Pageable paging);
    
-    @Query(value = "update book set stock=stock-1 where book_id=?1", nativeQuery = true)
-    public void updateStock(Integer bookId);
+    // @Query(value = "update book set stock=stock-1 where book_id=?1", nativeQuery = true)
+    // public void updateStock(Integer bookId);
     
 
 }

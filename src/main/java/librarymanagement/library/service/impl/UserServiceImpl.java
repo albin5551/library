@@ -53,8 +53,8 @@ public class UserServiceImpl implements UserService {
     public UserView add(UserForm form) {
 
        Optional< User> user= userRepository.findByEmail(form.getEmail());
-       if(user.isPresent()){
-        throw badRequestException();
+       if(user.isPresent()){    
+       return null;
        }
         return new UserView(userRepository.save(new User(
                 form.getName(),

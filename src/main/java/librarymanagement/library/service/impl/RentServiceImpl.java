@@ -75,6 +75,8 @@ public class RentServiceImpl implements RentService {
                 }).orElseThrow(NotFoundException::new);
     }
 
+    
+
 
     @Override
     @Transactional
@@ -82,7 +84,7 @@ public class RentServiceImpl implements RentService {
         return rentRepository.findById(rentId)
                 .map((rent) -> {
                     Book book = bookRepository.findByBookId(form.getBookId());
-                    User user = userRepository.findById(SecurityUtil.getCurrentUserId())
+                    User user = userRepository.findById(form.getUserId())
                             .orElseThrow(NotFoundException::new);
                             book.setStock(book.getStock()+1);
                     return new RentListView(

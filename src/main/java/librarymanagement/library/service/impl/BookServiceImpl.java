@@ -53,11 +53,11 @@ public class BookServiceImpl implements BookService {
                 }).orElseThrow(NotFoundException::new);
     }
 
-    @Override
-    @Transactional
-    public void delete(Integer bookId) throws NotFoundException {
-        bookRepository.delete(bookRepository.findById(bookId).orElseThrow());
-    }
+    // @Override
+    // @Transactional
+    // public void delete(Integer bookId) throws NotFoundException {
+    //     bookRepository.delete(bookRepository.findById(bookId).orElseThrow());
+    // }
 
 
     public List<Book>getAllBook(Integer pageNo,Integer pageSize,String sortBy){
@@ -79,4 +79,13 @@ public class BookServiceImpl implements BookService {
             return new ArrayList<Book>();
         }
 }
+
+@Override
+@Transactional
+public BookListView delete(Integer bookId) throws NotFoundException {
+    Book book=bookRepository.findById(bookId).get();  
+    // User user= userRepository.findById(currentUser.getUserId()).get();
+            return new BookListView(bookRepository.save(book.delete()));
+}
+
 }

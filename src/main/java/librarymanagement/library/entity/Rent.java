@@ -32,7 +32,7 @@ public class Rent {
     private Date rentDate;
     @Temporal(TemporalType.TIMESTAMP)
     private Date returnDate;
-    private  String status;
+    private  Integer status;
 
 
 public Rent(){
@@ -69,11 +69,11 @@ public Rent(){
     public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
     }
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -85,6 +85,7 @@ public Rent(){
         this.user=user;
         this.book=book;
         Date dt = new Date();
+        this.setStatus(3);
         this.rentDate= dt;
         // this.returnDate=form.getReturDate();
     }
@@ -96,7 +97,7 @@ public Rent(){
         // this.rentDate=form.getRentDate();
         Date dt = new Date();
         this.returnDate=dt;
-        this.setStatus("PROCESSING");
+        this.setStatus(0);
         return this;
     }
 
@@ -107,7 +108,7 @@ public Rent(){
         // this.rentDate=form.getRentDate();
         Date dt = new Date();
         this.returnDate=dt;
-        this.setStatus("ACCEPTED");
+        this.setStatus(1);
         return this;
     }
 

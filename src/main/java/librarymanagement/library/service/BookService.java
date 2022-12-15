@@ -18,10 +18,11 @@ public interface BookService {
     
     BookListView get(Integer bookId)throws NotFoundException;
 
-    void delete(Integer bookId)throws NotFoundException;
+    // void delete(Integer bookId)throws NotFoundException;
 
     BookListView update(Integer bookId,BookForm form)throws NotFoundException;
     
     List<Book>getAllBook(Integer pageNo,Integer pageSize,String sortBy);
     List<Book>getAllBookStock(Integer pageNo,Integer pageSize,String sortBy);
+    BookListView delete(Integer bookId) throws NotFoundException;
 }

@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.Repository;
@@ -20,6 +21,10 @@ public interface RentRepository extends PagingAndSortingRepository<Rent,Integer>
     Optional<Rent>findById(Integer rentId);
 
     void delete(Rent rentId);
+
     Collection<Rent>findAllByUserUserId(Integer userId);
+
+    // @Query(value = "DELETE FROM rent WHERE book_id=?1",nativeQuery=true)
+    // void deleteByBookId(Integer bookId);
     
 }

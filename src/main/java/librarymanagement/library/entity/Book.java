@@ -33,6 +33,7 @@ public class Book {
     private String bookName;
     private String bookAuthor;
     private Integer stock;
+    private byte status;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
     @Temporal(TemporalType.TIMESTAMP)
@@ -89,12 +90,22 @@ public class Book {
         this.updateDate = updateDate;
     }
 
+    public byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(byte status) {
+        this.status = status;
+    }
+
+    
 
 
     public Book(BookForm form){
         this.bookName=form.getBookName();
         this.bookAuthor=form.getBookAuthor();
-        this.stock=form.getStock();     
+        this.stock=form.getStock();  
+        this.status = Status.ACTIVE.value;   
 
         Date dt = new Date();
         this.createDate = dt;
@@ -110,6 +121,10 @@ public class Book {
         return this;    
     }
 
+     public Book delete() {
+        this.status = Status.INACTIVE.value;
+        return this;
+     }
 
     @Override
     public int hashCode() {
@@ -130,5 +145,7 @@ public class Book {
     public String toString() {
         return "onlineshopping.shopping.entity.Book[ bookId=" + bookId + " ]";
     }
+
+
 
 }
