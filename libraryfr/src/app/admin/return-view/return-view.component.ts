@@ -33,7 +33,8 @@ len: any;
   
   constructor(private adminService:AdminServiceService) { }
   returnbook:FormGroup=new FormGroup({
-    bookId:new FormControl('')
+    bookId:new FormControl(''),
+    userId:new FormControl  ('')
   })
   ngOnInit(): void {
     this.adminService.retrunview().subscribe(result=>{
@@ -67,6 +68,7 @@ len: any;
   returnVerify(id: any) {
     let data=id;
     this.returnbook.controls['bookId'].setValue(data.book.bookId);
+    this.returnbook.controls['userId'].setValue(data.user.userId)
     this.adminService.returnApprove(data.rentId,this.returnbook.value).subscribe(result=>{
       if(result!=null){
         console.log(result);

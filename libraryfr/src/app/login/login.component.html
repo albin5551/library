@@ -8,17 +8,17 @@
 					<div class="group">
 						<label for="user" class="label">Email</label>
 						<input type="text" formControlName="email" name="email" class="input">
-						<div
+						<div class="cdiv"
 							*ngIf="login.controls['email'].errors?.['required'] && (login.controls['email'].touched ||login.controls['email'].dirty)">
 							Required</div>
 					</div>
 					<div class="group">
 						<label for="pass" class="label">Password</label>
 						<input type="password" class="input" formControlName="password" name="password">
-						<div
+						<div class="cdiv"
 							*ngIf="login.controls['password'].errors?.['required'] && (login.controls['password'].touched ||login.controls['password'].dirty)">
 							Required</div>
-						<div
+						<div class="cdiv"
 							*ngIf="login.controls['password'].errors?.['pattern'] && (login.controls['password'].touched ||login.controls['password'].dirty)">
 							Password do not meet requirement</div>
 					</div>

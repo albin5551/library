@@ -57,7 +57,7 @@
         <td class="tbl_tr tbl_hd_">{{book.bookId}}</td>
         <td class="tbl_tr tbl_hd_">{{book.bookName}}</td>
         <td class="tbl_tr tbl_hd_">{{book.bookAuthor}}</td>
-        <td class="tbl_tr tbl_hd_">{{book.createDate|date:'short'}}</td>
+        <td class="tbl_tr tbl_hd_">{{book.createDate|date:'fullDate'}}</td>
 
         <td class="btn_div">
           <button type="submit" class="btn" (click)="rent(book)">RentBook</button>

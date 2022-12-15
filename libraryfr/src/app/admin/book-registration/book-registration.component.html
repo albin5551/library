@@ -10,16 +10,16 @@
     <form [formGroup]="bookreg" (ngSubmit)="onSubmit()" >
 
     <input type="text" formControlName="bookName" placeholder="Enter the name">
-    <div *ngIf="bookreg.controls['bookName'].errors?.['required'] && (bookreg.controls['bookName'].touched ||bookreg.controls['bookName'].dirty)" >Required</div>
+    <div style="color: red;" *ngIf="bookreg.controls['bookName'].errors?.['required'] && (bookreg.controls['bookName'].touched ||bookreg.controls['bookName'].dirty)" >Required</div>
     <br>
 
     <input type="text" formControlName="bookAuthor" placeholder="Enter the Author name">
-    <div *ngIf="bookreg.controls['bookAuthor'].errors?.['required'] && (bookreg.controls['bookAuthor'].touched ||bookreg.controls['bookAuthor'].dirty)" >Required</div>
+    <div  style="color: red;" *ngIf="bookreg.controls['bookAuthor'].errors?.['required'] && (bookreg.controls['bookAuthor'].touched ||bookreg.controls['bookAuthor'].dirty)" >Required</div>
 
     <br>
 
     <input type="number" formControlName="stock" placeholder="Enter the stock">
-    <div *ngIf="bookreg.controls['stock'].errors?.['required'] && (bookreg.controls['stock'].touched ||bookreg.controls['stock'].dirty)" >Required</div>
+    <div style="color: red;" *ngIf="bookreg.controls['stock'].errors?.['required'] && (bookreg.controls['stock'].touched ||bookreg.controls['stock'].dirty)" >Required</div>
 
     <br>
 

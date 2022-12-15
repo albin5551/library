@@ -41,9 +41,15 @@
                 <td class="tbl_tr tbl_hd">{{rent.book.bookName}}</td>
                 <td class="tbl_tr tbl_hd">{{rent.rentDate|date:'short'}}</td>
                 <td class="tbl_tr tbl_hd">{{rent.returnDate|date:'short'}}</td>
-                <td class="tbl_tr tbl_hd">{{rent.status}}</td>
+                <!-- <td class="tbl_tr tbl_hd">{{rent.status}}</td> -->
+                <td class="tbl_tr tbl_hd"><div *ngIf="rent.status === 1" class="status-div">
+                    <p class="inactive-p"></p>
+                    <span class="status-span">Accepted</span>
+                </div>
+                
+            </td>
                 <td class="tbl_tr tbl_hd">
-                    <button *ngIf="rent.status=='ACCEPTED'||rent.status=='PROCESSING' " type="submit" class="btn"
+                    <button *ngIf="rent.status=='0'||rent.status=='1' " type="submit" class="btn"
                         [disabled]="rent.status=='ACCEPTED' " (click)="returnVerify(rent)">Confirm</button>
                 </td>
             </tr>

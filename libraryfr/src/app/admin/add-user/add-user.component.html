@@ -42,7 +42,7 @@
 					<div class="group">
 						<label for="user" class="label">Name</label>
 						<input type="text" class="input" formControlName="name" name="name">
-						<div
+						<div style="color: red;"
 							*ngIf="adduser.controls['name'].errors?.['required'] && (adduser.controls['name'].touched ||adduser.controls['name'].dirty)">
 							Required</div>
 
@@ -58,10 +58,10 @@
 					<div class="group">
 						<label for="pass" class="label">Password</label>
 						<input type="password" class="input" formControlName="password" name="password">
-						<div
+						<div style="color: red;"
 							*ngIf="adduser.controls['password'].errors?.['required'] && (adduser.controls['password'].touched ||adduser.controls['password'].dirty)">
 							Required</div>
-						<div
+						<div style="color: red;"
 							*ngIf="adduser.controls['password'].errors?.['pattern'] && (adduser.controls['password'].touched ||adduser.controls['password'].dirty)">
 							Password do not meet requirement</div>
 
@@ -69,7 +69,7 @@
 					<div class="group">
 						<label for="pass" class="label">Address</label>
 						<input type="text" class="input" formControlName="address" name="address">
-						<div
+						<div style="color: red;"
 							*ngIf="adduser.controls['address'].errors?.['required'] && (adduser.controls['address'].touched ||adduser.controls['address'].dirty)">
 							Required</div>
 
@@ -77,7 +77,7 @@
 					<div class="group">
 						<label for="pass" class="label">Phone</label>
 						<input type="number" formControlName="phone" name="phone" class="input">
-						<div
+						<div style="color: red;"
 							*ngIf="adduser.controls['phone'].errors?.['required'] && (adduser.controls['phone'].touched ||adduser.controls['phone'].dirty)">
 							Required</div>
 

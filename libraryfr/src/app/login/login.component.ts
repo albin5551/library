@@ -39,10 +39,13 @@ export class LoginComponent implements OnInit {
   add() {
     if(this.adduser.valid){
     this.userService.addUser(this.adduser.value).subscribe(result=>{
-      if(result.userId){
-        console.log(result);
-        alert("user added");
-        window.location.reload();
+      if(result==null){
+        alert("User alreday exist")
+      }
+      else{
+      console.log(result);
+      alert("user added");
+      window.location.reload();
       }
     })
     }

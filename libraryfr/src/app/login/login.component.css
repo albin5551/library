@@ -148,4 +148,9 @@ a{color:inherit;text-decoration:none}
 }
 .foot-lnk{
 	text-align:center;
+	color: white;
+}
+
+.cdiv{
+	color: red;
 }

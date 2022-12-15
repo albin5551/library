@@ -17,7 +17,7 @@ throw new Error('Method not implemented.');
   bookDetail: any;
   i:any=0;
 pageNo:any=1;
-sortBy:any="bookId";
+sortBy:any="book_id";
 paginated:any;
 totalrec:any;
 
@@ -33,8 +33,9 @@ a:any;
 b:any;
 searchResult:any
 searchData:any
-sort:string="bookId";
+sort:string="book_id";
 len: any;
+f:any=0;
 
 data:any
 
@@ -49,6 +50,9 @@ data:any
       console.log(this.result);
       this.data=this.result;
       this.totalrec=this.data.length;
+      console.log(this.f);
+      
+      
       
     });
 
@@ -67,8 +71,22 @@ data:any
     this.page=this.page;
     this.tableSize=5;
     this.ngOnInit();        
-
+    // console.log(this.f)
+    if(a=='book_name')
+    this.fun();
+    else
+    this.fun1();
   }
+
+  fun(){
+    this.f=1;
+    console.log('...........',this.f);
+    
+  }
+  fun1(){
+    this.f=2;
+  }
+
 
   onTableDataChange(event:any) {
     
