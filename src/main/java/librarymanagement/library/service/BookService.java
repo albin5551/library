@@ -25,4 +25,5 @@ public interface BookService {
     List<Book>getAllBook(Integer pageNo,Integer pageSize,String sortBy);
     List<Book>getAllBookStock(Integer pageNo,Integer pageSize,String sortBy);
     BookListView delete(Integer bookId) throws NotFoundException;
+    List<Book>getAllBookStocks(String keyword, Integer pageNo,Integer pageSize,String sortBy);
 }
