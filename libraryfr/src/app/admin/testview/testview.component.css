@@ -22,14 +22,11 @@ th, td {
   justify-content: center;
 }
 
-button:focus {
-  background: rgb(92, 194, 180);
+.button_ {
+  background: rgb(46, 161, 255);
+  color: white;
 }
 
-button:active {
-  background: rgb(92, 194, 180);
-
-}
 
 /* 
 .table-book{
@@ -78,4 +75,14 @@ button:active {
   /* background-color: rgb(121, 179, 218); */
   border: none;
   padding: 5px;
+}
+
+.input-group {
+  width: 300px;
+  display: inline-flex !important;
+}
+
+.search_btn {
+  height: 30px;
+  width: 30px;
 }

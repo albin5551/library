@@ -43,5 +43,8 @@ export class AdminServiceService {
 
   }
 
-  
+  search(data:any,pageno:any,pagesize:any,sortby:any):Observable<any>{
+    console.log('+++++++++++',data)
+  return this.http.get('http://localhost:8080/book/search/pagenateds?keyword='+data+'&pageNo='+pageno+'&pageSize='+pagesize+'&sortBy='+sortby)
+  }
 }

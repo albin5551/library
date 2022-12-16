@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminServiceService } from 'src/app/service/admin/admin-service.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PageEvent } from '@angular/material/paginator';
+import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-testview',
@@ -36,16 +37,25 @@ searchData:any
 sort:string="book_id";
 len: any;
 f:any=0;
+key:any;
+
 
 data:any
 
   constructor(private adminService:AdminServiceService) { 
  
   }
+  search:FormGroup=new FormGroup({
+    inp:new FormControl('',[Validators.required])
+  })
 
   ngOnInit(): void {
 
-    this.adminService.pagenate(this.page,this.tableSize,this.sort).subscribe(response=>{
+       this.key=this.search.controls['inp'].value
+      // console.log('````````````````',this.key);
+
+
+    this.adminService.search(this.key,this.page,this.tableSize,this.sort).subscribe(response=>{
       this.result=response;
       console.log(this.result);
       this.data=this.result;
@@ -55,13 +65,29 @@ data:any
       
       
     });
+  
 
+    if(this.key==""){
     this.adminService.getBook().subscribe(result=>{
       this.bookDetail=result;
       this.count=this.bookDetail.length;
       console.log(this.bookDetail);
       console.log(this.count)
     })
+  }
+  else{
+    this.adminService.search(this.key,this.page,this.tableSize,this.sort).subscribe(response=>{
+      // this.result=response;
+      // console.log(this.result);
+      // this.data=this.result;
+       this.count=this.data.length;
+      // console.log(this.f);
+      
+      
+      
+    });
+    
+  }
   }
 
 
@@ -78,6 +104,10 @@ data:any
     this.fun1();
   }
 
+  ser(){
+    this.ngOnInit();
+  }
+
   fun(){
     this.f=1;
     console.log('...........',this.f);
@@ -89,13 +119,16 @@ data:any
 
 
   onTableDataChange(event:any) {
-    
-    console.log(event)
-      this.adminService.pagenate(event,this.tableSize,this.sort).subscribe((result=>{
-        this.data=result;
-        console.log(this.data)
-      }),
-      );        
+    this.adminService.search(this.key,event,this.tableSize,this.sort).subscribe(response=>{
+      this.result=response;
+      this.data=this.result;
+      console.log(this.data);
+      
+
+      
+      
+      
+    });        
     }
   
 
