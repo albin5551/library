@@ -4,6 +4,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+
 import librarymanagement.library.entity.Book;
 import librarymanagement.library.exception.NotFoundException;
 import librarymanagement.library.form.BookForm;
@@ -25,5 +27,5 @@ public interface BookService {
     List<Book>getAllBook(Integer pageNo,Integer pageSize,String sortBy);
     List<Book>getAllBookStock(Integer pageNo,Integer pageSize,String sortBy);
     BookListView delete(Integer bookId) throws NotFoundException;
-    List<Book>getAllBookStocks(String keyword, Integer pageNo,Integer pageSize,String sortBy);
+    Page<Book>getAllBookStocks(String keyword, Integer pageNo,Integer pageSize,String sortBy);
 }
