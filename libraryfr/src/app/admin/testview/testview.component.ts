@@ -56,7 +56,7 @@ data:any
 
 
     this.adminService.search(this.key,this.page,this.tableSize,this.sort).subscribe(response=>{
-      this.result=response;
+      this.result=response.content;
       console.log(this.result);
       this.data=this.result;
       this.totalrec=this.data.length;
@@ -80,7 +80,9 @@ data:any
       // this.result=response;
       // console.log(this.result);
       // this.data=this.result;
-       this.count=this.data.length;
+       this.count=response.content.pageable.totalElements;
+       console.log("llllllll",this.count);
+       
       // console.log(this.f);
       
       
@@ -105,6 +107,7 @@ data:any
   }
 
   ser(){
+  
     this.ngOnInit();
   }
 
@@ -120,7 +123,7 @@ data:any
 
   onTableDataChange(event:any) {
     this.adminService.search(this.key,event,this.tableSize,this.sort).subscribe(response=>{
-      this.result=response;
+      this.result=response.content;
       this.data=this.result;
       console.log(this.data);
       
