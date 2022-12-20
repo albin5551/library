@@ -89,7 +89,7 @@ public class BookController {
                         @RequestParam(defaultValue = "id") String sortBy)
     {
         System.out.println("paage size"+pageSize);
-        Page<Book> list = bookService.getAllBookStocks(keyword,pageNo-1, pageSize, sortBy);
+        Page<Book> list = bookService.getAllBookStocks(keyword,pageNo-1,pageSize,sortBy);
         return new ResponseEntity<Page<Book>>(list,new HttpHeaders(),
         HttpStatus.OK);
 
