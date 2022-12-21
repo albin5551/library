@@ -58,13 +58,13 @@ public class BookController {
     }
 
     @GetMapping("/pagenated")
-    public ResponseEntity<List<Book>>getAllBorrow(
+    public ResponseEntity<Page<Book>>getAllBorrow(
                         @RequestParam(defaultValue = "0") Integer pageNo,
                         @RequestParam(defaultValue = "10") Integer pageSize,
                         @RequestParam(defaultValue = "id") String sortBy)
     {
-        List<Book> list = bookService.getAllBook(pageNo-1, pageSize, sortBy);
-        return new ResponseEntity<List<Book>>(list,new HttpHeaders(),
+        Page<Book> list = bookService.getAllBook(pageNo-1, pageSize, sortBy);
+        return new ResponseEntity<Page<Book>>(list,new HttpHeaders(),
         HttpStatus.OK);
 
     }

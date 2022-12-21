@@ -30,7 +30,7 @@ public interface BookRepository extends PagingAndSortingRepository <Book,Integer
     Book findByBookId(Integer bookId);
 
     
-    @Query(value = "SELECT * FROM book WHERE status = 1",nativeQuery = true)
+    @Query(value = "SELECT * FROM book",nativeQuery = true)
     public Page<Book>findAll(Pageable paging);
 
 
@@ -38,8 +38,8 @@ public interface BookRepository extends PagingAndSortingRepository <Book,Integer
     @Query(value = "SELECT * FROM book s where s.stock !=0 AND s.status = 1",nativeQuery = true)
     public  Page<Book> findAllStockNative(Pageable paging);
 
-    @Query(value = "select * from book s where s.book_name like %:keyword% ", nativeQuery = true)
- List<Book> findByKeyword(@Param("keyword") String keyword);
+//     @Query(value = "select * from book s where s.book_name like %:keyword% ", nativeQuery = true)
+//  List<Book> findByKeyword(@Param("keyword") String keyword);
    
     // @Query(value = "update book set stock=stock-1 where book_id=?1", nativeQuery = true)
     // public void updateStock(Integer bookId);

@@ -60,14 +60,15 @@ public class BookServiceImpl implements BookService {
     // }
 
 
-    public List<Book>getAllBook(Integer pageNo,Integer pageSize,String sortBy){
+    public Page<Book>getAllBook(Integer pageNo,Integer pageSize,String sortBy){
             Pageable paging=PageRequest.of(pageNo,pageSize,Sort.by(sortBy));
             Page<Book> pagedResult=bookRepository.findAll(paging);
-            if (pagedResult.hasContent()){
-                return pagedResult.getContent();
-            }else{
-                return new ArrayList<Book>();
-            }
+            // if (pagedResult.hasContent()){
+            //     return pagedResult.getContent();
+            // }else{
+            //     return new ArrayList<Book>();
+            // }
+            return pagedResult; 
     }
 
     public List<Book>getAllBookStock(Integer pageNo,Integer pageSize,String sortBy){
