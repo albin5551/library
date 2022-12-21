@@ -21,7 +21,17 @@
 <body style="display: flex; align-items: center; justify-content: center;">
 
   <div class="col-md-8">
+    <div style="margin-bottom: 2%;">
 
+  <input type="file" id="myFile"  (change)="selectFile($event)">
+  <div class="col-4">
+    <button class=" btn-success btn-sm" style="margin-top: 2%;" [disabled]="!selectedFiles" (click)="upload()"> Upload file</button>
+</div>
+<!-- <div *ngIf="message" class="alert alert-success" role="alert">{{ message }}</div>
+<div *ngIf="errorMsg" class="alert alert-danger" role="alert">{{ errorMsg }}</div> -->
+
+
+    </div>
     <div class="input-group mb-3">
       <form [formGroup]="search" style="display: inline-flex;">
         <input type="text" class="form-control" formControlName="inp" placeholder="Search"

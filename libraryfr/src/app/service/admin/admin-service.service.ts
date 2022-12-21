@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -22,7 +22,7 @@ export class AdminServiceService {
   updateBook(id:any,data:any){
     return this.http.put('http://localhost:8080/book/'+id,data)
   }
-  pagenate(pageno:any,pagesize:any,sortby:any){
+  pagenate(pageno:any,pagesize:any,sortby:any):Observable<any>{
     return this.http.get('http://localhost:8080/book/pagenated?pageNo='+pageno+'&pageSize='+pagesize+'&sortBy='+sortby)
 
   }
@@ -46,5 +46,26 @@ export class AdminServiceService {
   search(data:any,pageno:any,pagesize:any,sortby:any):Observable<any>{
     console.log('+++++++++++',data)
   return this.http.get('http://localhost:8080/book/search/pagenateds?keyword='+data+'&pageNo='+pageno+'&pageSize='+pagesize+'&sortBy='+sortby)
+  }
+
+  // uploadCsv(file:File):Observable<HttpEvent<any>>{
+  //   const formData: FormData = new FormData();
+
+  //   formData.append('file', file);
+
+  //       const req = new HttpRequest('POST', 'http://localhost:8080/csv/upload', formData, {
+  //     reportProgress: true,
+  //     responseType: 'json'
+      
+  //   });
+  //   return this.http.request(req)
+  // }
+
+  upload(file:File):Observable<any>{
+    const formData: FormData = new FormData();
+
+    formData.append('file', file);
+    return this.http.post('http://localhost:8080/csv/upload', formData)
+
   }
 }
