@@ -68,4 +68,8 @@ export class AdminServiceService {
     return this.http.post('http://localhost:8080/csv/upload', formData)
 
   }
+
+  download():Observable<Blob>{
+    return this.http.get('http://localhost:8080/csv/download',{responseType:'blob'});
+  }
 }

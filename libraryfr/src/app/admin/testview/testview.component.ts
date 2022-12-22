@@ -5,12 +5,17 @@ import { PageEvent } from '@angular/material/paginator';
 import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
+import { saveAs } from 'file-saver'
 @Component({
   selector: 'app-testview',
   templateUrl: './testview.component.html',
   styleUrls: ['./testview.component.css']
 })
 export class TestviewComponent implements OnInit {
+  filename: string="a" ;
+dwn() {
+this.adminService.download().subscribe((blob:any)=>saveAs(blob,this.filename))
+}
 
 
 
