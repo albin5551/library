@@ -13,6 +13,7 @@ import librarymanagement.library.view.RentListView;
 public interface RentService {
 
     Collection<Rent>list();
+    List<Rent>listcsv();
     RentListView add(RentForm form);
     RentListView get(Integer rentId)throws NotFoundException;
     RentListView update(Integer rentId,RentForm form);

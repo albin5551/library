@@ -41,7 +41,6 @@ public class CsvHelper {
         try(BufferedReader fileReader=new BufferedReader(new InputStreamReader(is,"UTF-8"));
         CSVParser csvParser = new CSVParser(fileReader,
         CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
-
             List<Csv>csvList=new ArrayList<>();
             Iterable<CSVRecord> csvRecords=csvParser.getRecords();
             for(CSVRecord csvRecord:csvRecords){
@@ -67,6 +66,8 @@ public static ByteArrayInputStream loadFromdb(List<Csv>csvList){
     final CSVFormat format=CSVFormat.DEFAULT.withQuoteMode(QuoteMode.MINIMAL);
     try(ByteArrayOutputStream out=new ByteArrayOutputStream();
     CSVPrinter csvPrinter=new CSVPrinter(new PrintWriter(out),format);){
+        String[] HEADERs={"book_id","book_name","book_author","stock"};
+        csvPrinter.printRecord(HEADERs);
         for( Csv csv:csvList){
             List<String>data=Arrays.asList(
                 String.valueOf(csv.getBookId()),

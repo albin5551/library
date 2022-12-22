@@ -43,6 +43,10 @@ public class RentServiceImpl implements RentService {
     public Collection<Rent>list() {
         return rentRepository.findAll();
     }
+    @Override
+    public List<Rent>listcsv() {
+        return rentRepository.findAllC();
+    }
 
     @Override
     public RentListView add(RentForm form) {

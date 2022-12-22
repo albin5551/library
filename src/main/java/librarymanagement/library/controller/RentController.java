@@ -1,11 +1,16 @@
 package librarymanagement.library.controller;
 
+import java.io.IOException;
 import java.security.Principal;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.hibernate.validator.internal.util.privilegedactions.IsClassPresent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -19,10 +24,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.supercsv.io.CsvBeanWriter;
+import org.supercsv.io.ICsvBeanWriter;
+import org.supercsv.prefs.CsvPreference;
 
 import librarymanagement.library.entity.Book;
 import librarymanagement.library.entity.Rent;
 import librarymanagement.library.form.RentForm;
+import librarymanagement.library.json.Json.DateFormat;
 import librarymanagement.library.service.RentService;
 import librarymanagement.library.view.RentListView;
 
@@ -80,6 +89,28 @@ public class RentController {
 
     }
     
+
+    // @GetMapping("/export")
+    // public void Exportcsv(HttpServletResponse httpServletResponse)throws IOException{
+    //     httpServletResponse.setContentType("text/csv");
+    //     java.text.DateFormat datefFormat= new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+    //     String currentDateTime=datefFormat.format(new Date());
+    //     String headerKey="Content-Disposition";
+    //     String headerValue = "attachment; filename=users_" + currentDateTime + ".csv";
+    //     httpServletResponse.setHeader(headerKey, headerValue);
+    //     List<Rent>rents=rentService.listcsv();
+
+    //     ICsvBeanWriter csvWriter=new CsvBeanWriter(httpServletResponse.getWriter(), CsvPreference.STANDARD_PREFERENCE);
+    //     String[] csvHeader = {"rent_id", "user_id", "book_id", "rent_date", "return_date","status"};
+    //     String[] nameMapping = {"rentId","userId","bookId","rentDate","returnDate","status"};
+    //     csvWriter.writeHeader(csvHeader);
+    //     for(Rent rent:rents){
+    //         csvWriter.write(rent, nameMapping);
+    //     }
+    //     csvWriter.flush();
+    //     csvWriter.close();
+    // }
+
 
     
 }

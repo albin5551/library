@@ -1,6 +1,7 @@
 package librarymanagement.library.repository;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Pageable;
@@ -14,6 +15,9 @@ import librarymanagement.library.view.RentListView;
 
 public interface RentRepository extends PagingAndSortingRepository<Rent,Integer> {
     Collection<Rent>findAll();
+    
+    @Query(value = "SELECT * FROM rent",nativeQuery = true)
+    List<Rent>findAllC();
 
     Rent save(Rent rent);
     public Page<Rent>findAll(Pageable paging);

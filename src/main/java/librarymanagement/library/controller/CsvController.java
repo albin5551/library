@@ -78,12 +78,12 @@ public class CsvController {
     }
   }
 
-  @GetMapping("/download/{fileName:.+}")
-  public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) {
+  @GetMapping("/download")
+  public ResponseEntity<Resource> downloadFile() {
     InputStreamResource file = new InputStreamResource(csvService.load());
 
     return ResponseEntity.ok()
-        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + fileName)
+        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;")
         .contentType(MediaType.parseMediaType("application/csv"))
         .body(file);
   }
