@@ -75,7 +75,6 @@ if(this.key==""){
       this.count=response.totalElements;
       // this.totalrec=this.data.length;
       console.log("!!!!!!!!!",this.count);
-      
       console.log(this.f);
     });
   }

@@ -42,6 +42,11 @@ export class AdminServiceService {
     return this.http.get('http://localhost:8080/rent/pagenated?pageNo='+pageno+'&pageSize='+pagesize+'&sortBy='+sortby)
 
   }
+  rentSearch(data:any,pageno:any,pagesize:any,sortby:any):Observable<any>{
+    console.log('11111111',data);
+    
+    return this.http.get('http://localhost:8080/rent/search/pagenateds?keyword='+data+'pageNo='+pageno+'&pageSize='+pagesize+'&sortBy='+sortby)
+  }
 
   search(data:any,pageno:any,pagesize:any,sortby:any):Observable<any>{
     console.log('+++++++++++',data)

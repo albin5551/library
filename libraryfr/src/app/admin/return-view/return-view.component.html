@@ -18,7 +18,17 @@
 
 </head>
 
-<body class="m-4">
+<body  style="top: 80px;" class="">
+    <div class="input-group mb-3">
+        <form [formGroup]="search" style="display: inline-flex;">
+          <input type="text" class="form-control" formControlName="inp" placeholder="Search"
+            aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="input-group-text button_" id="basic-addon2" (click)="ser()">search</button>
+          </div>
+        </form>
+      </div>
+      <button class=" btn-success btn-sm" style="margin-top: 2%;" (click)="dwn()"> Upload file</button>
     <div class="col-md-12 divt card ">
         <table class=" col-md-12 table" style="text-align: left;width: 100%;">
             <tr>
