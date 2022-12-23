@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.data.domain.Page;
+
 import librarymanagement.library.entity.Rent;
 import librarymanagement.library.exception.NotFoundException;
 import librarymanagement.library.form.RentForm;
@@ -21,6 +23,7 @@ public interface RentService {
     RentListView rentApprove(Integer rentId,  RentForm form);
     Collection<Rent> list1();
     List<Rent>getAllRent(Integer pageNo,Integer pageSize,String sortBy);
+    Page<Rent>getAllRentKey(String keyword,Integer pageNo,Integer pageSize,String sortBy);
     
     
 }

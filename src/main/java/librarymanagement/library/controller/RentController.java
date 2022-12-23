@@ -12,6 +12,7 @@ import javax.validation.Valid;
 
 import org.hibernate.validator.internal.util.privilegedactions.IsClassPresent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -90,27 +91,39 @@ public class RentController {
     }
     
 
-    // @GetMapping("/export")
-    // public void Exportcsv(HttpServletResponse httpServletResponse)throws IOException{
-    //     httpServletResponse.setContentType("text/csv");
-    //     java.text.DateFormat datefFormat= new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-    //     String currentDateTime=datefFormat.format(new Date());
-    //     String headerKey="Content-Disposition";
-    //     String headerValue = "attachment; filename=users_" + currentDateTime + ".csv";
-    //     httpServletResponse.setHeader(headerKey, headerValue);
-    //     List<Rent>rents=rentService.listcsv();
+    @GetMapping("/export")
+    public void Exportcsv(HttpServletResponse httpServletResponse)throws IOException{
+        httpServletResponse.setContentType("text/csv");
+        java.text.DateFormat datefFormat= new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+        String currentDateTime=datefFormat.format(new Date());
+        String headerKey="Content-Disposition";
+        String headerValue = "attachment; filename=users_" + currentDateTime + ".csv";
+        httpServletResponse.setHeader(headerKey, headerValue);
+        List<Rent>rents=rentService.listcsv();
 
-    //     ICsvBeanWriter csvWriter=new CsvBeanWriter(httpServletResponse.getWriter(), CsvPreference.STANDARD_PREFERENCE);
-    //     String[] csvHeader = {"rent_id", "user_id", "book_id", "rent_date", "return_date","status"};
-    //     String[] nameMapping = {"rentId","userId","bookId","rentDate","returnDate","status"};
-    //     csvWriter.writeHeader(csvHeader);
-    //     for(Rent rent:rents){
-    //         csvWriter.write(rent, nameMapping);
-    //     }
-    //     csvWriter.flush();
-    //     csvWriter.close();
-    // }
+        ICsvBeanWriter csvWriter=new CsvBeanWriter(httpServletResponse.getWriter(), CsvPreference.STANDARD_PREFERENCE);
+        String[] csvHeader = {"rent_id", "user_id", "book_id", "rent_date", "return_date","status"};
+        String[] nameMapping = {"rentId","userId","bookId","rentDate","returnDate","status"};
+        csvWriter.writeHeader(csvHeader);
+        for(Rent rent:rents){
+            csvWriter.write(rent, nameMapping);
+        }
+        csvWriter.flush();
+        csvWriter.close();
+    }
 
+
+    @GetMapping("/search/pagenateds")
+    public ResponseEntity<Page<Rent>>getAllBookStockSearch(
+                        @RequestParam (defaultValue = "")String keyword,
+                        @RequestParam(defaultValue = "1") Integer pageNo,
+                        @RequestParam(defaultValue = "10") Integer pageSize,
+                        @RequestParam(defaultValue = "id") String sortBy)
+                        {
+                            Page<Rent>list=rentService.getAllRentKey(keyword, pageNo-1, pageSize, sortBy);
+                            return new ResponseEntity<Page<Rent>>(list,new HttpHeaders(),HttpStatus.OK);
+
+                        }
 
     
 }

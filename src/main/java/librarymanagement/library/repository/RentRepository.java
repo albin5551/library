@@ -28,6 +28,9 @@ public interface RentRepository extends PagingAndSortingRepository<Rent,Integer>
 
     Collection<Rent>findAllByUserUserId(Integer userId);
 
+    @Query(value="select * from rent where user_id in(select user_id from user where name like %?1% )",nativeQuery = true)
+     Page <Rent>findByKey(String keyword,Pageable paging);
+
     // @Query(value = "DELETE FROM rent WHERE book_id=?1",nativeQuery=true)
     // void deleteByBookId(Integer bookId);
     

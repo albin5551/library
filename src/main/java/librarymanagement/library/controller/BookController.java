@@ -92,6 +92,6 @@ public class BookController {
         Page<Book> list = bookService.getAllBookStocks(keyword,pageNo-1,pageSize,sortBy);
         return new ResponseEntity<Page<Book>>(list,new HttpHeaders(),
         HttpStatus.OK);
-
+        
     }
 }

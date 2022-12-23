@@ -121,7 +121,11 @@ public List<Rent>getAllRent(Integer pageNo,Integer pageSize,String sortBy){
         return new ArrayList<Rent>();
     }
 }
-
+public Page<Rent>getAllRentKey(String keyword,Integer pageNo,Integer pageSize,String sortBy){
+    Pageable paging=PageRequest.of(pageNo,pageSize,Sort.by(sortBy));
+    Page<Rent>pagedResult=rentRepository.findByKey(keyword, paging);
+    return pagedResult;
+}
 
 
 }

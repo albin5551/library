@@ -35,6 +35,7 @@ public class Rent {
     private  Integer status;
 
 
+
 public Rent(){
 
 }
@@ -48,11 +49,17 @@ public Rent(){
     public User getUser() {
         return user;
     }
+    public Integer getUserId() {
+        return user.getUserId();
+    }
     public void setUser(User user) {
         this.user = user;
     }
     public Book getBook() {
         return book;
+    }
+    public Integer getBookId() {
+        return book.getBookId();
     }
     public void setBook(Book book) {
         this.book = book;
@@ -77,7 +84,7 @@ public Rent(){
         this.status = status;
     }
 
-    
+
 
 
 
