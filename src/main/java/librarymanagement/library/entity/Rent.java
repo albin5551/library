@@ -84,6 +84,14 @@ public Rent(){
         this.status = status;
     }
 
+    public String getBookName(){
+        return book.getBookName();
+    }
+    public String getName(){
+        return user.getName();
+    }
+
+
 
 
 

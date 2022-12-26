@@ -44,86 +44,83 @@ public class RentController {
     private RentService rentService;
 
     @GetMapping
-    public Collection<Rent>list(){
+    public Collection<Rent> list() {
         return rentService.list();
     }
 
     @PostMapping
-    public RentListView add(@Valid @RequestBody RentForm form){
+    public RentListView add(@Valid @RequestBody RentForm form) {
         return rentService.add(form);
     }
 
     @GetMapping("/{rentId}")
-    public RentListView get(@PathVariable("rentId")Integer rentId){
+    public RentListView get(@PathVariable("rentId") Integer rentId) {
         return rentService.get(rentId);
     }
+
     @GetMapping("/list/user")
-        public Collection<Rent>list1(Principal p){
-        return  rentService.list1();
+    public Collection<Rent> list1(Principal p) {
+        return rentService.list1();
     }
 
     @PutMapping("/{rentId}")
-    public RentListView update(@PathVariable("rentId") Integer rentId,@Valid @RequestBody RentForm form){
+    public RentListView update(@PathVariable("rentId") Integer rentId, @Valid @RequestBody RentForm form) {
         return rentService.update(rentId, form);
     }
 
     @PutMapping("/approve/{rentId}")
-    public RentListView rentApprove(@PathVariable("rentId") Integer rentId,@Valid @RequestBody RentForm form){
+    public RentListView rentApprove(@PathVariable("rentId") Integer rentId, @Valid @RequestBody RentForm form) {
         return rentService.rentApprove(rentId, form);
     }
 
     @DeleteMapping("/{rentId}")
 
-    public void delete(@PathVariable("rentId")Integer rentId){
+    public void delete(@PathVariable("rentId") Integer rentId) {
         rentService.delete(rentId);
     }
 
     @GetMapping("/pagenated")
-    public ResponseEntity<List<Rent>>getAllBorrow(
-                        @RequestParam(defaultValue = "0") Integer pageNo,
-                        @RequestParam(defaultValue = "10") Integer pageSize,
-                        @RequestParam(defaultValue = "id") String sortBy)
-    {
-        List<Rent> list = rentService.getAllRent(pageNo-1, pageSize, sortBy);
-        return new ResponseEntity<List<Rent>>(list,new HttpHeaders(),
-        HttpStatus.OK);
+    public ResponseEntity<List<Rent>> getAllBorrow(
+            @RequestParam(defaultValue = "0") Integer pageNo,
+            @RequestParam(defaultValue = "10") Integer pageSize,
+            @RequestParam(defaultValue = "id") String sortBy) {
+        List<Rent> list = rentService.getAllRent(pageNo - 1, pageSize, sortBy);
+        return new ResponseEntity<List<Rent>>(list, new HttpHeaders(),
+                HttpStatus.OK);
 
     }
-    
 
     @GetMapping("/export")
-    public void Exportcsv(HttpServletResponse httpServletResponse)throws IOException{
+    public void Exportcsv(HttpServletResponse httpServletResponse) throws IOException {
         httpServletResponse.setContentType("text/csv");
-        java.text.DateFormat datefFormat= new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-        String currentDateTime=datefFormat.format(new Date());
-        String headerKey="Content-Disposition";
+        java.text.DateFormat datefFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+        String currentDateTime = datefFormat.format(new Date());
+        String headerKey = "Content-Disposition";
         String headerValue = "attachment; filename=users_" + currentDateTime + ".csv";
         httpServletResponse.setHeader(headerKey, headerValue);
-        List<Rent>rents=rentService.listcsv();
+        List<Rent> rents = rentService.listcsv();
 
-        ICsvBeanWriter csvWriter=new CsvBeanWriter(httpServletResponse.getWriter(), CsvPreference.STANDARD_PREFERENCE);
-        String[] csvHeader = {"rent_id", "user_id", "book_id", "rent_date", "return_date","status"};
-        String[] nameMapping = {"rentId","userId","bookId","rentDate","returnDate","status"};
+        ICsvBeanWriter csvWriter = new CsvBeanWriter(httpServletResponse.getWriter(),
+                CsvPreference.STANDARD_PREFERENCE);
+        String[] csvHeader = { "rent_id", "username", "bookname", "rent_date", "return_date", "status" };
+        String[] nameMapping = { "rentId", "name", "bookName", "rentDate", "returnDate", "status" };
         csvWriter.writeHeader(csvHeader);
-        for(Rent rent:rents){
+        for (Rent rent : rents) {
             csvWriter.write(rent, nameMapping);
         }
         csvWriter.flush();
         csvWriter.close();
     }
 
-
     @GetMapping("/search/pagenateds")
-    public ResponseEntity<Page<Rent>>getAllBookStockSearch(
-                        @RequestParam (defaultValue = "")String keyword,
-                        @RequestParam(defaultValue = "1") Integer pageNo,
-                        @RequestParam(defaultValue = "10") Integer pageSize,
-                        @RequestParam(defaultValue = "id") String sortBy)
-                        {
-                            Page<Rent>list=rentService.getAllRentKey(keyword, pageNo-1, pageSize, sortBy);
-                            return new ResponseEntity<Page<Rent>>(list,new HttpHeaders(),HttpStatus.OK);
+    public ResponseEntity<Page<Rent>> getAllBookStockSearch(
+            @RequestParam(defaultValue = "") String keyword,
+            @RequestParam(defaultValue = "1") Integer pageNo,
+            @RequestParam(defaultValue = "10") Integer pageSize,
+            @RequestParam(defaultValue = "id") String sortBy) {
+        Page<Rent> list = rentService.getAllRentKey(keyword, pageNo - 1, pageSize, sortBy);
+        return new ResponseEntity<Page<Rent>>(list, new HttpHeaders(), HttpStatus.OK);
 
-                        }
+    }
 
-    
 }

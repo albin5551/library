@@ -16,7 +16,7 @@ import org.springframework.data.repository.query.Param;
 import librarymanagement.library.entity.Book;
 
 
-public interface BookRepository extends PagingAndSortingRepository <Book,Integer> {
+public interface BookRepository extends Repository <Book,Integer> {
     
     // @Query(value = "SELECT * FROM book where status = 1",nativeQuery = true)
     Collection<Book>findAll();
@@ -30,7 +30,7 @@ public interface BookRepository extends PagingAndSortingRepository <Book,Integer
     Book findByBookId(Integer bookId);
 
     
-    @Query(value = "SELECT * FROM book",nativeQuery = true)
+    @Query(value = "SELECT * FROM book where  status = 1",nativeQuery = true)
     public Page<Book>findAll(Pageable paging);
 
 
@@ -47,4 +47,6 @@ public interface BookRepository extends PagingAndSortingRepository <Book,Integer
 
     @Query(value = "SELECT * FROM book  where stock !=0 AND status = 1 AND book_name like %?1%",nativeQuery = true)
    public Page<Book> findByKeywords( String keyword,Pageable pageable);
+
+
 }
