@@ -30,6 +30,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { ReturnBookComponent } from './user/return-book/return-book.component';
 import { ReturnViewComponent } from './admin/return-view/return-view.component';
 import { AddUserComponent } from './admin/add-user/add-user.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -71,7 +72,7 @@ import { AddUserComponent } from './admin/add-user/add-user.component';
     
   
   ],
-  providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenServiceService,multi:true}],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenServiceService,multi:true},[DatePipe]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

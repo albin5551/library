@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { saveAs } from 'file-saver'
 import { AdminServiceService } from 'src/app/service/admin/admin-service.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-return-view',
@@ -9,14 +11,24 @@ import { AdminServiceService } from 'src/app/service/admin/admin-service.service
 })
 export class ReturnViewComponent implements OnInit {
   key: any;
+
+
+
+  curDate= new Date()
+  myDate:any;
+
+  filename: any;
 dwn() {
-throw new Error('Method not implemented.');
-}
-ser() {
-this.ngOnInit();
+  this.myDate=this.datePipe.transform(this.curDate,'yyyy-MM-dd');
+  this.filename="DataExport_"+this.myDate;
+  this.adminService.export().subscribe((blob:any)=>saveAs(blob,this.filename))
+
+// throw new Error('Method not implemented.');
 }
 
+
   rentDetails: any;
+
 
 //POSTS: any;
 page:number=1;
@@ -39,7 +51,7 @@ len: any;
 
 
   
-  constructor(private adminService:AdminServiceService) { }
+  constructor(private adminService:AdminServiceService,private datePipe:DatePipe) { }
   returnbook:FormGroup=new FormGroup({
     bookId:new FormControl(''),
     userId:new FormControl  ('')
@@ -60,19 +72,22 @@ len: any;
           this.adminService.retrunview().subscribe(result=>{
       this.rentDetails=result
       this.count=this.rentDetails.length;
-      // console.log(this.rentDetails);
+      console.log(this.rentDetails);
       // console.log(this.count)
     })
 
     }else{
+      console.log("hre",this.search.controls['inp'].value);
+
       this.adminService.rentSearch(this.key,this.page,this.tableSize,this.sort).subscribe(response=>{
         this.rentDetails=response.content;
+        
        console.log(this.rentDetails);
         this.data=this.result;
          this.count=response.totalElements;
          console.log("llllllll",this.count);
         });
-    }
+    }           
 
     
     
@@ -102,7 +117,9 @@ len: any;
         // console.log(this.data)
       }));        
     }
-  else{ this.adminService.rentSearch(this.key,this.page,this.tableSize,this.sort).subscribe(response=>{
+  else{ 
+    
+    this.adminService.rentSearch(this.key,this.page,this.tableSize,this.sort).subscribe(response=>{
     this.rentDetails=response.content;
    console.log(this.rentDetails);
     this.data=this.result;
@@ -112,6 +129,10 @@ len: any;
 
   }
 }
+
+ser() {
+  this.ngOnInit();
+  }
   
 
   returnVerify(id: any) {

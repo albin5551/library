@@ -7,50 +7,48 @@ import { Observable } from 'rxjs';
 })
 export class AdminServiceService {
 
-  constructor(private http:HttpClient){ }
+  constructor(private http: HttpClient) { }
 
-  addBook(data:any):Observable<any>{
-    return this.http.post('http://localhost:8080/book',data)
+  addBook(data: any): Observable<any> {
+    return this.http.post('http://localhost:8080/book', data)
   }
 
-  getBook(){
+  getBook() {
     return this.http.get('http://localhost:8080/book')
   }
-  getBookbyId(id:any):Observable<any>{
-    return this.http.get('http://localhost:8080/book/'+id)
+  getBookbyId(id: any): Observable<any> {
+    return this.http.get('http://localhost:8080/book/' + id)
   }
-  updateBook(id:any,data:any){
-    return this.http.put('http://localhost:8080/book/'+id,data)
+  updateBook(id: any, data: any) {
+    return this.http.put('http://localhost:8080/book/' + id, data)
   }
-  pagenate(pageno:any,pagesize:any,sortby:any):Observable<any>{
-    return this.http.get('http://localhost:8080/book/pagenated?pageNo='+pageno+'&pageSize='+pagesize+'&sortBy='+sortby)
+  pagenate(pageno: any, pagesize: any, sortby: any): Observable<any> {
+    return this.http.get('http://localhost:8080/book/pagenated?pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
 
   }
 
-  deletBook(id:any):Observable<any>{
-    return this.http.delete('http://localhost:8080/book/'+id)
+  deletBook(id: any): Observable<any> {
+    return this.http.delete('http://localhost:8080/book/' + id)
   }
 
-  retrunview(){
+  retrunview() {
     return this.http.get('http://localhost:8080/rent')
   }
-  returnApprove(id :any,data:any){
-    return this.http.put('http://localhost:8080/rent/approve/'+id,data)
+  returnApprove(id: any, data: any) {
+    return this.http.put('http://localhost:8080/rent/approve/' + id, data)
   }
 
-  pagenated(pageno:any,pagesize:any,sortby:any){
-    return this.http.get('http://localhost:8080/rent/pagenated?pageNo='+pageno+'&pageSize='+pagesize+'&sortBy='+sortby)
+  pagenated(pageno: any, pagesize: any, sortby: any) {
+    return this.http.get('http://localhost:8080/rent/pagenated?pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
 
   }
-  rentSearch(data:any,pageno:any,pagesize:any,sortby:any):Observable<any>{
-    console.log('11111111',data);
-    
-    return this.http.get('http://localhost:8080/rent/search/pagenateds?keyword='+data+'pageNo='+pageno+'&pageSize='+pagesize+'&sortBy='+sortby)
+  rentSearch(data: any, pageno: any, pagesize: any, sortby: any): Observable<any> {
+    return this.http.get('http://localhost:8080/rent/search/pagenateds?keyword=' + data + '&pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
   }
 
-  search(data:any,pageno:any,pagesize:any,sortby:any):Observable<any>{
-    console.log('+++++++++++',data)
-  return this.http.get('http://localhost:8080/book/search/pagenateds?keyword='+data+'&pageNo='+pageno+'&pageSize='+pagesize+'&sortBy='+sortby)
+  search(data: any, pageno: any, pagesize: any, sortby: any): Observable<any> {
+    console.log('+++++++++++', data)
+    return this.http.get('http://localhost:8080/book/search/pagenateds?keyword=' + data + '&pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
   }
 
   // uploadCsv(file:File):Observable<HttpEvent<any>>{
@@ -61,12 +59,12 @@ export class AdminServiceService {
   //       const req = new HttpRequest('POST', 'http://localhost:8080/csv/upload', formData, {
   //     reportProgress: true,
   //     responseType: 'json'
-      
+
   //   });
   //   return this.http.request(req)
   // }
 
-  upload(file:File):Observable<any>{
+  upload(file: File): Observable<any> {
     const formData: FormData = new FormData();
 
     formData.append('file', file);
@@ -74,7 +72,10 @@ export class AdminServiceService {
 
   }
 
-  download():Observable<Blob>{
-    return this.http.get('http://localhost:8080/csv/download',{responseType:'blob'});
+  download(): Observable<Blob> {
+    return this.http.get('http://localhost:8080/csv/download', { responseType: 'blob' });
+  }
+  export(): Observable<Blob> {
+    return this.http.get('http://localhost:8080/rent/export', { responseType: 'blob' });
   }
 }

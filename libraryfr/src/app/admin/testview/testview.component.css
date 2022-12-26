@@ -78,8 +78,12 @@ th, td {
 }
 
 .input-group {
-  width: 300px;
+  /* width: 300px; */
   display: inline-flex !important;
+}
+
+.form-control {
+  width: 350px;
 }
 
 .search_btn {
