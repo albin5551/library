@@ -71,20 +71,25 @@ public class BookServiceImpl implements BookService {
             return pagedResult; 
     }
 
-    public List<Book>getAllBookStock(Integer pageNo,Integer pageSize,String sortBy){
+    public Page<Book>getAllBookStock(Integer pageNo,Integer pageSize,String sortBy){
         Pageable paging=PageRequest.of(pageNo,pageSize,Sort.by(sortBy));
         Page<Book> pagedResult=bookRepository.findAllStockNative(paging);
-        if (pagedResult.hasContent()){
-            return pagedResult.getContent();
-        }else{
-            return new ArrayList<Book>();
-        }
+        return pagedResult;
+        // if (pagedResult.hasContent()){
+        //     return pagedResult.getContent();
+        // }else{
+        //     return new ArrayList<Book>();
+        // }
     }
 
         public Page<Book>getAllBookStocks(String keyword, Integer pageNo,Integer pageSize,String sortBy){
             Pageable paging=PageRequest.of(pageNo,pageSize,Sort.by(sortBy));
-            Page<Book> pagedResult=bookRepository.findByKeywords(keyword,paging);
-            System.out.println(pagedResult.getTotalElements());
+            System.out.println(keyword);
+            String k=keyword;
+            String k1=keyword;
+            String k2=keyword;
+            Page<Book> pagedResult=bookRepository.findByKeywords(keyword,k,k1,k2,paging);
+            // System.out.println(pagedResult.getTotalElements());
             return pagedResult;
             //   Long p= pagedResult.getTotalElements();
             //   System.out.println(p);

@@ -25,7 +25,7 @@ public interface BookService {
     BookListView update(Integer bookId,BookForm form)throws NotFoundException;
     
     Page<Book>getAllBook(Integer pageNo,Integer pageSize,String sortBy);
-    List<Book>getAllBookStock(Integer pageNo,Integer pageSize,String sortBy);
+    Page<Book>getAllBookStock(Integer pageNo,Integer pageSize,String sortBy);
     BookListView delete(Integer bookId) throws NotFoundException;
     Page<Book>getAllBookStocks(String keyword, Integer pageNo,Integer pageSize,String sortBy);
 }

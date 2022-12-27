@@ -71,13 +71,13 @@ public class BookController {
 
 
     @GetMapping("/pagenateds")
-    public ResponseEntity<List<Book>>getAllBookStocks(
+    public ResponseEntity<Page<Book>>getAllBookStocks(
                         @RequestParam(defaultValue = "0") Integer pageNo,
                         @RequestParam(defaultValue = "10") Integer pageSize,
                         @RequestParam(defaultValue = "id") String sortBy)
     {
-        List<Book> list = bookService.getAllBookStock(pageNo-1, pageSize, sortBy);
-        return new ResponseEntity<List<Book>>(list,new HttpHeaders(),
+        Page<Book> list = bookService.getAllBookStock(pageNo-1, pageSize, sortBy);
+        return new ResponseEntity<Page<Book>>(list,new HttpHeaders(),
         HttpStatus.OK);
 
     }

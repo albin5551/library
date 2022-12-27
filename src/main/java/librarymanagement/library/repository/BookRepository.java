@@ -35,7 +35,7 @@ public interface BookRepository extends Repository <Book,Integer> {
 
 
 
-    @Query(value = "SELECT * FROM book s where s.stock !=0 AND s.status = 1",nativeQuery = true)
+    @Query(value = "SELECT * FROM book  where stock !=0 AND status = 1",nativeQuery = true)
     public  Page<Book> findAllStockNative(Pageable paging);
 
 //     @Query(value = "select * from book s where s.book_name like %:keyword% ", nativeQuery = true)
@@ -45,8 +45,12 @@ public interface BookRepository extends Repository <Book,Integer> {
     // public void updateStock(Integer bookId);
     
 
-    @Query(value = "SELECT * FROM book  where stock !=0 AND status = 1 AND book_name like %?1%",nativeQuery = true)
-   public Page<Book> findByKeywords( String keyword,Pageable pageable);
+//     @Query(value = "SELECT * FROM book  where stock !=0 AND status = 1 AND book_name like %?1%",nativeQuery = true)
+//    public Page<Book> findByKeywords( String keyword,Pageable pageable);
 
+
+   @Query(value = "Select * from book where  status = 1 AND book_name like %?1% order by book_name like ?2% DESC,book_name like %?3 DESC,book_name like %?4% ",nativeQuery = true)
+   public Page<Book> findByKeywords(  String keyword,String k,String k1,String k2,Pageable pageable);
+   
 
 }

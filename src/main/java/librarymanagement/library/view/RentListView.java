@@ -17,7 +17,7 @@ private final BookListView bookId;
 private Date rentDate;
 @Temporal(TemporalType.TIMESTAMP)
 private Date returnDate;
-private Integer status;
+private String status;
 
 
 
@@ -51,7 +51,7 @@ public Date getReturnDate() {
 
 
 
-public Integer getStatus() {
+public String getStatus() {
     return status;
 }
 

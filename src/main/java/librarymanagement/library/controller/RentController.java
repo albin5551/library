@@ -106,6 +106,15 @@ public class RentController {
         String[] nameMapping = { "rentId", "name", "bookName", "rentDate", "returnDate", "status" };
         csvWriter.writeHeader(csvHeader);
         for (Rent rent : rents) {
+            // System.out.println("         :"+rent.getStatus());
+            if(rent.getStatus().matches("1")){
+                // System.out.println("         :"+rent.getStatus());
+                    rent.setStatus("Approved");
+
+            }
+            else{
+                rent.setStatus("Processing");
+            }
             csvWriter.write(rent, nameMapping);
         }
         csvWriter.flush();
