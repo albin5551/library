@@ -28,7 +28,7 @@ export class UserServiceService {
     return this.http.post('http://localhost:8080/rent/',data);
   }
 
-  pagenate(pageno:any,pagesize:any,sortby:any){
+  pagenate(pageno:any,pagesize:any,sortby:any):Observable<any>{
     return this.http.get('http://localhost:8080/book/pagenateds?pageNo='+pageno+'&pageSize='+pagesize+'&sortBy='+sortby)
 
   }

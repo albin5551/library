@@ -36,19 +36,20 @@ len: any;
   ngOnInit(): void {
 
     this.userService.pagenate(this.page,this.tableSize,this.sort).subscribe(response=>{
-      this.result=response;
+      this.result=response.content;
+      this.count=response.totalElements
       console.log(this.result);
       
     });
 
 
-    this.userService.getBook().subscribe(result=>{
-      this.bookDetail=result;
-      // console.log(this.bookDetail);
-      this.count=this.bookDetail.length;
-      console.log(this.bookDetail);
-      console.log(this.count)
-    })
+    // this.userService.getBook().subscribe(result=>{
+    //   this.bookDetail=result;
+    //   // console.log(this.bookDetail);
+    //   this.count=this.bookDetail.length;
+    //   console.log(this.bookDetail);
+    //   console.log(this.count)
+    // })
   }
 
 
@@ -56,7 +57,7 @@ len: any;
     
     console.log(event)
       this.userService.pagenate(event,this.tableSize,this.sort).subscribe((res=>{
-        this.result=res;
+        this.result=res.content;
         console.log(this.result)
       }),
       );        

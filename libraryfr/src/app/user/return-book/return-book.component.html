@@ -37,16 +37,16 @@
                 <td>{{rent.rentDate|date:'short'}}</td>
                 <td>{{rent.returnDate|date:'short'}}</td>
                 <!-- <td>{{rent.status}}</td> -->
-                <td><div *ngIf="rent.status === 0" class="status-div">
+                <td><div *ngIf="rent.status ==='0' " class="status-div">
                     <p class="inactive-p"></p>
                     <span class="status-span">Processing</span>
                 </div>
-                <div *ngIf="rent.status === 1" class="status-div">
+                <div *ngIf="rent.status === '1'" class="status-div">
                     <p class="inactive-p"></p>
                     <span class="status-span">Accepted</span>
                 </div></td>
                 
-                <button type="submit" class="btn btn-primary" [disabled]="rent.status=='PROCESSING'||rent.status=='ACCEPTED'" (click)="returnBook(rent) ">Return</button>
+                <button type="submit" class="btn btn-primary" [disabled]="rent.status=='0'||rent.status=='1'" (click)="returnBook(rent) ">Return</button>
             </tr>
         </table>
     </div>
