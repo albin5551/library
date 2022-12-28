@@ -8,6 +8,7 @@ public class BookListView {
 
     private final int bookId;
     private String bookName;
+    private final CategoryListView categoryId;
     private String bookAuthor;
     private Integer stock;
     @Json.DateTimeFormat
@@ -18,6 +19,7 @@ public class BookListView {
     public BookListView(Book book) {
         this.bookId = book.getBookId();
         this.bookName = book.getBookName();
+        this.categoryId = new CategoryListView(book.getCategory());
         this.bookAuthor = book.getBookAuthor();
         this.stock = book.getStock();
         this.createDate = book.getCreateDate();
@@ -46,6 +48,10 @@ public class BookListView {
 
     public Date getUpdateDate() {
         return updateDate;
+    }
+
+    public CategoryListView getCategoryId() {
+        return categoryId;
     }
 
 }

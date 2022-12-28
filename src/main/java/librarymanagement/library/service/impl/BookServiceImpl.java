@@ -14,9 +14,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import librarymanagement.library.entity.Book;
+import librarymanagement.library.entity.Category;
 import librarymanagement.library.exception.NotFoundException;
 import librarymanagement.library.form.BookForm;
 import librarymanagement.library.repository.BookRepository;
+import librarymanagement.library.repository.CategoryRepository;
 import librarymanagement.library.service.BookService;
 import librarymanagement.library.view.BookListView;
 
@@ -26,6 +28,9 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookRepository bookRepository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
+
     @Override
     public Collection<Book> list() {
         return bookRepository.findAll();
@@ -33,7 +38,8 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public BookListView add(BookForm form) {
-        return new BookListView(bookRepository.save(new Book(form)));
+        Category category=categoryRepository.findByCategoryId(form.getCategoryId());
+        return new BookListView(bookRepository.save(new Book(form,category)));
 
     }
 

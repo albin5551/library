@@ -26,4 +26,5 @@ public interface RentService {
     Page<Rent>getAllRentKey(String keyword,Integer pageNo,Integer pageSize,String sortBy);
     
     
+    
 }

@@ -11,6 +11,8 @@ public class BookForm {
     @Size(max = 255)
     private String bookName;
 
+    private Integer categoryId;
+
     @NotBlank
     @Size(max = 255)
     private String bookAuthor;
@@ -50,6 +52,14 @@ public class BookForm {
 
     public void setCreateDate(LocalDateTime createDate) {
         this.createDate = createDate;
+    }
+
+    public Integer getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
     
 

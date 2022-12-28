@@ -3,13 +3,15 @@ package librarymanagement.library.entity;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.validator.constraints.ru.INN;
+
 
 import librarymanagement.library.form.BookForm;
 
@@ -32,6 +34,8 @@ public class Book {
     private Integer bookId;
     private String bookName;
     private String bookAuthor;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Category category;
     private Integer stock;
     private byte status;
     @Temporal(TemporalType.TIMESTAMP)
@@ -98,13 +102,20 @@ public class Book {
         this.status = status;
     }
 
-    
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
 
-    public Book(BookForm form){
+    public Book(BookForm form,Category category){
         this.bookName=form.getBookName();
         this.bookAuthor=form.getBookAuthor();
         this.stock=form.getStock();  
+        this.category=category;
         this.status = Status.ACTIVE.value;   
 
         Date dt = new Date();
@@ -145,6 +156,8 @@ public class Book {
     public String toString() {
         return "onlineshopping.shopping.entity.Book[ bookId=" + bookId + " ]";
     }
+
+
 
 
 
