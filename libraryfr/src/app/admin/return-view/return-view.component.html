@@ -18,8 +18,8 @@
 
 </head>
 
-<body  style="top: 80px;" class="">
-    <div class="input-group mb-3">
+<body  style="top: 80px;" class="p-3">
+    <div class="input-group">
         <form [formGroup]="search" style="display: inline-flex;">
           <input type="text" class="form-control" formControlName="inp" placeholder="Search"
             aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -28,7 +28,7 @@
           </div>
         </form>
       </div>
-      <button class=" btn-success btn-sm" style="margin-top: 2%;" (click)="dwn()"> Download CSV</button>
+      <button class=" btn-success btn-sm mb-1" style="margin-top: 2%; border: none;" (click)="dwn()"> Download CSV</button>
     <div class="col-md-12 divt card ">
         <table class=" col-md-12 table" style="text-align: left;width: 100%;">
             <tr>
