@@ -31,6 +31,7 @@ import { ReturnBookComponent } from './user/return-book/return-book.component';
 import { ReturnViewComponent } from './admin/return-view/return-view.component';
 import { AddUserComponent } from './admin/add-user/add-user.component';
 import { DatePipe } from '@angular/common';
+import { CategoryComponent } from './admin/category/category.component';
 
 
 
@@ -55,6 +56,7 @@ import { DatePipe } from '@angular/common';
     ReturnBookComponent,
     ReturnViewComponent,
     AddUserComponent,
+    CategoryComponent,
     
    
   ],

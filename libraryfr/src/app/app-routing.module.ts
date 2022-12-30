@@ -5,6 +5,7 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { BookDeatilviewComponent } from './admin/book-deatilview/book-deatilview.component';
 import { BookRegistrationComponent } from './admin/book-registration/book-registration.component';
 import { BookReportComponent } from './admin/book-report/book-report.component';
+import { CategoryComponent } from './admin/category/category.component';
 import { EditBookComponent } from './admin/edit-book/edit-book.component';
 import { ReturnViewComponent } from './admin/return-view/return-view.component';
 import { TestviewComponent } from './admin/testview/testview.component';
@@ -32,7 +33,8 @@ const routes: Routes = [
   {path:'bookuview',component:BookListComponent},
   {path:'return',component:ReturnBookComponent},
   {path:'adreturn',component:ReturnViewComponent},
-  {path:'useradd',component:AddUserComponent}
+  {path:'useradd',component:AddUserComponent},
+  {path:'addcat',component:CategoryComponent}
 ];
 
 @NgModule({

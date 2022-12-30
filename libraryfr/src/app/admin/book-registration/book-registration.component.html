@@ -13,6 +13,16 @@
     <div style="color: red;" *ngIf="bookreg.controls['bookName'].errors?.['required'] && (bookreg.controls['bookName'].touched ||bookreg.controls['bookName'].dirty)" >Required</div>
     <br>
 
+ 
+    <!-- <label for="categoryId">Select Category </label> -->
+           <select class="dropbtn" type="input" formControlName="categoryId"  name="select" placeholder="Select Category"  >
+            <option value="" disabled selected>Select your Category</option>
+            <option  *ngFor="let category of loaddata" value={{category.categoryId}}>
+            {{category.categoryName}}
+           </option>
+           </select>
+           <br>
+
     <input type="text" formControlName="bookAuthor" placeholder="Enter the Author name">
     <div  style="color: red;" *ngIf="bookreg.controls['bookAuthor'].errors?.['required'] && (bookreg.controls['bookAuthor'].touched ||bookreg.controls['bookAuthor'].dirty)" >Required</div>
 

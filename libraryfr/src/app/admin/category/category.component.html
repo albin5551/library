@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>ADD CATEGORY </h1>
+
+    <form [formGroup]="addcategory" (ngSubmit)="onSubmit()">
+        <input type="text" formControlName="categoryName" name="categoryName" placeholder="Enter the Category">
+        <br>
+        <button type="submit">Add</button>
+    </form>
+
+</body>
+
+</html>

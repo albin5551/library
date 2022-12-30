@@ -9,6 +9,7 @@ import { UserServiceService } from 'src/app/service/user/user-service.service';
   styleUrls: ['./book-registration.component.css']
 })
 export class BookRegistrationComponent implements OnInit {
+  loaddata: any;
 
 
   constructor(private adminService:AdminServiceService) { }
@@ -18,6 +19,7 @@ export class BookRegistrationComponent implements OnInit {
       bookName:new FormControl('',[Validators.required]),
       bookAuthor:new FormControl('',[Validators.required]),
       stock:new FormControl('',[Validators.required]),
+      categoryId:new FormControl('',[Validators.required])
 
     }
   )
@@ -38,6 +40,11 @@ export class BookRegistrationComponent implements OnInit {
    
     }
   ngOnInit(): void {
+
+    this.adminService.loadCategory().subscribe((data:any)=>{
+      this.loaddata=data;
+      console.log(this.loaddata);
+    })
   }
 
 }

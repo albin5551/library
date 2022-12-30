@@ -51,6 +51,10 @@ export class AdminServiceService {
     return this.http.get('http://localhost:8080/book/search/pagenateds?keyword=' + data + '&pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
   }
 
+  chart():Observable<any>{
+    return this.http.get('http://localhost:8080/book/bycategory')
+  }
+
   // uploadCsv(file:File):Observable<HttpEvent<any>>{
   //   const formData: FormData = new FormData();
 
@@ -77,5 +81,12 @@ export class AdminServiceService {
   }
   export(): Observable<Blob> {
     return this.http.get('http://localhost:8080/rent/export', { responseType: 'blob' });
+  }
+
+  addCategory(data:any):Observable<any>{
+    return this.http.post('http://localhost:8080/category',data)
+  }
+  loadCategory():Observable<any>{
+    return this.http.get('http://localhost:8080/category');
   }
 }
