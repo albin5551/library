@@ -1,11 +1,14 @@
 package librarymanagement.library.repository;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.Repository;
@@ -52,5 +55,10 @@ public interface BookRepository extends Repository <Book,Integer> {
    @Query(value = "Select * from book where  status = 1 AND book_name like %?1% order by book_name like ?2% DESC,book_name like %?3 DESC,book_name like %?4% ",nativeQuery = true)
    public Page<Book> findByKeywords(  String keyword,String k,String k1,String k2,Pageable pageable);
    
+     
+   @Query(value = "select COUNT(book.book_id),category.category_name from book Inner Join category on book.category_id=category.category_id group by book.category_id ",nativeQuery = true)
+
+    // @Query(value = "select * from book" ,nativeQuery = true)
+    public List<Object[]> findcountByCategory();
 
 }

@@ -132,4 +132,36 @@ public class RentController {
 
     }
 
+
+    @GetMapping("/search/export/{key}")
+    public void exportSearchcsv(HttpServletResponse httpServletResponse,@PathVariable String key) throws IOException {
+        httpServletResponse.setContentType("text/csv");
+        java.text.DateFormat datefFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+        String currentDateTime = datefFormat.format(new Date());
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=users_" + currentDateTime + ".csv";
+        httpServletResponse.setHeader(headerKey, headerValue);
+        List<Rent> rents = rentService.listCsvSerach(key);
+
+        ICsvBeanWriter csvWriter = new CsvBeanWriter(httpServletResponse.getWriter(),
+                CsvPreference.STANDARD_PREFERENCE);
+        String[] csvHeader = { "rent_id", "username", "bookname", "rent_date", "return_date", "status" };
+        String[] nameMapping = { "rentId", "name", "bookName", "rentDate", "returnDate", "status" };
+        csvWriter.writeHeader(csvHeader);
+        for (Rent rent : rents) {
+            // System.out.println("         :"+rent.getStatus());
+            if(rent.getStatus().matches("1")){
+                // System.out.println("         :"+rent.getStatus());
+                    rent.setStatus("Approved");
+
+            }
+            else{
+                rent.setStatus("Processing");
+            }
+            csvWriter.write(rent, nameMapping);
+        }
+        csvWriter.flush();
+        csvWriter.close();
+    }
+
 }

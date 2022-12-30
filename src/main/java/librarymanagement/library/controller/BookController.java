@@ -2,6 +2,7 @@ package librarymanagement.library.controller;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -93,6 +94,10 @@ public class BookController {
         return new ResponseEntity<Page<Book>>(list,new HttpHeaders(),
         HttpStatus.OK);
         
+    }
+    @GetMapping("/bycategory")
+    public List<Object[]> getcountByCategory(){
+        return bookService.getBookCountByCategory();
     }
     
 }

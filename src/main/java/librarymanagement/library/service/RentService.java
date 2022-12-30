@@ -6,11 +6,13 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
 
 import librarymanagement.library.entity.Rent;
 import librarymanagement.library.exception.NotFoundException;
 import librarymanagement.library.form.RentForm;
 import librarymanagement.library.view.RentListView;
+
 
 public interface RentService {
 
@@ -24,6 +26,7 @@ public interface RentService {
     Collection<Rent> list1();
     List<Rent>getAllRent(Integer pageNo,Integer pageSize,String sortBy);
     Page<Rent>getAllRentKey(String keyword,Integer pageNo,Integer pageSize,String sortBy);
+    List<Rent>listCsvSerach( String keyword);
     
     
     

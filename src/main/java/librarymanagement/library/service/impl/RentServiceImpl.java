@@ -26,7 +26,6 @@ import librarymanagement.library.service.RentService;
 import librarymanagement.library.view.RentListView;
 
 @Service
-
 public class RentServiceImpl implements RentService {
     
 
@@ -46,6 +45,11 @@ public class RentServiceImpl implements RentService {
     @Override
     public List<Rent>listcsv() {
         return rentRepository.findAllC();
+    }
+
+    @Override 
+    public List<Rent>listCsvSerach(String keyword)throws NotFoundException{
+        return rentRepository.findBySer(keyword);
     }
 
     @Override

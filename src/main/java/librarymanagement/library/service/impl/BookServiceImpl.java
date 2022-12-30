@@ -3,6 +3,7 @@ package librarymanagement.library.service.impl;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -66,6 +67,7 @@ public class BookServiceImpl implements BookService {
     // }
 
 
+    @Override
     public Page<Book>getAllBook(Integer pageNo,Integer pageSize,String sortBy){
             Pageable paging=PageRequest.of(pageNo,pageSize,Sort.by(sortBy));
             Page<Book> pagedResult=bookRepository.findAll(paging);
@@ -77,6 +79,7 @@ public class BookServiceImpl implements BookService {
             return pagedResult; 
     }
 
+    @Override
     public Page<Book>getAllBookStock(Integer pageNo,Integer pageSize,String sortBy){
         Pageable paging=PageRequest.of(pageNo,pageSize,Sort.by(sortBy));
         Page<Book> pagedResult=bookRepository.findAllStockNative(paging);
@@ -88,6 +91,7 @@ public class BookServiceImpl implements BookService {
         // }
     }
 
+    @Override
         public Page<Book>getAllBookStocks(String keyword, Integer pageNo,Integer pageSize,String sortBy){
             Pageable paging=PageRequest.of(pageNo,pageSize,Sort.by(sortBy));
             System.out.println(keyword);
@@ -113,5 +117,13 @@ public BookListView delete(Integer bookId) throws NotFoundException {
     // User user= userRepository.findById(currentUser.getUserId()).get();
             return new BookListView(bookRepository.save(book.delete()));
 }
+
+
+@Override
+public List<Object[]> getBookCountByCategory(){
+    return bookRepository.findcountByCategory();
+}
+
+
 
 }

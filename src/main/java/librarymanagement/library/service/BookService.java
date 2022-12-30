@@ -2,6 +2,7 @@ package librarymanagement.library.service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -21,6 +22,7 @@ public interface BookService {
     BookListView get(Integer bookId)throws NotFoundException;
 
     // void delete(Integer bookId)throws NotFoundException;
+    
 
     BookListView update(Integer bookId,BookForm form)throws NotFoundException;
     
@@ -28,4 +30,5 @@ public interface BookService {
     Page<Book>getAllBookStock(Integer pageNo,Integer pageSize,String sortBy);
     BookListView delete(Integer bookId) throws NotFoundException;
     Page<Book>getAllBookStocks(String keyword, Integer pageNo,Integer pageSize,String sortBy);
+    List<Object[]> getBookCountByCategory();
 }
