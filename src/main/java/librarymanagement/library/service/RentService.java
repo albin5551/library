@@ -1,6 +1,7 @@
 package librarymanagement.library.service;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -27,6 +28,7 @@ public interface RentService {
     List<Rent>getAllRent(Integer pageNo,Integer pageSize,String sortBy);
     Page<Rent>getAllRentKey(String keyword,Integer pageNo,Integer pageSize,String sortBy);
     List<Rent>listCsvSerach( String keyword);
+    // List<Rent>listBetweenDates();
     
     
     

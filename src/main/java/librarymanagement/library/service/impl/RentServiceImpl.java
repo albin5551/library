@@ -1,7 +1,10 @@
 package librarymanagement.library.service.impl;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -130,6 +133,16 @@ public Page<Rent>getAllRentKey(String keyword,Integer pageNo,Integer pageSize,St
     Page<Rent>pagedResult=rentRepository.findByKey(keyword, paging);
     return pagedResult;
 }
+// public  List<Rent>listBetweenDates(){
+//     LocalDateTime ed=LocalDateTime.now();
+//     System.out.println(ed);
+//    LocalDateTime st=LocalDateTime.now().minusDays(7);
+//    System.out.println(st);
+
+//     return rentRepository.findBybetweenDate();
+// }
+
+
 
 
 }

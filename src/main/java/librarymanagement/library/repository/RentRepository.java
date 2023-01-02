@@ -1,6 +1,8 @@
 package librarymanagement.library.repository;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +15,7 @@ import org.springframework.data.repository.Repository;
 import librarymanagement.library.entity.Rent;
 import librarymanagement.library.view.RentListView;
 
-public interface RentRepository extends PagingAndSortingRepository<Rent,Integer> {
+public interface RentRepository extends Repository<Rent,Integer> {
     Collection<Rent>findAll();
     
     @Query(value = "SELECT * FROM rent",nativeQuery = true)
@@ -36,5 +38,10 @@ public interface RentRepository extends PagingAndSortingRepository<Rent,Integer>
 
     // @Query(value = "DELETE FROM rent WHERE book_id=?1",nativeQuery=true)
     // void deleteByBookId(Integer bookId);
-    
+    @Query(value="SELECT * FROM rent WHERE  rent_date BETWEEN ?1 and ?2 AND return_date between ?1 and ?2 ",nativeQuery = true)
+    List <Rent>findBybetweenDate(LocalDateTime st,LocalDateTime ed);
+    @Query(value=" select * from rent where rent_date > now() - INTERVAL 7 day",nativeQuery = true)
+    List <Rent>findBybetweenDate();
+
+
 }

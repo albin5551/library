@@ -101,7 +101,7 @@ public Rent(){
         this.user=user;
         this.book=book;
         Date dt = new Date();
-        this.setStatus("3");
+        this.setStatus("2");
         this.rentDate= dt;
         // this.returnDate=form.getReturDate();
     }

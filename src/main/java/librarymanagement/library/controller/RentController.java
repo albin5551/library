@@ -163,5 +163,11 @@ public class RentController {
         csvWriter.flush();
         csvWriter.close();
     }
+// @GetMapping("/chart")
+//     public List<Rent>chart(){
+//         return rentService.listBetweenDates();
+//     }
+
+    
 
 }
