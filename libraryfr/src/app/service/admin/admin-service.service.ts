@@ -89,4 +89,7 @@ export class AdminServiceService {
   loadCategory():Observable<any>{
     return this.http.get('http://localhost:8080/category');
   }
+  exportSearch(data:any): Observable<Blob> {
+    return this.http.get('http://localhost:8080/rent/search/export/'+data, { responseType: 'blob' });
+  }
 }

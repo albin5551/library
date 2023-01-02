@@ -19,9 +19,17 @@ export class ReturnViewComponent implements OnInit {
 
   filename: any;
 dwn() {
+  if(this.key==""){
+
   this.myDate=this.datePipe.transform(this.curDate,'yyyy-MM-dd');
   this.filename="DataExport_"+this.myDate;
   this.adminService.export().subscribe((blob:any)=>saveAs(blob,this.filename))
+  }
+  else{
+    this.myDate=this.datePipe.transform(this.curDate,'yyyy-MM-dd');
+    this.filename="DataExport_"+this.myDate;
+    this.adminService.exportSearch(this.search.controls['inp'].value).subscribe((blob:any)=>saveAs(blob,this.filename))
+  }
 
 // throw new Error('Method not implemented.');
 }
