@@ -17,6 +17,8 @@ inlen:any;
 label:any []=[];
 count:any[]=[];
   mychart: any
+  barchart:  any;
+  bar: any;
 // labels:any[]=[];
   constructor(private adminService:AdminServiceService) { }
 
@@ -50,32 +52,68 @@ count:any[]=[];
       }
       console.log(this.label);
       console.log(this.count);
+
+      this.mychart = new Chart("MyChart", {
+        type: 'pie', //this denotes the type of chart
+        data: { //values on X-Axis
+          labels:this.label, 
+           datasets: [
+          
+            {
+              label: "BOOK COUNT",
+              data: this.count,
+              backgroundColor: ['blue','red','black']
+            }  
+          ]
+        },
+        options: {
+          aspectRatio:3.3
+        } 
+      });
+    
+    
       
     })
-    this.createChart();
+  
+
+  
+  
+  this.adminService.chartbar().subscribe(res=>{
+    console.log(res);
+    
+    this.bar=res;
+    this.barchart = new Chart("bar", {
+      type: 'bar', //this denotes the type of chart
+      data: { //values on X-Axis
+        labels:res.label, 
+         datasets: [
+          {
+            label: "RENT COUNT",
+            data: res.rentCount,
+            backgroundColor: 'red'
+          },
+          {
+            label: "RETURN COUNT",
+            data: res.returnCount,
+            backgroundColor: 'blue'
+          }  
+        ]
+      },
+      options: {
+        aspectRatio:3.3
+      } 
+    });
+  
+
+
+
+
+
+  })
+  
+  
   }
 
-
-
-  createChart(){ this.mychart = new Chart("MyChart", {
-    type: 'pie', //this denotes the type of chart
-    data: { //values on X-Axis
-      labels:this.label, 
-       datasets: [
-      
-        {
-          label: "BOOK COUNT",
-          data: this.count,
-          backgroundColor: ['blue','red','black']
-        }  
-      ]
-    },
-    options: {
-      aspectRatio:3.3
-    } 
-  });
-
-  }
 
   
 

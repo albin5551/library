@@ -54,6 +54,9 @@ export class AdminServiceService {
   chart():Observable<any>{
     return this.http.get('http://localhost:8080/book/bycategory')
   }
+  chartbar():Observable<any>{
+    return this.http.get('http://localhost:8080/rent/chart')
+  }
 
   // uploadCsv(file:File):Observable<HttpEvent<any>>{
   //   const formData: FormData = new FormData();

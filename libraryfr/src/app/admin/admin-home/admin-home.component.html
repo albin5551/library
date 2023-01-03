@@ -1,12 +1,19 @@
 <app-navbar-admin></app-navbar-admin>
-<body>
-    <h1 style="padding-top:2%;">ADMIN HOME</h1>
-     <!-- <img src="https://cdn.shopify.com/s/files/1/0984/3604/products/backdrop-blurred-books-library-room-1_1340x.jpg?v=1612742970">  -->
 
-     <div style="" >
-        <canvas   id="MyChart" >{{mychart}}</canvas>
-      
-      </div>
+<body class="col-md-12">
+  <h1 style="margin-top:4%;">ADMIN HOME</h1>
+  <!-- <img src="https://cdn.shopify.com/s/files/1/0984/3604/products/backdrop-blurred-books-library-room-1_1340x.jpg?v=1612742970">  -->
+
+  <div class="chart-container col-md-12 mb-5" style="position: relative; height:30vh; width:70vw; margin-left: 30px">
+    <h2>CATEGORY WISE CHART</h2>
+    <canvas id="MyChart">{{mychart}}</canvas>
+
+  </div>
+  <div class="chart-container col-md-12" style="position: relative; height:40vh; width:80vw; margin-left: 30px;">
+    <h2>RENT AND RETURN CHART</h2>
+    <canvas id="bar">{{bar}}</canvas>
+
+  </div>
 </body>
 
 <!-- <div class="aa"></div>
@@ -21,4 +28,3 @@
   
   </div>
   </div> -->
-

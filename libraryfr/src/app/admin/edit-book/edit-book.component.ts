@@ -9,13 +9,15 @@ import { AdminServiceService } from 'src/app/service/admin/admin-service.service
   styleUrls: ['./edit-book.component.css']
 })
 export class EditBookComponent implements OnInit {
+  loaddata: any;
 
   constructor(private route:ActivatedRoute,private adminService:AdminServiceService, private router:Router) { }
 
 editbook:FormGroup=new FormGroup({
   bookName:new FormControl(''),
   bookAuthor:new FormControl(''),
-  stock:new FormControl('')
+  stock:new FormControl(''),
+  categoryId:new FormControl('')
 })
 
 
@@ -24,7 +26,10 @@ onSubmit(){
   let data={
     bookName:this.editbook.controls['bookName'].value,
     bookAuthor:this.editbook.controls['bookAuthor'].value,
-    stock:this.editbook.controls['stock'].value
+    stock:this.editbook.controls['stock'].value,
+    categoryId:this.editbook.controls['categoryId'].value
+
+    
   }
 
 
@@ -45,9 +50,21 @@ onSubmit(){
   this.id=this.route.snapshot.params['id'];
   this.adminService.getBookbyId(this.id).subscribe(result=>{
     this.bookDetail=result;
+
+    this.editbook.controls['categoryId'].setValue(result.categoryId.categoryId)
+    this.editbook.controls['bookName'].setValue(result.bookName)
+    this.editbook.controls['bookAuthor'].setValue(result.bookAuthor)
+    this.editbook.controls['stock'].setValue(result.stock)
+
     console.log(this.bookDetail);
+  })
+  this.adminService.loadCategory().subscribe((data:any)=>{
+    this.loaddata=data;
+    console.log(this.loaddata);
   })
 
   }
+
+  
 
 }

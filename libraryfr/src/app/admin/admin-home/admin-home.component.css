@@ -1,17 +1,15 @@
-h1{
+h1 {
     text-align: center;
-    color: antiquewhite;
-    margin-top:5%
-   
+    color: rgb(0, 0, 0);
+    /* margin-top:5% */
+
 }
 
 
-body{
-    /* background-image: url("https://cdn.shopify.com/s/files/1/0984/3604/products/backdrop-blurred-books-library-room-1_1340x.jpg?v=1612742970");  */
+/* body{
+    background-image: url("https://cdn.shopify.com/s/files/1/0984/3604/products/backdrop-blurred-books-library-room-1_1340x.jpg?v=1612742970"); 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding-bottom: 1000px;
-    margin-top: -5%;
   
-}
+} */

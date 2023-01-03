@@ -6,11 +6,19 @@
 <body>
     <h1>EDIT BOOK</h1>
     <form [formGroup]="editbook" (ngSubmit)="onSubmit()">
-        Book Name <input type="text" formControlName="bookName" value [ngModel]="bookDetail.bookName">
+        Book Name <input type="text" formControlName="bookName" >
         <br>
-        Book Author <input type="text" formControlName="bookAuthor" value [ngModel]="bookDetail.bookAuthor">
+        Book Author <input type="text" formControlName="bookAuthor">
         <br>
-        Stock <input type="text" formControlName="stock" value [ngModel]="bookDetail.stock">
+
+        Category<select class="dropbtn" type="input" formControlName="categoryId"   >
+            <option value="" disabled selected>Select your Category</option>
+            <option  *ngFor="let category of loaddata" [value]="category.categoryId">
+            {{category.categoryName}}
+           </option>
+           </select>
+           <br>
+        Stock <input type="text" formControlName="stock" >
         <br>
         <button type="submit">Update</button>
     </form>
