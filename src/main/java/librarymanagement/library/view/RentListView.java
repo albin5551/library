@@ -1,5 +1,6 @@
 package librarymanagement.library.view;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Temporal;
@@ -13,10 +14,10 @@ public class RentListView {
 private final Integer rentId;
 private final UserView userId;
 private final BookListView bookId;
-@Temporal(TemporalType.TIMESTAMP)
-private Date rentDate;
-@Temporal(TemporalType.TIMESTAMP)
-private Date returnDate;
+// @Temporal(TemporalType.TIMESTAMP)
+private LocalDateTime rentDate;
+// @Temporal(TemporalType.TIMESTAMP)
+private LocalDateTime returnDate;
 private String status;
 
 
@@ -42,10 +43,10 @@ public UserView getUserId() {
 public BookListView getBookId() {
     return bookId;
 }
-public Date getRentDate() {
+public LocalDateTime getRentDate() {
     return rentDate;
 }
-public Date getReturnDate() {
+public LocalDateTime getReturnDate() {
     return returnDate;
 }
 

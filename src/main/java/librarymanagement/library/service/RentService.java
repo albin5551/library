@@ -29,6 +29,7 @@ public interface RentService {
     Page<Rent>getAllRentKey(String keyword,Integer pageNo,Integer pageSize,String sortBy);
     List<Rent>listCsvSerach( String keyword);
     // List<Rent>listBetweenDates();
+    // RentCharView getChart();
     
     
     

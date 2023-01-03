@@ -3,9 +3,12 @@ package librarymanagement.library.service.impl;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -26,6 +29,7 @@ import librarymanagement.library.repository.RentRepository;
 import librarymanagement.library.repository.UserRepository;
 import librarymanagement.library.security.util.SecurityUtil;
 import librarymanagement.library.service.RentService;
+import librarymanagement.library.view.RentCharView;
 import librarymanagement.library.view.RentListView;
 
 @Service
@@ -143,7 +147,80 @@ public Page<Rent>getAllRentKey(String keyword,Integer pageNo,Integer pageSize,St
 // }
 
 
+    public  RentCharView getChart(){
+        RentCharView result= new RentCharView();
+        String[] weeks = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
+        result.setLabel(Arrays.asList(weeks));
 
+        HashMap<Integer, Result> hm
+                = new HashMap<Integer, Result>();
+
+                hm.put(1, new Result(0, 0));
+                hm.put(2, new Result(0, 0));
+                hm.put(3, new Result(0, 0));
+                hm.put(4, new Result(0, 0));
+                hm.put(5, new Result(0, 0));
+                hm.put(6, new Result(0, 0));
+                hm.put(7, new Result(0, 0));
+
+                List<Rent>s=rentRepository.findAllC();
+
+                for(Rent a:s){
+                    LocalDateTime b = a.getRentDate();
+                    hm.put(b.getDayOfWeek().getValue(), new Result(hm.get(b.getDayOfWeek().getValue()).getRentCount() + 1,
+                    hm.get(b.getDayOfWeek().getValue()).getReturnCount()));
+                    LocalDateTime c=null;
+                    if(a.getStatus().equals("1"))
+                    {
+                    c = a.getReturnDate();
+
+                    hm.put(c.getDayOfWeek().getValue(), new Result(hm.get(c.getDayOfWeek().getValue()).getRentCount() ,
+                    hm.get(c.getDayOfWeek().getValue()).getReturnCount() +1));
+                
+                    System.out.println(hm.get(c.getDayOfWeek().getValue()).getReturnCount());   
+                }
+                    
+                    // System.out.println(b.getDayOfWeek().getValue());
+                    // System.out.println(hm.get(b.getMonth().getValue()).getReturnCount());
+
+                    
+                }
+                for (Map.Entry<Integer, Result > mapElement : hm.entrySet()) {
+                    result.getRentCount().add(mapElement.getValue().getRentCount()+"");
+                      result.getReturnCount().add(mapElement.getValue().getReturnCount()+"");
+
+                }
+                return result;
+
+    }
+
+
+public class Result {
+    private Integer rentCount;
+    private Integer returnCount;
+
+    public Result(Integer rentCount, Integer returnCount) {
+        this.rentCount = rentCount;
+        this.returnCount= returnCount;
+    }
+
+    public Integer getRentCount() {
+        return rentCount;
+    }
+
+    public void setRentCount(Integer rentCount) {
+        this.rentCount = rentCount;
+    }
+
+    public Integer getReturnCount() {
+        return returnCount;
+    }
+
+    public void setReturnCount(Integer returnCount) {
+        this.returnCount = returnCount;
+    }
+   
+}
 
 }
 

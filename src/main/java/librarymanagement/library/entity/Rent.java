@@ -1,5 +1,7 @@
 package librarymanagement.library.entity;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -28,10 +30,10 @@ public class Rent {
     private User user;
     @ManyToOne(fetch=FetchType.EAGER)
     private Book book;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date rentDate;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date returnDate;
+    // @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime rentDate;
+    // @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime returnDate;
     private  String status;
 
 
@@ -64,16 +66,16 @@ public Rent(){
     public void setBook(Book book) {
         this.book = book;
     }
-    public Date getRentDate() {
+    public LocalDateTime getRentDate() {
         return rentDate;
     }
-    public void setRentDate(Date rentDate) {
+    public void setRentDate(LocalDateTime rentDate) {
         this.rentDate = rentDate;
     }
-    public Date getReturnDate() {
+    public LocalDateTime getReturnDate() {
         return returnDate;
     }
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(LocalDateTime returnDate) {
         this.returnDate = returnDate;
     }
   
@@ -100,7 +102,7 @@ public Rent(){
     public Rent(RentForm form,User user,Book book){
         this.user=user;
         this.book=book;
-        Date dt = new Date();
+        LocalDateTime dt = LocalDateTime.now();
         this.setStatus("2");
         this.rentDate= dt;
         // this.returnDate=form.getReturDate();
@@ -111,7 +113,7 @@ public Rent(){
         this.user=user;
         this.book=book;
         // this.rentDate=form.getRentDate();
-        Date dt = new Date();
+        LocalDateTime dt = LocalDateTime.now();
         this.returnDate=dt;
         this.setStatus("0");
         return this;
@@ -122,7 +124,7 @@ public Rent(){
         this.user=user;
         this.book=book;
         // this.rentDate=form.getRentDate();
-        Date dt = new Date();
+        LocalDateTime dt = LocalDateTime.now();
         this.returnDate=dt;
         this.setStatus("1");
         return this;

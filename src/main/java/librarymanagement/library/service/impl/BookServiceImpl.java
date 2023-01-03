@@ -56,7 +56,8 @@ public class BookServiceImpl implements BookService {
     public BookListView update(Integer bookId, BookForm form) throws NotFoundException {
         return bookRepository.findById(bookId)
                 .map((book) -> {
-                    return new BookListView(bookRepository.save(book.update(form)));
+                    Category category=categoryRepository.findByCategoryId(form.getCategoryId());
+                    return new BookListView(bookRepository.save(book.update(form,category)));
                 }).orElseThrow(NotFoundException::new);
     }
 

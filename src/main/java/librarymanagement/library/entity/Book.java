@@ -123,10 +123,11 @@ public class Book {
         this.updateDate = dt;
     }
 
-    public Book update(BookForm form){
+    public Book update(BookForm form,Category category){
         this.bookName=form.getBookName();
         this.bookAuthor=form.getBookAuthor();
         this.stock=form.getStock();  
+        this.category=category;
         Date dt = new Date();
         this.updateDate = dt;
         return this;    

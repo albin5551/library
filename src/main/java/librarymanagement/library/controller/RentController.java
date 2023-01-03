@@ -34,6 +34,8 @@ import librarymanagement.library.entity.Rent;
 import librarymanagement.library.form.RentForm;
 import librarymanagement.library.json.Json.DateFormat;
 import librarymanagement.library.service.RentService;
+import librarymanagement.library.service.impl.RentServiceImpl;
+import librarymanagement.library.view.RentCharView;
 import librarymanagement.library.view.RentListView;
 
 @RestController
@@ -42,7 +44,8 @@ public class RentController {
 
     @Autowired
     private RentService rentService;
-
+    @Autowired
+    private RentServiceImpl rentServices;
     @GetMapping
     public Collection<Rent> list() {
         return rentService.list();
@@ -167,6 +170,11 @@ public class RentController {
 //     public List<Rent>chart(){
 //         return rentService.listBetweenDates();
 //     }
+@GetMapping("/chart")
+    public RentCharView getchart(){
+        RentCharView test =rentServices.getChart();
+        return test;
+    }
 
     
 
