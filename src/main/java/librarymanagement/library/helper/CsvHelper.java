@@ -47,7 +47,8 @@ public class CsvHelper {
                 Csv csvob=new Csv(
                     csvRecord.get("bookName"),
                     csvRecord.get("bookAuthor"),
-                    Integer.parseInt(csvRecord.get("stock")) 
+                    Integer.parseInt(csvRecord.get("stock")),
+                   Integer.parseInt(csvRecord.get("categoryId"))
                     
 
                 );

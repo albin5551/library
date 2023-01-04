@@ -123,14 +123,15 @@ public Collection<Rent>list1(){
     return rentRepository.findAllByUserUserId(SecurityUtil.getCurrentUserId());
 }
 
-public List<Rent>getAllRent(Integer pageNo,Integer pageSize,String sortBy){
+public Page<Rent>getAllRent(Integer pageNo,Integer pageSize,String sortBy){
     Pageable paging=PageRequest.of(pageNo,pageSize,Sort.by(sortBy));
     Page<Rent> pagedResult=rentRepository.findAll(paging);
-    if (pagedResult.hasContent()){
-        return pagedResult.getContent();
-    }else{
-        return new ArrayList<Rent>();
-    }
+    return pagedResult;
+    // if (pagedResult.hasContent()){
+    //     return pagedResult.getContent();
+    // }else{
+    //     return new ArrayList<Rent>();
+    // }
 }
 public Page<Rent>getAllRentKey(String keyword,Integer pageNo,Integer pageSize,String sortBy){
     Pageable paging=PageRequest.of(pageNo,pageSize,Sort.by(sortBy));

@@ -83,12 +83,12 @@ public class RentController {
     }
 
     @GetMapping("/pagenated")
-    public ResponseEntity<List<Rent>> getAllBorrow(
+    public ResponseEntity<Page<Rent>> getAllBorrow(
             @RequestParam(defaultValue = "0") Integer pageNo,
             @RequestParam(defaultValue = "10") Integer pageSize,
             @RequestParam(defaultValue = "id") String sortBy) {
-        List<Rent> list = rentService.getAllRent(pageNo - 1, pageSize, sortBy);
-        return new ResponseEntity<List<Rent>>(list, new HttpHeaders(),
+        Page<Rent> list = rentService.getAllRent(pageNo - 1, pageSize, sortBy);
+        return new ResponseEntity<Page<Rent>>(list, new HttpHeaders(),
                 HttpStatus.OK);
 
     }

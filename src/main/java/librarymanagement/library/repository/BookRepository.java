@@ -60,5 +60,6 @@ public interface BookRepository extends Repository <Book,Integer> {
 
     // @Query(value = "select * from book" ,nativeQuery = true)
     public List<Object[]> findcountByCategory();
+    // Book findBybookId(Integer bookId);
 
 }

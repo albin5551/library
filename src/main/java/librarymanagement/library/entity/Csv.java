@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 
 
 
@@ -37,6 +39,7 @@ public class Csv {
 @Column(name="book_id")
 private Long bookId;
 
+
 @Column(name="book_name")
 private String bookName;
 
@@ -48,6 +51,9 @@ private Integer stock;
 
 @Column(name = "status")
 private Byte status;
+
+@Column(name = "category_id")
+private Integer categoryId;
 
 @Column(name="create_date")
 @Temporal(TemporalType.TIMESTAMP)
@@ -116,6 +122,16 @@ public Date getUpdateDate() {
 public void setUpdateDate(Date updateDate) {
     this.updateDate = updateDate;
 }
+public Integer getCategoryId() {
+    return categoryId;
+}
+
+public void setCategoryId(Integer categoryId) {
+    this.categoryId = categoryId;
+}
+
+
+
 
 // public Csv(String bookName,String bookAuthor,Integer stock){
 //     // this.bookId=bookId;
@@ -128,10 +144,11 @@ public void setUpdateDate(Date updateDate) {
 // }
 
 
-public Csv(String bookName, String bookAuthor, Integer stock) {
+public Csv(String bookName, String bookAuthor, Integer stock,Integer categoryId) {
     this.bookName = bookName;
     this.bookAuthor = bookAuthor;
     this.stock = stock;
+    this.categoryId=categoryId;
     this.status=Status.ACTIVE.value;
     Date dt = new Date();
       this.createDate=dt;
@@ -141,8 +158,10 @@ public Csv(String bookName, String bookAuthor, Integer stock) {
 @Override
 public String toString() {
     return "Csv [bookId=" + bookId + ", bookName=" + bookName + ", bookAuthor=" + bookAuthor + ", stock=" + stock
-            + ", status=" + status + ", createDate=" + createDate + ", updateDate=" + updateDate + "]";
+            + ", status=" + status + ", categoryId=" + categoryId + ", createDate=" + createDate + ", updateDate="
+            + updateDate + "]";
 }
+
 
 
 

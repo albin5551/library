@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpEntity;
 
 import librarymanagement.library.entity.Book;
 import librarymanagement.library.exception.NotFoundException;
@@ -31,4 +32,5 @@ public interface BookService {
     BookListView delete(Integer bookId) throws NotFoundException;
     Page<Book>getAllBookStocks(String keyword, Integer pageNo,Integer pageSize,String sortBy);
     List<Object[]> getBookCountByCategory();
+    HttpEntity<byte[]> getImagePic(Integer bookId);
 }

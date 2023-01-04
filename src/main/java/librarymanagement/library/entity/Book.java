@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+import javax.persistence.Column;
 
 
 
@@ -38,6 +40,8 @@ public class Book {
     private Category category;
     private Integer stock;
     private byte status;
+    @Column(nullable = true, length = 64)
+    private String image;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
     @Temporal(TemporalType.TIMESTAMP)
@@ -109,6 +113,13 @@ public class Book {
     public void setCategory(Category category) {
         this.category = category;
     }
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
 
     public Book(BookForm form,Category category){
@@ -136,6 +147,13 @@ public class Book {
      public Book delete() {
         this.status = Status.INACTIVE.value;
         return this;
+     }
+
+     @Transient
+     public String getPhotosImagePath() {
+         if (image == null || bookId == null)
+             return null;
+         return "/items - photos/" + bookId + image;
      }
 
     @Override

@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Service;
 
 import librarymanagement.library.entity.Book;
@@ -20,8 +21,11 @@ import librarymanagement.library.exception.NotFoundException;
 import librarymanagement.library.form.BookForm;
 import librarymanagement.library.repository.BookRepository;
 import librarymanagement.library.repository.CategoryRepository;
+import librarymanagement.library.security.util.FileUpload;
 import librarymanagement.library.service.BookService;
 import librarymanagement.library.view.BookListView;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -125,6 +129,21 @@ public List<Object[]> getBookCountByCategory(){
     return bookRepository.findcountByCategory();
 }
 
+    //ImageUpload Contents
+@Override
+public HttpEntity<byte[]> getImagePic(Integer bookId) {
+
+    String image = bookRepository.findByBookId(bookId) .getImage();
+
+    byte[] file = FileUpload.getImage(image);
+
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.IMAGE_PNG);
+    headers.setContentLength(file.length);
+
+    return new HttpEntity<>(file, headers);
 
 
+
+}
 }

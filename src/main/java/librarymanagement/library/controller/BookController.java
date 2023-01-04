@@ -1,5 +1,6 @@
 package librarymanagement.library.controller;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,12 +22,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import librarymanagement.library.entity.Book;
 import librarymanagement.library.form.BookForm;
+import librarymanagement.library.repository.BookRepository;
+import librarymanagement.library.security.util.FileUpload;
 import librarymanagement.library.service.BookService;
 import librarymanagement.library.view.BookListView;
 import lombok.val;
+
+import org.springframework.util.StringUtils;
 
 @RestController
 @RequestMapping("/book")
@@ -33,7 +40,8 @@ public class BookController {
 
     @Autowired
     private BookService bookService;
-
+    @Autowired
+    private BookRepository bookRepository;
     @GetMapping
     public Collection<Book> list() {
         return bookService.list();
@@ -99,5 +107,31 @@ public class BookController {
     public List<Object[]> getcountByCategory(){
         return bookService.getBookCountByCategory();
     }
+    //ImageUpload Controller
+
+    @PostMapping("/save/image/{bookId}")
+    public void saveBookImage(@RequestParam(value="image" )  MultipartFile multipartFile,
+    @PathVariable Integer bookId) throws IOException {
+
+        Book book = bookRepository.findByBookId(bookId);
+
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        book.setImage(fileName);
+
+        bookRepository.save(book);
+
+    //  String UploadDir = "userProfile-photos/" + savedUserProfile.getUserprofileId();
+
+        FileUpload.saveUserProfile(fileName, multipartFile);
+
+    }
+     //Image View Controller
+
+     @GetMapping("/image/{bookId}")
+     public HttpEntity<byte[]> getImagePic(@PathVariable Integer bookId) {
+ 
+         return bookService.getImagePic(bookId);
+     }
+ 
     
 }

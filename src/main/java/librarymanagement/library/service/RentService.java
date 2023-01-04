@@ -25,7 +25,7 @@ public interface RentService {
     void delete(Integer rentId) throws NotFoundException;
     RentListView rentApprove(Integer rentId,  RentForm form);
     Collection<Rent> list1();
-    List<Rent>getAllRent(Integer pageNo,Integer pageSize,String sortBy);
+    Page<Rent>getAllRent(Integer pageNo,Integer pageSize,String sortBy);
     Page<Rent>getAllRentKey(String keyword,Integer pageNo,Integer pageSize,String sortBy);
     List<Rent>listCsvSerach( String keyword);
     // List<Rent>listBetweenDates();
