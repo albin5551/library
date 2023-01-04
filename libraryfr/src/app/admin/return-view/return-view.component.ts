@@ -77,11 +77,11 @@ len: any;
     
 
     if(this.key==""){
-          this.adminService.retrunview().subscribe(result=>{
-      this.rentDetails=result
-      this.count=this.rentDetails.length;
-      console.log(this.rentDetails);
-      // console.log(this.count)
+      this.adminService.pagenated(this.page,this.tableSize,this.sortBy).subscribe(result=>{
+      this.rentDetails=result.content;
+      this.count=result.totalElements;
+      // console.log(this.rentDetails);
+      console.log(this.count)
     })
 
     }else{
@@ -121,7 +121,8 @@ len: any;
     console.log(event)
     if(this.key==""){
       this.adminService.pagenated(event,this.tableSize,this.sortBy).subscribe((result=>{
-        this.rentDetails=result;
+        this.rentDetails=result.content;
+
         // console.log(this.data)
       }));        
     }

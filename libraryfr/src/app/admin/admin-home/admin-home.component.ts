@@ -62,7 +62,7 @@ count:any[]=[];
             {
               label: "BOOK COUNT",
               data: this.count,
-              backgroundColor: ['blue','red','black']
+              backgroundColor: ['blue','red','black','yellow','green','skyblue']
             }  
           ]
         },
