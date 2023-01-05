@@ -54,6 +54,7 @@
             <path
               d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
           </svg></th>
+          <th class="tbl_tr tbl_hd">Category</th>
         <th class="tbl_tr tbl_hd">Action</th>
 
       </tr>
@@ -66,6 +67,8 @@
         <td class="tbl_tr tbl_hd">{{book.bookName}}</td>
         <td class="tbl_tr tbl_hd">{{book.category.categoryName}}</td>
         <td class="tbl_tr tbl_hd">{{book.stock}}</td>
+        <td class="tbl_tr tbl_hd"><img src="../../../assets/item_pics/{{book.image}}" style="width: 100px; height: 100px;" ></td>
+
 
         <td style="display: flex; align-items: center; justify-content: center; padding-top: 10px;">
           <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit" class="btn btn-warning"
@@ -87,6 +90,8 @@
       </div>
     </div>
   </div>
+
+  <div ></div>
 </body>
 
 </html>

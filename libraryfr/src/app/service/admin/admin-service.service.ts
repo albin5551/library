@@ -95,4 +95,15 @@ export class AdminServiceService {
   exportSearch(data:any): Observable<Blob> {
     return this.http.get('http://localhost:8080/rent/search/export/'+data, { responseType: 'blob' });
   }
+
+  imageUpload(image:any,bookId:any):Observable<any>{
+
+
+    const formData: FormData = new FormData();
+    formData.append('image',image );
+    
+
+    return this.http.post('http://localhost:8080/book/save/image/'+bookId,formData);
+
+  }
 }

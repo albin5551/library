@@ -7,7 +7,7 @@
 <body>
     <h1>ADD BOOK</h1>
 
-    <form [formGroup]="bookreg" (ngSubmit)="onSubmit()" >
+    <form [formGroup]="bookreg"      >
 
     <input type="text" formControlName="bookName" placeholder="Enter the name">
     <div style="color: red;" *ngIf="bookreg.controls['bookName'].errors?.['required'] && (bookreg.controls['bookName'].touched ||bookreg.controls['bookName'].dirty)" >Required</div>
@@ -33,7 +33,20 @@
 
     <br>
 
-    <button type="submit">Add</button>
+    <tbody>
+        <tr>
+            <td><input type="file" (change)="selectFile($event)"></td>
+       
+            <!-- <td>
+                
+                <button [disabled]="!selectedFiles" (click)="upload() ">Upload </button>
+        </td>  -->
+            
+            
+        </tr>
+    </tbody>
+
+    <button type="submit" (click)="onSubmit()" >Add</button>
 </form>
 </body>
 </html>
