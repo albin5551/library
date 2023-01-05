@@ -10,15 +10,15 @@ import org.springframework.web.multipart.MultipartFile;
 import librarymanagement.library.exception.BadRequestException;
 
 public class FileUpload {
-      public static final String PATH = "/home/albinantony/Desktop/Libarymanagement/library/src/main/resources/images/";
-    // public static final String PATH = "/home/aswinabraham/HotelManagement/HotelManagementfront/src/assets/";
+    //   public static final String PATH = "/home/albinantony/Desktop/Libarymanagement/library/src/main/resources/images/";
+    public static final String PATH = "/home/albinantony/Desktop/Libarymanagement/libraryfr/library/libraryfr/src/assets/";
 
     public static final String PROFILE_PIC_DIR = "item_pics/";
 
     private FileUpload() {
     }
 
-    public static void saveUserProfile(String fileName, MultipartFile file) {
+    public static void saveBookImage(String fileName, MultipartFile file) {
 
         saveFile(PROFILE_PIC_DIR, fileName, file);
 

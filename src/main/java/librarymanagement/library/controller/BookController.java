@@ -69,8 +69,8 @@ public class BookController {
     @GetMapping("/pagenated")
     public ResponseEntity<Page<Book>>getAllBorrow(
                         @RequestParam(defaultValue = "0") Integer pageNo,
-                        @RequestParam(defaultValue = "10") Integer pageSize,
-                        @RequestParam(defaultValue = "id") String sortBy)
+                        @RequestParam(defaultValue = "5") Integer pageSize,
+                        @RequestParam(defaultValue = "book_id") String sortBy)
     {
         Page<Book> list = bookService.getAllBook(pageNo-1, pageSize, sortBy);
         return new ResponseEntity<Page<Book>>(list,new HttpHeaders(),
@@ -122,7 +122,7 @@ public class BookController {
 
     //  String UploadDir = "userProfile-photos/" + savedUserProfile.getUserprofileId();
 
-        FileUpload.saveUserProfile(fileName, multipartFile);
+        FileUpload.saveBookImage(fileName, multipartFile);
 
     }
      //Image View Controller
