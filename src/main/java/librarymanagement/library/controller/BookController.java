@@ -42,6 +42,7 @@ public class BookController {
     private BookService bookService;
     @Autowired
     private BookRepository bookRepository;
+
     @GetMapping
     public Collection<Book> list() {
         return bookService.list();
@@ -58,60 +59,60 @@ public class BookController {
     }
 
     @PutMapping("/{bookId}")
-    public BookListView update(@PathVariable("bookId")Integer bookId, @Valid @RequestBody BookForm form){
+    public BookListView update(@PathVariable("bookId") Integer bookId, @Valid @RequestBody BookForm form) {
         return bookService.update(bookId, form);
     }
+
     @DeleteMapping("/{bookId}")
-    public void delete(@PathVariable("bookId")Integer bookId){
+    public void delete(@PathVariable("bookId") Integer bookId) {
         bookService.delete(bookId);
     }
 
     @GetMapping("/pagenated")
-    public ResponseEntity<Page<Book>>getAllBorrow(
-                        @RequestParam(defaultValue = "0") Integer pageNo,
-                        @RequestParam(defaultValue = "5") Integer pageSize,
-                        @RequestParam(defaultValue = "book_id") String sortBy)
-    {
-        Page<Book> list = bookService.getAllBook(pageNo-1, pageSize, sortBy);
-        return new ResponseEntity<Page<Book>>(list,new HttpHeaders(),
-        HttpStatus.OK);
+    public ResponseEntity<Page<Book>> getAllBorrow(
+            @RequestParam(defaultValue = "0") Integer pageNo,
+            @RequestParam(defaultValue = "5") Integer pageSize,
+            @RequestParam(defaultValue = "book_id") String sortBy) {
+        Page<Book> list = bookService.getAllBook(pageNo - 1, pageSize, sortBy);
+        return new ResponseEntity<Page<Book>>(list, new HttpHeaders(),
+                HttpStatus.OK);
 
     }
-
 
     @GetMapping("/pagenateds")
-    public ResponseEntity<Page<Book>>getAllBookStocks(
-                        @RequestParam(defaultValue = "0") Integer pageNo,
-                        @RequestParam(defaultValue = "10") Integer pageSize,
-                        @RequestParam(defaultValue = "id") String sortBy)
-    {
-        Page<Book> list = bookService.getAllBookStock(pageNo-1, pageSize, sortBy);
-        return new ResponseEntity<Page<Book>>(list,new HttpHeaders(),
-        HttpStatus.OK);
+    public ResponseEntity<Page<Book>> getAllBookStocks(
+            @RequestParam(defaultValue = "0") Integer pageNo,
+            @RequestParam(defaultValue = "10") Integer pageSize,
+            @RequestParam(defaultValue = "id") String sortBy) {
+        Page<Book> list = bookService.getAllBookStock(pageNo - 1, pageSize, sortBy);
+        return new ResponseEntity<Page<Book>>(list, new HttpHeaders(),
+                HttpStatus.OK);
 
     }
+
     @GetMapping("/search/pagenateds")
-    public ResponseEntity<Page<Book>>getAllBookStockSearch(
-                        @RequestParam (defaultValue = "")String keyword,
-                        @RequestParam(defaultValue = "1") Integer pageNo,
-                        @RequestParam(defaultValue = "10") Integer pageSize,
-                        @RequestParam(defaultValue = "id") String sortBy)
-    {
-        System.out.println("paage size"+pageSize);
-        Page<Book> list = bookService.getAllBookStocks(keyword,pageNo-1,pageSize,sortBy);
-        return new ResponseEntity<Page<Book>>(list,new HttpHeaders(),
-        HttpStatus.OK);
-        
+    public ResponseEntity<Page<Book>> getAllBookStockSearch(
+            @RequestParam(defaultValue = "") String keyword,
+            @RequestParam(defaultValue = "1") Integer pageNo,
+            @RequestParam(defaultValue = "10") Integer pageSize,
+            @RequestParam(defaultValue = "id") String sortBy) {
+        System.out.println("paage size" + pageSize);
+        Page<Book> list = bookService.getAllBookStocks(keyword, pageNo - 1, pageSize, sortBy);
+        return new ResponseEntity<Page<Book>>(list, new HttpHeaders(),
+                HttpStatus.OK);
+
     }
+
     @GetMapping("/bycategory")
-    public List<Object[]> getcountByCategory(){
+    public List<Object[]> getcountByCategory() {
         return bookService.getBookCountByCategory();
+
     }
-    //ImageUpload Controller
+    // ImageUpload Controller
 
     @PostMapping("/save/image/{bookId}")
-    public void saveBookImage(@RequestParam(value="image" )  MultipartFile multipartFile,
-    @PathVariable Integer bookId) throws IOException {
+    public void saveBookImage(@RequestParam(value = "image") MultipartFile multipartFile,
+            @PathVariable Integer bookId) throws IOException {
 
         Book book = bookRepository.findByBookId(bookId);
 
@@ -120,18 +121,29 @@ public class BookController {
 
         bookRepository.save(book);
 
-    //  String UploadDir = "userProfile-photos/" + savedUserProfile.getUserprofileId();
+        // String UploadDir = "userProfile-photos/" +
+        // savedUserProfile.getUserprofileId();
 
         FileUpload.saveBookImage(fileName, multipartFile);
 
     }
-     //Image View Controller
+    // Image View Controller
 
-     @GetMapping("/image/{bookId}")
-     public HttpEntity<byte[]> getImagePic(@PathVariable Integer bookId) {
- 
-         return bookService.getImagePic(bookId);
-     }
- 
-    
+    @GetMapping("/image/{bookId}")
+    public HttpEntity<byte[]> getImagePic(@PathVariable Integer bookId) {
+
+        return bookService.getImagePic(bookId);
+    }
+    @GetMapping("/bycat")
+    public ResponseEntity< Page<Book>>getBookbyCategory(
+        @RequestParam("id") List< Integer> id,
+        @RequestParam(defaultValue = "1") Integer pageNo,
+        @RequestParam(defaultValue = "10") Integer pageSize,
+        @RequestParam(defaultValue = "book_id") String sortBy){
+            Page<Book> list = bookService.getBycategroy(id, pageNo - 1, pageSize, sortBy);
+            return new ResponseEntity<Page<Book>>(list, new HttpHeaders(),
+                    HttpStatus.OK);
+
+        }
+
 }

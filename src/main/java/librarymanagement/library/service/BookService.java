@@ -33,4 +33,5 @@ public interface BookService {
     Page<Book>getAllBookStocks(String keyword, Integer pageNo,Integer pageSize,String sortBy);
     List<Object[]> getBookCountByCategory();
     HttpEntity<byte[]> getImagePic(Integer bookId);
+    Page <Book>getBycategroy(List< Integer> categoryId,Integer pageNo,Integer pageSize,String sortBy);
 }

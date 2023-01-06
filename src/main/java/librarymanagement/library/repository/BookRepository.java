@@ -61,5 +61,9 @@ public interface BookRepository extends Repository <Book,Integer> {
     // @Query(value = "select * from book" ,nativeQuery = true)
     public List<Object[]> findcountByCategory();
     // Book findBybookId(Integer bookId);
+//    Page<Book>findByCategoryCategoryId(List< Integer> categoryId,Pageable pageable);
+
+   @Query(value = "Select * from book where category_id in(:categoryId)", nativeQuery=true)
+   Page<Book>findByCategoryCategoryId(List< Integer> categoryId,Pageable pageable);
 
 }

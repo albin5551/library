@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.transaction.Transactional;
 
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -145,5 +146,11 @@ public HttpEntity<byte[]> getImagePic(Integer bookId) {
 
 
 
+}
+@Override
+public Page<Book>getBycategroy(List< Integer>  categoryId,Integer pageNo,Integer pageSize,String sortBy){
+        Pageable paging=PageRequest.of(pageNo,pageSize,Sort.by(sortBy));
+        Page<Book> pagedResult=bookRepository.findByCategoryCategoryId(categoryId, paging);
+        return pagedResult;
 }
 }
