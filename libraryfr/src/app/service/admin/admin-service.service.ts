@@ -106,4 +106,10 @@ export class AdminServiceService {
     return this.http.post('http://localhost:8080/book/save/image/'+bookId,formData);
 
   }
+  categoryView():Observable<any>{
+    return this.http.get('http://localhost:8080/category');
+  }
+  bookByCategory(data: any [], pageno: any, pagesize: any, sortby: any):Observable<any>{
+    return this.http.get('http://localhost:8080/book/bycat?id=' + data + '&pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
+  }
 }
