@@ -1,6 +1,7 @@
 package librarymanagement.library.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -145,5 +146,26 @@ public class BookController {
                     HttpStatus.OK);
 
         }
+
+
+    @GetMapping("/authorname")
+    public ArrayList<String> getAuthorName() {
+        return bookService.getAuthor();
+
+    }
+    @GetMapping("/filter")
+    public ResponseEntity< Page<Book>>getbyAuthorandCategory(
+        @RequestParam("catid") List< Integer> id,
+        @RequestParam("author") List< String> author,
+        @RequestParam(defaultValue = "1") Integer pageNo,
+        @RequestParam(defaultValue = "10") Integer pageSize,
+        @RequestParam(defaultValue = "book_id") String sortBy){
+
+            Page<Book> list = bookService.getBybookAuthorandCategory(author,id, pageNo - 1, pageSize, sortBy);
+            return new ResponseEntity<Page<Book>>(list, new HttpHeaders(),
+                    HttpStatus.OK);
+
+        }
+
 
 }

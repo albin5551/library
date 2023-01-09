@@ -1,5 +1,6 @@
 package librarymanagement.library.service;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -34,4 +35,7 @@ public interface BookService {
     List<Object[]> getBookCountByCategory();
     HttpEntity<byte[]> getImagePic(Integer bookId);
     Page <Book>getBycategroy(List< Integer> categoryId,Integer pageNo,Integer pageSize,String sortBy);
+    Page <Book>getBybookAuthorandCategory(List< String> author,List<Integer>categoryId,Integer pageNo,Integer pageSize,String sortBy);
+    ArrayList<String> getAuthor();
 }
+
