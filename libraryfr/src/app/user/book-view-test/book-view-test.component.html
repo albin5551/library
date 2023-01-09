@@ -6,7 +6,7 @@
 <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.2.1/angular-material.min.css"> -->
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> -->
 <div class="container col-md-12" style="margin-top: 60px; display: inline-flex;">
-    <div class="col-md-2 mt-5">
+    <div class="col-md-2 mt-2">
         <div class="outer_div1 mb-2">
             <h2>Category</h2>
             <!-- <div  *ngFor="let cat of category"  >
@@ -36,7 +36,7 @@
     </div>
 
     <div class="col-md-10">
-        <div style="display: inline-flex;padding: 0px;" class="col-md-12">
+        <!-- <div style="display: inline-flex;padding: 0px;" class="col-md-12">
             <form [formGroup]="search" style="display: inline-flex;padding: 0px;" class="col-md-4">
                 <input type="text" class="form-control" formControlName="inp" placeholder="Search"
                     aria-label="Recipient's username" aria-describedby="basic-addon2" (ngModelChange)="ser()">
@@ -51,7 +51,7 @@
                     Upload file
                 </button>
             </div>
-        </div>
+        </div> -->
 
         <div class="mt-2 col-md-12" style="padding: 0px;">
             <div class="outer_div" *ngFor="let data of result | paginate 
@@ -66,17 +66,19 @@
                             style="width: 150px;height: 130px;margin-bottom: 5px;">
                         <label for="" style="font-size: 12px;">Name : {{data.bookName}}</label>
                         <label for="" style="font-size: 12px;">Author : {{data.bookAuthor}}</label><br>
-                        <label for="" style="font-size: 12px;">cat : {{data.category.categoryName}}</label>
                         <!-- <label for="" style="font-size: 12px;">Stock : {{data.stock}}</label> -->
 
                     </div>
-                    <div style="margin-top: 160px;" class="col-md-2">
+                    <!-- <div style="margin-top: 160px;" class="col-md-2">
                         <span class="material-symbols-outlined" style="cursor: pointer;" (click)="del(data.bookId)">
                             delete </span>
                         <span class="material-symbols-outlined" style="cursor: pointer;"
                             [routerLink]="['/editbook',data.bookId]">edit</span>
                         <span class="material-symbols-outlined" style="cursor: pointer;"
                             [routerLink]="['/bookdview',data.bookId]">visibility</span>
+                    </div> -->
+                   <div style="margin-top: 220px; position: absolute; margin-left: 25px;">
+                        <button type="submit" class="btn btn btn-primary" (click)="rent(data)">Rent</button>
                     </div>
                 </div>
 

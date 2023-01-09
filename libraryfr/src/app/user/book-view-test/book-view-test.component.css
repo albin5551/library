@@ -120,3 +120,12 @@ a {
     overflow-y: scroll;
     overflow-x: hidden;
 }
+.btn {
+    width: 60px;
+    /* background-color: rgb(121, 179, 218); */
+    border: none;
+    padding: 2px;
+    /* height: 25px; */
+    padding-top: 1px;
+   margin-top: 2px;
+  }

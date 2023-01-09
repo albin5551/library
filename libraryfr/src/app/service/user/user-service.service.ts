@@ -47,5 +47,12 @@ export class UserServiceService {
   getbyRentId(id:any){
     return this.http.get('http://localhost:8080/rent/'+id)
   }
+  bookByAuthorlistandcatid( catid: any[], authorname: any[],pageno: any, pagesize: any, sortby: any): Observable<any> {
+    
+    console.log('---',catid,'++++',authorname);
+    
+    return this.http.get('http://localhost:8080/book/filter?catid=' + catid + '&author=' + authorname + '&pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
+
+  }
   
 }

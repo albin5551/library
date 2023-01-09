@@ -10,6 +10,8 @@ import { AdminServiceService } from 'src/app/service/admin/admin-service.service
 })
 export class EditBookComponent implements OnInit {
   loaddata: any;
+  selectedFiles: any;
+  currentFile: any;
 
   constructor(private route:ActivatedRoute,private adminService:AdminServiceService, private router:Router) { }
 
@@ -37,6 +39,7 @@ onSubmit(){
     this.adminService.updateBook(this.id,data).subscribe(result=>{
       if(result){
         console.log(result);
+        this.upload()
         alert("Updated");
         this.router.navigate(['/testview'])
       }
@@ -65,6 +68,37 @@ onSubmit(){
 
   }
 
+  selectFile($event:any) {
+    this.selectedFiles=$event.target.files;
+  } 
+
+  upload()
+  {
   
+    if (this.selectedFiles) {
+      const file: File | null = this.selectedFiles.item(0);
+
+      if (file) {
+        this.currentFile = file;
+      }
+      //this.assi.assignmentId=
+      //this.assi.studentId=this.studentDetails.studentId
+      // this.assi.file=this.currentFile;
+      console.log(this.id)
+      this.adminService.imageUpload(this.currentFile,this.id).subscribe(
+      response =>{
+        console.log(response)
+
+        if(!response)
+        {
+          
+          alert("IMAGE UPLOADED SUCCESSFULLY")
+        }
+
+      }, error => { alert("Invalid Data\t " +error.HttpErrorResponse+"  Status" +error.status) 
+    }
+    )}
+  
+  }
 
 }

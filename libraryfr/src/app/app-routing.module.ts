@@ -14,6 +14,7 @@ import { ViewpgTestComponent } from './admin/viewpg-test/viewpg-test.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
 import { BookListComponent } from './user/book-list/book-list.component';
+import { BookViewTestComponent } from './user/book-view-test/book-view-test.component';
 import { ReturnBookComponent } from './user/return-book/return-book.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
 
@@ -34,7 +35,8 @@ const routes: Routes = [
   {path:'return',component:ReturnBookComponent},
   {path:'adreturn',component:ReturnViewComponent},
   {path:'useradd',component:AddUserComponent},
-  {path:'addcat',component:CategoryComponent}
+  {path:'addcat',component:CategoryComponent},
+  {path:'bookuviewtest',component:BookViewTestComponent}
 ];
 
 @NgModule({

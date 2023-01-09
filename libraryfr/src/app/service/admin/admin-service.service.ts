@@ -38,7 +38,7 @@ export class AdminServiceService {
     return this.http.put('http://localhost:8080/rent/approve/' + id, data)
   }
 
-  pagenated(pageno: any, pagesize: any, sortby: any):Observable<any> {
+  pagenated(pageno: any, pagesize: any, sortby: any): Observable<any> {
     return this.http.get('http://localhost:8080/rent/pagenated?pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
 
   }
@@ -51,12 +51,16 @@ export class AdminServiceService {
     return this.http.get('http://localhost:8080/book/search/pagenateds?keyword=' + data + '&pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
   }
 
-  chart():Observable<any>{
+  chart(): Observable<any> {
     return this.http.get('http://localhost:8080/book/bycategory')
   }
-  chartbar():Observable<any>{
+  chartbar(): Observable<any> {
     return this.http.get('http://localhost:8080/rent/chart')
   }
+  byAuthor(): Observable<any> {
+    return this.http.get('http://localhost:8080/book/authorname')
+  }
+
 
   // uploadCsv(file:File):Observable<HttpEvent<any>>{
   //   const formData: FormData = new FormData();
@@ -86,30 +90,41 @@ export class AdminServiceService {
     return this.http.get('http://localhost:8080/rent/export', { responseType: 'blob' });
   }
 
-  addCategory(data:any):Observable<any>{
-    return this.http.post('http://localhost:8080/category',data)
+  addCategory(data: any): Observable<any> {
+    return this.http.post('http://localhost:8080/category', data)
   }
-  loadCategory():Observable<any>{
+  loadCategory(): Observable<any> {
     return this.http.get('http://localhost:8080/category');
   }
-  exportSearch(data:any): Observable<Blob> {
-    return this.http.get('http://localhost:8080/rent/search/export/'+data, { responseType: 'blob' });
+  exportSearch(data: any): Observable<Blob> {
+    return this.http.get('http://localhost:8080/rent/search/export/' + data, { responseType: 'blob' });
   }
 
-  imageUpload(image:any,bookId:any):Observable<any>{
+  imageUpload(image: any, bookId: any): Observable<any> {
 
 
     const formData: FormData = new FormData();
-    formData.append('image',image );
-    
+    formData.append('image', image);
 
-    return this.http.post('http://localhost:8080/book/save/image/'+bookId,formData);
+
+    return this.http.post('http://localhost:8080/book/save/image/' + bookId, formData);
 
   }
-  categoryView():Observable<any>{
+  categoryView(): Observable<any> {
     return this.http.get('http://localhost:8080/category');
   }
-  bookByCategory(data: any [], pageno: any, pagesize: any, sortby: any):Observable<any>{
+  bookByCategory(data: any[], pageno: any, pagesize: any, sortby: any): Observable<any> {
     return this.http.get('http://localhost:8080/book/bycat?id=' + data + '&pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
   }
+  bookByAuthorlist(data: any[], pageno: any, pagesize: any, sortby: any): Observable<any> {
+    return this.http.get('http://localhost:8080/book/byauthor?id=' + data + '&pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
+  }
+  bookByAuthorlistandcatid( catid: any[], authorname: any[],pageno: any, pagesize: any, sortby: any): Observable<any> {
+    
+    console.log('---',catid,'++++',authorname);
+    
+    return this.http.get('http://localhost:8080/book/filter?catid=' + catid + '&author=' + authorname + '&pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
+
+  }
+
 }
