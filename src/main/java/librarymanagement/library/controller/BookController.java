@@ -103,7 +103,7 @@ public class BookController {
                 HttpStatus.OK);
 
     }
-
+//piechart
     @GetMapping("/bycategory")
     public List<Object[]> getcountByCategory() {
         return bookService.getBookCountByCategory();
@@ -166,6 +166,19 @@ public class BookController {
                     HttpStatus.OK);
 
         }
+        @GetMapping("/ufilter")
+        public ResponseEntity< Page<Book>>UsergetbyAuthorandCategory(
+            @RequestParam("catid") List< Integer> id,
+            @RequestParam("author") List< String> author,
+            @RequestParam(defaultValue = "1") Integer pageNo,
+            @RequestParam(defaultValue = "10") Integer pageSize,
+            @RequestParam(defaultValue = "book_id") String sortBy){
+    
+                Page<Book> list = bookService.UsergetBybookAuthorandCategory(author,id, pageNo - 1, pageSize, sortBy);
+                return new ResponseEntity<Page<Book>>(list, new HttpHeaders(),
+                        HttpStatus.OK);
+    
+            }
 
 
 }

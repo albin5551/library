@@ -10,6 +10,9 @@ import org.springframework.data.repository.Repository;
 public interface UserRepository extends Repository<User, Integer> {
 
     Optional<User> findById(Integer userId);
+    
+    @Query(value = "select * from user where user_id=?1",nativeQuery = true)
+    User findbyuserId(Integer userId);
 
     Optional<User> findByUserIdAndPassword(Integer userId, String password);
     // Optional<User> findByUserId(Integer userId);

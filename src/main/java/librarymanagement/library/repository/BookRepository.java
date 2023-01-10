@@ -64,12 +64,22 @@ public interface BookRepository extends Repository<Book, Integer> {
     @Query(value = "Select * from book where status = 1 AND category_id in(:categoryId)", nativeQuery = true)
     Page<Book> findByCategoryCategoryId(List<Integer> categoryId, Pageable pageable);
 
+    @Query(value = "Select * from book where status = 1 AND stock !=0 AND category_id in(:categoryId)", nativeQuery = true)
+    Page<Book> UfindByCategoryCategoryId(List<Integer> categoryId, Pageable pageable);
+
     @Query(value = "Select * from book where status = 1 AND book_author in (?1)", nativeQuery = true)
     Page<Book> findBybookAuthor(List<String> author, Pageable pageable);
+
+    @Query(value = "Select * from book where status = 1 AND stock !=0 book_author in (?1)", nativeQuery = true)
+    Page<Book> UfindBybookAuthor(List<String> author, Pageable pageable);
 
     @Query(value = "Select distinct (book_author) from book", nativeQuery = true)
     ArrayList<String> AuthorName();
 
-    @Query(value="select * from book where status =1 AND category_id in(?1)and book_author in(?2)",nativeQuery = true)
-    Page<Book>findByAuthorandCategory(List<Integer> categoryId,List<String> author, Pageable pageable);
+
+    @Query(value = "select * from book where status =1 AND category_id in(?1)and book_author in(?2)", nativeQuery = true)
+    Page<Book> findByAuthorandCategory(List<Integer> categoryId, List<String> author, Pageable pageable);
+
+    @Query(value = "select * from book where status =1 AND stock !=0 AND category_id in(?1)and book_author in(?2)", nativeQuery = true)
+    Page<Book> UfindByAuthorandCategory(List<Integer> categoryId, List<String> author, Pageable pageable);
 }

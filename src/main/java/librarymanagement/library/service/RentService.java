@@ -30,7 +30,8 @@ public interface RentService {
     List<Rent>listCsvSerach( String keyword);
     // List<Rent>listBetweenDates();
     // RentCharView getChart();
-    
+    void sendMails();
+    void fineGen();
     
     
 }

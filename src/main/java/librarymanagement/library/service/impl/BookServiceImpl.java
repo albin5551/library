@@ -28,6 +28,7 @@ import librarymanagement.library.service.BookService;
 import librarymanagement.library.view.BookListView;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.scheduling.annotation.Scheduled;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -152,18 +153,35 @@ public class BookServiceImpl implements BookService {
         return pagedResult;
     }
 
-    public Page<Book> getBybookAuthorandCategory(List<String> author, List<Integer> categoryId, Integer pageNo, Integer pageSize,
+    public Page<Book> getBybookAuthorandCategory(List<String> author, List<Integer> categoryId, Integer pageNo,
+            Integer pageSize,
             String sortBy) {
         Page<Book> pagedResult;
         Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
         if (author.size() > 0 && categoryId.size() == 0) {
-            
-           pagedResult = bookRepository.findBybookAuthor(author, paging);
+
+            pagedResult = bookRepository.findBybookAuthor(author, paging);
         } else if (author.size() == 0 && categoryId.size() > 0) {
-            pagedResult=bookRepository.findByCategoryCategoryId(categoryId,paging);
+            pagedResult = bookRepository.findByCategoryCategoryId(categoryId, paging);
+        } else {
+            pagedResult = bookRepository.findByAuthorandCategory(categoryId, author, paging);
+
         }
-        else{
-            pagedResult=bookRepository.findByAuthorandCategory(categoryId, author, paging);
+        return pagedResult;
+    }
+
+    public Page<Book> UsergetBybookAuthorandCategory(List<String> author, List<Integer> categoryId, Integer pageNo,
+            Integer pageSize,
+            String sortBy) {
+        Page<Book> pagedResult;
+        Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
+        if (author.size() > 0 && categoryId.size() == 0) {
+
+            pagedResult = bookRepository.UfindBybookAuthor(author, paging);
+        } else if (author.size() == 0 && categoryId.size() > 0) {
+            pagedResult = bookRepository.UfindByCategoryCategoryId(categoryId, paging);
+        } else {
+            pagedResult = bookRepository.UfindByAuthorandCategory(categoryId, author, paging);
 
         }
         return pagedResult;
@@ -173,5 +191,8 @@ public class BookServiceImpl implements BookService {
     public ArrayList<String> getAuthor() {
         return bookRepository.AuthorName();
     }
+
+ 
+
 
 }

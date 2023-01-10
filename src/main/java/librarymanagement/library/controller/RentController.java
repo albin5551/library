@@ -170,7 +170,7 @@ public class RentController {
 //     public List<Rent>chart(){
 //         return rentService.listBetweenDates();
 //     }
-@GetMapping("/chart")
+@GetMapping("/chart") //chart
     public RentCharView getchart(){
         RentCharView test =rentServices.getChart();
         return test;
