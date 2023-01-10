@@ -26,6 +26,7 @@
                 <th>BookName</th>
                 <th>RentDate</th>
                 <th>ReturnDate</th>
+                <th>DueDate</th>
                 <th>Status</th>
                 <th>Action</th>
 
@@ -36,6 +37,7 @@
                 <td>{{rent.book.bookName}}</td>
                 <td>{{rent.rentDate|date:'short'}}</td>
                 <td>{{rent.returnDate|date:'short'}}</td>
+                <td>{{rent.dueDate|date:'short'}}</td>
                 <!-- <td>{{rent.status}}</td> -->
                 <td><div *ngIf="rent.status ==='0' " class="status-div">
                     <p class="inactive-p"></p>

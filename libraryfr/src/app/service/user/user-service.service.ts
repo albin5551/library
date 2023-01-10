@@ -51,7 +51,7 @@ export class UserServiceService {
     
     console.log('---',catid,'++++',authorname);
     
-    return this.http.get('http://localhost:8080/book/filter?catid=' + catid + '&author=' + authorname + '&pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
+    return this.http.get('http://localhost:8080/book/ufilter?catid=' + catid + '&author=' + authorname + '&pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
 
   }
   

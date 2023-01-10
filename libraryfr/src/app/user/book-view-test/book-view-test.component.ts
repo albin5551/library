@@ -218,14 +218,14 @@ export class BookViewTestComponent implements OnInit {
           
             // console.log('++++++',id);
             // this.array.push(id);
-          this.adminService.bookByCategory(this.newArray,this.pageNo,this.tableSize,"").subscribe(res=>{
+          this.userService.bookByAuthorlistandcatid(this.newArray,this.newArrays,this.pageNo,this.tableSize,"").subscribe(res=>{
             this.result = res.content;
             this.count = res.totalElements;
             console.log(this.result);
             console.log(this.count)
-            if(this.result==""){
-             window.location.reload();
-            }
+            // if(this.result==""){
+            //  window.location.reload();
+            // }
           })
     
           }
@@ -269,14 +269,14 @@ export class BookViewTestComponent implements OnInit {
           
             // console.log('++++++',id);
             // this.array.push(id);
-          this.adminService.bookByAuthorlist(this.newArrays,this.pageNo,this.tableSize,"").subscribe(res=>{
+          this.userService.bookByAuthorlistandcatid(this.newArray,this.newArrays,this.pageNo,this.tableSize,"").subscribe(res=>{
             this.result = res.content;
             this.count = res.totalElements;
             console.log(this.result);
             console.log(this.count)
-            if(this.result==""){
-             window.location.reload();
-            }
+            // if(this.result==""){
+            //  window.location.reload();
+            // }
           })
     
             }

@@ -37,6 +37,8 @@
                 <th class="tbl_tr tbl_hd">BookName</th>
                 <th class="tbl_tr tbl_hd" style="width:12%">RentDate</th>
                 <th class="tbl_tr tbl_hd" style="width:12%">ReturnDate</th>
+                <th class="tbl_tr tbl_hd" style="width:12%">DueDate</th>
+                <th class="tbl_tr tbl_hd">Fine</th>
                 <th class="tbl_tr tbl_hd">Status</th>
                 <th class="tbl_tr tbl_hd"> Action</th>
             </tr>
@@ -51,6 +53,8 @@
                 <td class="tbl_tr tbl_hd">{{rent.book.bookName}}</td>
                 <td class="tbl_tr tbl_hd">{{rent.rentDate|date:'short'}}</td>
                 <td class="tbl_tr tbl_hd">{{rent.returnDate|date:'short'}}</td>
+                <td class="tbl_tr tbl_hd">{{rent.dueDate|date:'short'}}</td>
+                <td class="tbl_tr tbl_hd">{{rent.fine}}</td>
                 <!-- <td class="tbl_tr tbl_hd">{{rent.status}}</td> -->
                 <td class="tbl_tr tbl_hd">
                     <div *ngIf="rent.status === '0'" class="status-div">

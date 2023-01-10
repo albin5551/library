@@ -121,7 +121,7 @@ export class AdminServiceService {
   }
   bookByAuthorlistandcatid( catid: any[], authorname: any[],pageno: any, pagesize: any, sortby: any): Observable<any> {
     
-    console.log('---',catid,'++++',authorname);
+    // console.log('---',catid,'++++',authorname);
     
     return this.http.get('http://localhost:8080/book/filter?catid=' + catid + '&author=' + authorname + '&pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
 
