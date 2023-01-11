@@ -22,6 +22,7 @@ public class RentListView {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dueDate;
     private Long fine;
+    private Long dueDays;
 
     public RentListView(Rent rent) {
         this.rentId = rent.getRentId();
@@ -32,6 +33,7 @@ public class RentListView {
         this.dueDate=rent.getDueDate();
         this.status = rent.getStatus();
         this.fine=rent.getFine();
+        this.dueDays=rent.getDueDays();
 
     }
 
@@ -41,6 +43,10 @@ public class RentListView {
 
     public UserView getUserId() {
         return userId;
+    }
+
+    public Long getDueDays() {
+        return dueDays;
     }
 
     public BookListView getBookId() {

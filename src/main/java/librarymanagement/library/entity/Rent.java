@@ -36,6 +36,7 @@ public class Rent {
     private Date dueDate;
     private String status;
     private Long fine;
+    private Long dueDays;
     public Rent() {
 
     }
@@ -50,6 +51,14 @@ public class Rent {
 
     public User getUser() {
         return user;
+    }
+
+    public Long getDueDays() {
+        return dueDays;
+    }
+
+    public void setDueDays(Long dueDays) {
+        this.dueDays = dueDays;
     }
 
     public Integer getUserId() {

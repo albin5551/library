@@ -254,7 +254,10 @@ public class RentServiceImpl implements RentService {
             System.out.println(r.getRentId());
             Date d=new Date();
             Long due=d.getTime()-r.getDueDate().getTime(); //date conversion to time
+            // System.out.println(due);
             due=due/86400000; //time conversion to dat
+            // System.out.println(due);
+            r.setDueDays(due);
             r.setFine(due*5);
         }
 
