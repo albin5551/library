@@ -46,7 +46,7 @@ public interface RentRepository extends Repository<Rent, Integer> {
     // List<Rent> findBybetweenDate();
     @Query(value = "select * from rent where rent_id in(select rent_id  from rent where CAST(due_date AS date)=date_add(curdate(),interval 1 day) and (status=2 or status=0) )", nativeQuery = true)
     Collection<Rent>findbyDueDate();
-    @Query(value = "select * from rent where rent_id in(select rent_id  from rent where due_date < now() and (status=2 or status=0 ));", nativeQuery = true)
+    @Query(value = "select * from rent where rent_id in(select rent_id  from rent where CAST(due_date AS date) < curdate() and (status=2 or status=0 ));", nativeQuery = true)
     Collection<Rent>findbyDueDateFine();
 
 
