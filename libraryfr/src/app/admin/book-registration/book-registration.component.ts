@@ -28,6 +28,9 @@ export class BookRegistrationComponent implements OnInit {
     }
   )
 
+a={
+  'message':'eee'
+}
   onSubmit() {
     if(this.bookreg.valid){
       this.adminService.addBook(this.bookreg.value).subscribe(result=>{
@@ -36,11 +39,18 @@ export class BookRegistrationComponent implements OnInit {
           console.log(result);
           this.upload()
           alert("Added")
+          // let msg="NewBook"+result.bookName;
+          let ag={
+            message:"Newbook"+result.bookName+"Added"
+          }
+          this.adminService.notification(ag).subscribe()
           window.location.reload();
+
         }
         else{
           alert("not added")
         }
+    
       })
     }
    

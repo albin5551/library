@@ -33,6 +33,7 @@ import { AddUserComponent } from './admin/add-user/add-user.component';
 import { DatePipe } from '@angular/common';
 import { CategoryComponent } from './admin/category/category.component';
 import { BookViewTestComponent } from './user/book-view-test/book-view-test.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -73,6 +74,7 @@ import { BookViewTestComponent } from './user/book-view-test/book-view-test.comp
     NgxPaginationModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
+    NgbModule,
     
   
   ],

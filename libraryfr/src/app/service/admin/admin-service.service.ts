@@ -61,6 +61,13 @@ export class AdminServiceService {
     return this.http.get('http://localhost:8080/book/authorname')
   }
 
+  notification(data:any):Observable<any>{
+
+    console.log(data);
+    
+    return this.http.post('http://localhost:8080/notification/addmsg',data)
+  }
+
 
   // uploadCsv(file:File):Observable<HttpEvent<any>>{
   //   const formData: FormData = new FormData();

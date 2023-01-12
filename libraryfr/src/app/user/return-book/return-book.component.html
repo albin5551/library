@@ -29,6 +29,7 @@
                 <th>RentDate</th>
                 <th>ReturnDate</th>
                 <th>DueDate</th>
+                <th>Fine</th>
                 <th>Status</th>
                 <th>Action</th>
 
@@ -40,6 +41,7 @@
                 <td>{{rent.rentDate|date:'short'}}</td>
                 <td>{{rent.returnDate|date:'short'}}</td>
                 <td>{{rent.dueDate|date:'short'}}</td>
+                <td>{{rent.fine}}</td>
                 <td>
                     <div *ngIf="rent.status ==='0' " class="status-div">
                         <p class="inactive-p"></p>
