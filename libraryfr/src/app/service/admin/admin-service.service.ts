@@ -133,5 +133,11 @@ export class AdminServiceService {
     return this.http.get('http://localhost:8080/book/filter?catid=' + catid + '&author=' + authorname + '&pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
 
   }
+  requestview():Observable<any>{
+    return this.http.get('http://localhost:8080/request/')
+  }
 
+  requestApprove(id:any,data:any):Observable<any>{
+    return this.http.put('http://localhost:8080/request/'+id,data);
+  }
 }

@@ -34,6 +34,10 @@ import { DatePipe } from '@angular/common';
 import { CategoryComponent } from './admin/category/category.component';
 import { BookViewTestComponent } from './user/book-view-test/book-view-test.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatDialogModule} from '@angular/material/dialog';
+import { NotificationComponent } from './user/notification/notification.component';
+import { MatButton, MatButtonModule } from '@angular/material/button';
+import { RequestviewComponent } from './admin/requestview/requestview.component';
 
 
 
@@ -60,6 +64,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddUserComponent,
     CategoryComponent,
     BookViewTestComponent,
+    NotificationComponent,
+    RequestviewComponent,
     
    
   ],
@@ -75,10 +81,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     MatPaginatorModule,
     NgbModule,
+    MatDialogModule,
+    MatButtonModule
+   
     
   
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenServiceService,multi:true},[DatePipe]],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[NotificationComponent]
 })
 export class AppModule { }

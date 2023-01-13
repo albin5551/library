@@ -37,7 +37,7 @@ export class UserServiceService {
     return this.http.get('http://localhost:8080/rent/list/user')
   }
 
-  retrun(id:any,data:any){
+    retrun(id:any,data:any){
     // console.log(id,"  ",data);
     
     
@@ -54,5 +54,12 @@ export class UserServiceService {
     return this.http.get('http://localhost:8080/book/ufilter?catid=' + catid + '&author=' + authorname + '&pageNo=' + pageno + '&pageSize=' + pagesize + '&sortBy=' + sortby)
 
   }
-  
+  notfiview():Observable<any>{
+    return this.http.get('http://localhost:8080/notification/viewmsg')
+  }
+  request(bookId:any):Observable<any>{
+
+    return this.http.post('http://localhost:8080/request/',bookId)
+
+  }
 }

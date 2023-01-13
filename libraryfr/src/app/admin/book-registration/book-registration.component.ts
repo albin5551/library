@@ -41,8 +41,10 @@ a={
           alert("Added")
           // let msg="NewBook"+result.bookName;
           let ag={
-            message:"Newbook"+result.bookName+"Added"
+            message:"Newbook "+result.bookName+" is added",
+            bookId:result.bookId
           }
+          console.log(ag)
           this.adminService.notification(ag).subscribe()
           window.location.reload();
 
