@@ -53,7 +53,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public BookListView get(Integer bookId) throws NotFoundException {
-        return bookRepository.findById(bookId).map((book) -> {
+        return bookRepository.findById(bookId).map((book)->{
             return new BookListView(book);
         }).orElseThrow(NotFoundException::new);
     }
@@ -191,8 +191,5 @@ public class BookServiceImpl implements BookService {
     public ArrayList<String> getAuthor() {
         return bookRepository.AuthorName();
     }
-
- 
-
 
 }

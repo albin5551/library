@@ -5,9 +5,11 @@ import java.util.Objects;
 
 import javax.annotation.Generated;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -25,6 +27,8 @@ public class Notification {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateDate;
     private byte status;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Book book;
 
     public static enum Status {
         INACTIVE((byte) 0),
@@ -57,6 +61,14 @@ public class Notification {
         this.updateDate = updateDate;
     }
 
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
     public Integer getNotifiId() {
         return notifiId;
     }
@@ -73,11 +85,11 @@ public class Notification {
         this.message = message;
     }
 
-    public Notification(NotificationForm form) {
+    public Notification(NotificationForm form ,Book book) {
         this.message = form.getMessage();
         Date dt = new Date();
         this.createDate = dt;
-
+        this.book=book;
         this.status = Status.ACTIVE.value;
     }
 

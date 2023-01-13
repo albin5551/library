@@ -11,6 +11,7 @@ public class NotificationListView {
     @Json.DateTimeFormat
     private final Date updateDate;
     private final byte status;
+    private final BookListView bookId;
 
 
 
@@ -20,6 +21,7 @@ public class NotificationListView {
         this.createDate=notification.getCreateDate();
         this.updateDate=notification.getUpdateDate();
         this.status=notification.getStatus();
+        this.bookId=new BookListView(notification.getBook());
 
     }
     public Integer getNotifiId() {
@@ -36,6 +38,9 @@ public class NotificationListView {
     }
     public byte getStatus() {
         return status;
+    }
+    public BookListView getBookId() {
+        return bookId;
     }
     
 
