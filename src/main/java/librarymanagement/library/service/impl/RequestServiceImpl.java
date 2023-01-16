@@ -45,28 +45,28 @@ public class RequestServiceImpl implements RequestServic {
 
     // @Override
     // @Transactional
-    // public RequestListview update(Integer reqId, RequestForm form) throws NotFoundException {
-    //     Request req=requestRepository.findById(reqId);
-    //     User user = userRepository.findById(SecurityUtil.getCurrentUserId()).orElseThrow(NotFoundException::new);
-    //     Book book = bookRepository.findByBookId(form.getBookId());
-    //     req.setBook(book);
-    //     req.setUser(user);
-    //     requestRepository.save(req);
-    //     return new RequestListview(req);
+    // public RequestListview update(Integer reqId, RequestForm form) throws
+    // NotFoundException {
+    // Request req=requestRepository.findById(reqId);
+    // User user =
+    // userRepository.findById(SecurityUtil.getCurrentUserId()).orElseThrow(NotFoundException::new);
+    // Book book = bookRepository.findByBookId(form.getBookId());
+    // req.setBook(book);
+    // req.setUser(user);
+    // requestRepository.save(req);
+    // return new RequestListview(req);
 
     // }
     @Override
     @Transactional
     public RequestListview update(Integer requestId, RequestForm form) throws NotFoundException {
-   Request request=requestRepository.findById(requestId).orElseThrow(NotFoundException::new);
-   User user = userRepository.findById(SecurityUtil.getCurrentUserId()).orElseThrow(NotFoundException::new);
-   Book book = bookRepository.findByBookId(form.getBookId());
-   request.setBook(book);
-   request.setUser(user);
-//    byte a=0;
-//    request.setStatus(a);
-   return new RequestListview(
-                            requestRepository.save(request.update( user, book)));
-   
+        Request request = requestRepository.findById(requestId).orElseThrow(NotFoundException::new);
+        User user = userRepository.findById(SecurityUtil.getCurrentUserId()).orElseThrow(NotFoundException::new);
+        Book book = bookRepository.findByBookId(form.getBookId());
+        request.setBook(book);
+        request.setUser(user);
+        return new RequestListview(
+                requestRepository.save(request.update(user, book)));
+
     }
 }

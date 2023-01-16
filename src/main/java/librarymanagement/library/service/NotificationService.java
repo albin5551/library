@@ -10,4 +10,8 @@ public interface NotificationService {
 
     NotificationListView add(NotificationForm form );
     Collection<Notification> listAll();
+    void aad(NotificationForm form);
+    Collection<Notification> listbyId();
+    void deleteAllbyUserid();
+    
 }

@@ -10,8 +10,8 @@ import org.springframework.data.repository.Repository;
 public interface UserRepository extends Repository<User, Integer> {
 
     Optional<User> findById(Integer userId);
-    
-    @Query(value = "select * from user where user_id=?1",nativeQuery = true)
+
+    @Query(value = "select * from user where user_id=?1", nativeQuery = true)
     User findbyuserId(Integer userId);
 
     Optional<User> findByUserIdAndPassword(Integer userId, String password);
@@ -23,7 +23,10 @@ public interface UserRepository extends Repository<User, Integer> {
 
     void delete(User userId);
 
+    // Collection<User>findbyStatus();
+
     Collection<User> findAll();
-    @Query(value = "SELECT * FROM user WHERE email=?",nativeQuery = true)
+
+    @Query(value = "SELECT * FROM user WHERE email=?", nativeQuery = true)
     User findByEmailId(String email);
 }

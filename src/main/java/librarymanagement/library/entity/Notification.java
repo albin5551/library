@@ -29,6 +29,9 @@ public class Notification {
     private byte status;
     @ManyToOne(fetch = FetchType.EAGER)
     private Book book;
+    private Integer senderId;
+    private Integer recipentId;
+    private byte readStatus;
 
     public static enum Status {
         INACTIVE((byte) 0),
@@ -40,7 +43,16 @@ public class Notification {
             this.value = value;
         }
     }
+    public static enum notificationStatus {
+        UNREAD((byte) 0),
+        READ((byte) 1);
 
+        public final byte value;
+
+        private notificationStatus(byte value) {
+            this.value = value;
+        }
+    }
     public Notification() {
 
     }
@@ -59,6 +71,30 @@ public class Notification {
 
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public Integer getSenderId() {
+        return senderId;
+    }
+
+    public void setSenderId(Integer senderId) {
+        this.senderId = senderId;
+    }
+
+    public Integer getRecipentId() {
+        return recipentId;
+    }
+
+    public void setRecipentId(Integer recipentId) {
+        this.recipentId = recipentId;
+    }
+
+    public byte getReadStatus() {
+        return readStatus;
+    }
+
+    public void setReadStatus(byte readStatus) {
+        this.readStatus = readStatus;
     }
 
     public Book getBook() {
@@ -91,14 +127,23 @@ public class Notification {
         this.createDate = dt;
         this.book=book;
         this.status = Status.ACTIVE.value;
+        this.readStatus=notificationStatus.UNREAD.value;
     }
+    // public Notification add(Book book) {
+    //     // this.message = form.getMessage();
+    //     Date dt = new Date();
+    //     this.createDate = dt;
+    //     this.book=book;
+    //     this.status = Status.ACTIVE.value;
+    //     this.readStatus=notificationStatus.UNREAD.value;
+    //     return this;
+    // }
 
-    public Notification update(NotificationForm form) {
-        this.message = form.getMessage();
+    public Notification update() {
+        // this.message = form.getMessage();
         Date dt = new Date();
-
+        this.readStatus=notificationStatus.READ.value;
         this.updateDate = dt;
-
         return this;
     }
 

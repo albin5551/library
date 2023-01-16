@@ -12,6 +12,7 @@ public class NotificationListView {
     private final Date updateDate;
     private final byte status;
     private final BookListView bookId;
+    private final Integer recipentId;
 
 
 
@@ -22,6 +23,8 @@ public class NotificationListView {
         this.updateDate=notification.getUpdateDate();
         this.status=notification.getStatus();
         this.bookId=new BookListView(notification.getBook());
+        this.recipentId=notification.getRecipentId();
+
 
     }
     public Integer getNotifiId() {
@@ -41,6 +44,9 @@ public class NotificationListView {
     }
     public BookListView getBookId() {
         return bookId;
+    }
+    public Integer getRecipentId() {
+        return recipentId;
     }
     
 
