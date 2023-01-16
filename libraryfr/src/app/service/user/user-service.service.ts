@@ -62,4 +62,8 @@ export class UserServiceService {
     return this.http.post('http://localhost:8080/request/',bookId)
 
   }
+  notificationClear(){
+    console.log("here")
+    return this.http.delete('http://localhost:8080/notification/read')
+  }
 }

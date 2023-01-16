@@ -35,5 +35,11 @@ this.userService.request(ag).subscribe(res=>{
   
 })
   }
+  clr(){
+    console.log("787878");
+    
+    this.userService.notificationClear().subscribe();
+    // window.location.reload();
+  }
 
 }

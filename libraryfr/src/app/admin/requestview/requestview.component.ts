@@ -51,6 +51,7 @@ this.rent(rent);
     if(result){
       console.log(result);
       alert("requestapproved");
+      window.location.reload();
     }
    })
 

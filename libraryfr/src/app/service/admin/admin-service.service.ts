@@ -65,7 +65,7 @@ export class AdminServiceService {
 
     console.log(data);
     
-    return this.http.post('http://localhost:8080/notification/addmsg',data)
+    return this.http.post('http://localhost:8080/notification/addmsgs',data)
   }
 
 

@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <div *ngFor="let no of data" >
-        <div>{{no.message}}</div>
-        <div><button mat-raised-button (click)="request(no.book.bookId)">request</button></div>
 
+<body>
+    <button mat-raised-button class="butn_clr"(click)="clr()"  >Clear All</button>
+    <div  *ngFor="let no of data">
+        <div >{{no.message}}</div>
+        <div>stock:{{no.book.stock}}</div>
+        <div class="single_div">
+            <button mat-raised-button class="butn" (click)="request(no.book.bookId)">request</button>
+        </div>
     </div>
 </body>
 

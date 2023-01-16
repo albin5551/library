@@ -1,0 +1,22 @@
+.butn {
+    border: none;
+    outline: none;
+
+}
+.butn_clr {
+    border: none;
+    outline: none;
+    background-color: rgb(75, 131, 204);
+    margin-left: 90px;
+
+}
+
+
+.single_div {
+    padding: 5px;
+    border: 1px solid;
+    border-bottom-color: rgb(219, 219, 219);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+}

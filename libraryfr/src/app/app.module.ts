@@ -39,7 +39,8 @@ import { NotificationComponent } from './user/notification/notification.componen
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { RequestviewComponent } from './admin/requestview/requestview.component';
 
-
+import { MatBadgeModule} from '@angular/material/badge'; 
+import { MatIconModule} from '@angular/material/icon'; 
 
 
 @NgModule({
@@ -82,7 +83,9 @@ import { RequestviewComponent } from './admin/requestview/requestview.component'
     MatPaginatorModule,
     NgbModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatBadgeModule,
+    MatIconModule
    
     
   

@@ -48,11 +48,11 @@
              
                 <!-- <td class="tbl_tr tbl_hd">{{req.status}}</td> -->
                 <td class="tbl_tr tbl_hd">
-                    <div *ngIf="req.status === '1'" class="status-div">
+                    <div *ngIf="req.status == '1'" class="status-div">
                         <p class="inactive-p"></p>
                         <span class="status-span">Processing</span>
                     </div>
-                    <div *ngIf="req.status === '0'" class="status-div">
+                    <div *ngIf="req.status == '0'" class="status-div">
                     <p class="inactive-p"></p>
                     <span class="status-span">Accepted</span>
                 </div>
