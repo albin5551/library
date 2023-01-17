@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import librarymanagement.library.entity.Notification;
@@ -54,6 +55,11 @@ public class NotificationController {
     void read() {
         System.out.println("+++");
         notificationService.deleteAllbyUserid();
+    }
+    @PutMapping("/userread")
+    void userRead(@RequestParam Integer notId){
+        notificationService.readNotification(notId);
+        
     }
 
 }

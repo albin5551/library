@@ -1,6 +1,9 @@
 package librarymanagement.library.service.impl;
 
 import java.util.Date;
+
+import javax.transaction.Transactional;
+
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,6 +90,13 @@ public class NotifictationServiceimpl implements NotificationService {
 
         }
 
+    }
+    @Override
+    @Transactional
+    public void readNotification( Integer notId){
+        Notification notification=notificationRepository.findById(notId).orElseThrow(NotFoundException::new);
+        byte s=1;
+        notification.setReadStatus(s);
     }
 
 }

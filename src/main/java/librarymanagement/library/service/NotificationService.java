@@ -13,5 +13,6 @@ public interface NotificationService {
     void aad(NotificationForm form);
     Collection<Notification> listbyId();
     void deleteAllbyUserid();
+    void readNotification(Integer notId);
     
 }
