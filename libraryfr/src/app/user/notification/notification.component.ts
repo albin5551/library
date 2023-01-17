@@ -19,6 +19,11 @@ export class NotificationComponent implements OnInit {
 })
   }
 
+read(res:any){
+  this.userService.notificationRead(res).subscribe()
+}
+
+
   request(id:any){
 
 console.log(id);
@@ -27,7 +32,8 @@ console.log(id);
     bookId:id
     }
 this.userService.request(ag).subscribe(res=>{
-  console.log(res);
+  console.log(res.notifiId);
+
   if(res){
     alert("request successful")
     window.location.reload();

@@ -66,4 +66,8 @@ export class UserServiceService {
     console.log("here")
     return this.http.delete('http://localhost:8080/notification/read')
   }
+  notificationRead(id:any){
+    console.log("++",id)
+  return this.http.put('http://localhost:8080/notification/userread?notId='+id,null)
+  }
 }

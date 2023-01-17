@@ -15,7 +15,7 @@
         <div >{{no.message}}</div>
         <div>stock:{{no.book.stock}}</div>
         <div class="single_div">
-            <button mat-raised-button class="butn" (click)="request(no.book.bookId)">request</button>
+            <button mat-raised-button class="butn" (click)="request(no.book.bookId)" (click)="read(no.notifiId)">request</button>
         </div>
     </div>
 </body>
