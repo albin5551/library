@@ -27,7 +27,7 @@ public class EmailController {
 
     @PostMapping("/emailsent")
     public ResponseEntity<?>sendEmail(@RequestBody EmailForm form){
-        boolean result = this.emailService.sendEmail("Nan dhaa shandhappan","Eda poda patti njn email set akki", form.getSentto());
+        boolean result = this.emailService.sendEmail("Nan dhaa shandhappan","njn email ", form.getSentto());
         // "OTP Verification", "Your OTP to change your password is "+"otp"+"use it to create a new password."
         if(result){
             return  ResponseEntity.ok("Email Sent!");
