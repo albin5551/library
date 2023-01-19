@@ -7,6 +7,7 @@ import { BookRegistrationComponent } from './admin/book-registration/book-regist
 import { BookReportComponent } from './admin/book-report/book-report.component';
 import { CategoryComponent } from './admin/category/category.component';
 import { EditBookComponent } from './admin/edit-book/edit-book.component';
+import { NavbarAdminComponent } from './admin/navbar-admin/navbar-admin.component';
 import { RequestviewComponent } from './admin/requestview/requestview.component';
 import { ReturnViewComponent } from './admin/return-view/return-view.component';
 import { TestviewComponent } from './admin/testview/testview.component';
@@ -20,25 +21,26 @@ import { ReturnBookComponent } from './user/return-book/return-book.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'/login',pathMatch:'full'},
-  {path:'login',component:LoginComponent},
-  {path:'bookreg',component:BookRegistrationComponent},
-  {path:'viewbook',component:ViewBookregComponent},
-  {path:'editbook/:id',component:EditBookComponent},
-  {path:'viewtest',component:ViewpgTestComponent},
-  {path:'bookdview/:id',component:BookDeatilviewComponent},
-  {path:'adminhome',component:AdminHomeComponent},
-  {path:'testview',component:TestviewComponent},
-  {path:'report',component:BookReportComponent},
-  {path:'forgotpass',component:ForgotPasswordComponent},
-  {path:'userhome',component:UserHomeComponent},
-  {path:'bookuview',component:BookListComponent},
-  {path:'return',component:ReturnBookComponent},
-  {path:'adreturn',component:ReturnViewComponent},
-  {path:'useradd',component:AddUserComponent},
-  {path:'addcat',component:CategoryComponent},
-  {path:'bookuviewtest',component:BookViewTestComponent},
-  {path:'reqviw',component:RequestviewComponent}
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'bookreg', component: BookRegistrationComponent },
+  { path: 'viewbook', component: ViewBookregComponent },
+  { path: 'editbook/:id', component: EditBookComponent },
+  { path: 'viewtest', component: ViewpgTestComponent },
+  { path: 'bookdview/:id', component: BookDeatilviewComponent },
+  { path: 'adminhome', component: AdminHomeComponent },
+  { path: 'testview', component: TestviewComponent },
+  { path: 'report', component: BookReportComponent },
+  { path: 'forgotpass', component: ForgotPasswordComponent },
+  { path: 'userhome', component: UserHomeComponent },
+  { path: 'bookuview', component: BookListComponent },
+  { path: 'return', component: ReturnBookComponent },
+  { path: 'adreturn', component: ReturnViewComponent },
+  { path: 'useradd', component: AddUserComponent },
+  { path: 'addcat', component: CategoryComponent },
+  { path: 'bookuviewtest', component: BookViewTestComponent },
+  { path: 'reqviw', component: RequestviewComponent },
+  { path: 'nav', component: NavbarAdminComponent }
 ];
 
 @NgModule({

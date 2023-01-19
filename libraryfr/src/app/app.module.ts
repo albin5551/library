@@ -38,9 +38,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { NotificationComponent } from './user/notification/notification.component';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { RequestviewComponent } from './admin/requestview/requestview.component';
-
 import { MatBadgeModule} from '@angular/material/badge'; 
 import { MatIconModule} from '@angular/material/icon'; 
+import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 
 
 @NgModule({
@@ -67,6 +67,7 @@ import { MatIconModule} from '@angular/material/icon';
     BookViewTestComponent,
     NotificationComponent,
     RequestviewComponent,
+
     
    
   ],
@@ -85,7 +86,9 @@ import { MatIconModule} from '@angular/material/icon';
     MatDialogModule,
     MatButtonModule,
     MatBadgeModule,
-    MatIconModule
+    MatIconModule,
+    NgxNavbarModule,
+    
    
     
   

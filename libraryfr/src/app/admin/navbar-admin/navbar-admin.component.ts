@@ -7,12 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar-admin.component.css']
 })
 export class NavbarAdminComponent implements OnInit {
-logout() {
-this.router.navigate(['/login']);
-localStorage.clear();
-}
+  logout() {
+    this.router.navigate(['/login']);
+    localStorage.clear();
+  }
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
 
 
