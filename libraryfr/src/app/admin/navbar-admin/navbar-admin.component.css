@@ -1,0 +1,18 @@
+.second_ul {
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+.logout_btn {
+    border: none;
+    outline: none;
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+    color: white;
+    margin: 0px;
+    padding: 0px;
+   
+}
