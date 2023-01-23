@@ -5,7 +5,7 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.2.1/angular-material.min.css"> -->
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> -->
-<div class="container col-md-12" style="margin-top: 55px; display: inline-flex;">
+<div class="container col-md-12 " style="margin-top: 55px; display: inline-flex; ">
     <div class="col-md-2 mt-2">
         <div class="outer_div1 mb-2">
             <h2>Category</h2>
@@ -35,7 +35,7 @@
         </div>
     </div>
 
-    <div class="col-md-10">
+    <div class="col-md-10 list_div">
         <!-- <div style="display: inline-flex;padding: 0px;" class="col-md-12">
             <form [formGroup]="search" style="display: inline-flex;padding: 0px;" class="col-md-4">
                 <input type="text" class="form-control" formControlName="inp" placeholder="Search"
@@ -53,7 +53,7 @@
             </div>
         </div> -->
 
-        <div class="mt-2 col-md-12" style="padding: 0px;">
+        <div class="mt-2 col-md-12 ma " style="padding: 0px;">
             <div class="outer_div" *ngFor="let data of result | paginate 
             : {
                 itemsPerPage: tableSize,
@@ -98,3 +98,6 @@
         </div>
     </div>
 </div>
+
+
+
