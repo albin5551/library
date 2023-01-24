@@ -281,4 +281,14 @@ if(this.key==null){
 
         }
 
+        displayStyle = "none";
+  
+        openPopup() {
+          this.displayStyle = "block";
+        }
+        closePopup() {
+          this.displayStyle = "none";
+        }
+        
+
 }

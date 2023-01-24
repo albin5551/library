@@ -7,6 +7,8 @@
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> -->
 <div class="container col-md-12" style="margin-top: 60px; display: inline-flex;">
     <div class="col-md-2 mt-5">
+        <button style="margin: 50px; padding: 10px" type="button" class="btn btn-warning" (click)="openPopup()">Filter
+        </button>
         <div class="outer_div1 mb-2">
             <h2>Category</h2>
             <!-- <div  *ngFor="let cat of category"  >
@@ -35,7 +37,7 @@
         </div>
     </div>
 
-    <div class="col-md-10">
+    <div class="col-md-10 list_div">
         <div style="display: inline-flex;padding: 0px;" class="col-md-12">
             <form [formGroup]="search" style="display: inline-flex;padding: 0px;" class="col-md-4">
                 <input type="text" class="form-control" formControlName="inp" placeholder="Search"
@@ -70,7 +72,7 @@
                         <!-- <label for="" style="font-size: 12px;">Stock : {{data.stock}}</label> -->
 
                     </div>
-                    <div style="margin-top: 160px;" class="col-md-2">
+                    <div style="margin-top: 160px;" class="col-md-2 icon_div">
                         <span class="material-symbols-outlined" style="cursor: pointer;" (click)="del(data.bookId)">
                             delete </span>
                         <span class="material-symbols-outlined" style="cursor: pointer;"
@@ -93,6 +95,53 @@
         <div class="d-flex justify-content-center">
             <pagination-controls (pageChange)="onTableDataChange(page=$event)">
             </pagination-controls>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Filter</h4>
+            </div>
+            <div class="modal-body ">
+
+                <div class="outer_div1_modal mb-2">
+                    <h2>Category</h2>
+                    <!-- <div  *ngFor="let cat of category"  >
+            <input type="checkbox" name="{{cat.categoryName}}" (click)="cate(cat.categoryId)"  >
+            <label for="{{cat.categoryName}}">{{cat.categoryName}}</label>
+           </div> -->
+
+                    <div *ngFor="let item of category; let i = index">
+                        <input type="checkbox" [id]="item+i" [name]="item" [(ngModel)]="item.Checked"
+                            (change)="getCheckboxValues($event,item.categoryId)">&nbsp;
+                        <label [for]="item+i"> {{item.categoryName}}</label>
+                    </div>
+                </div>
+                <div class="outer_div2_modal">
+                    <h2>Author</h2>
+                    <!-- <div  *ngFor="let cat of author  let i=index"  >
+            <input type="checkbox" name="{{cat}}" (click)="authors(cat)"  >
+            <label for="{{cat}}">{{cat}}</label>
+           </div> -->
+
+                    <div *ngFor="let item of author; let i = index">
+                        <input type="checkbox" [id]="item+i" [name]="item" [(ngModel)]="item.Checked"
+                            (change)="getCheckbox2Values($event,item)">&nbsp;
+                        <label [for]="item+i"> {{item}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="closePopup()">
+                    Close
+                </button>
+            </div>
         </div>
     </div>
 </div>

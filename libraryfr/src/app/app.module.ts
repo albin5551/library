@@ -43,6 +43,7 @@ import { MatIconModule} from '@angular/material/icon';
 import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,6 +89,8 @@ import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
     MatBadgeModule,
     MatIconModule,
     NgxNavbarModule,
+    
+  
     
    
     

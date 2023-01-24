@@ -18,6 +18,14 @@
     padding: 10px;
 }
 
+.outer_div1_modal{
+    width: 200px;
+    height: 280px;
+    border: 1px solid rgb(196, 196, 196);
+    border-radius: 6px;
+    padding: 10px;
+}
+
 .outer_div2 {
     width: 200px;
     height: 280px;
@@ -27,6 +35,19 @@
     max-height: 280px;
     overflow-y: scroll;
     overflow-x: hidden;
+}
+.outer_div2_modal{
+    width: 200px;
+    height: 280px;
+    border: 1px solid rgb(196, 196, 196);
+    border-radius: 6px;
+    padding: 10px;
+    max-height: 280px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.modal-body{
+    display: inline-flex;
 }
 
 .btn {
@@ -39,6 +60,11 @@
     margin-top: 2px;
 }
 
+
+.btn-warning{
+    display: none;
+   
+}
 @media only screen and (min-width:770px)and (max-width: 1250px) {
     .list_div {
         /* background-color: blue !important; */
@@ -49,6 +75,8 @@
   
 }
 
+
+
 @media only screen and (min-width:100PX)and (max-width: 800px) {
     .list_div {
        
@@ -57,16 +85,18 @@
        margin-left: 20px;
 
     }
-    /* .outer_div1{
+    .outer_div1{
         
         visibility: hidden;
     }
     .outer_div2{
         
         visibility: hidden;
-    } */
+    }
 
-
+    .btn-warning{
+        display: block;
+    }
 
     
   
