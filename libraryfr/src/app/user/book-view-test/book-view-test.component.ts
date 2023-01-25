@@ -244,6 +244,7 @@ export class BookViewTestComponent implements OnInit {
     
           newArrays : any = [];
           getCheckbox2Values(ev: any,data: any) {
+            
             // throw new Error('Method not implemented.');
     
             let obj = {
