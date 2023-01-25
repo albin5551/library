@@ -175,7 +175,10 @@ public class BookServiceImpl implements BookService {
             String sortBy) {
         Page<Book> pagedResult;
         Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
-        if (author.size() > 0 && categoryId.size() == 0) {
+        if(author.size() == 0 && categoryId.size() == 0){
+            pagedResult=bookRepository.findAllStockNative(paging);
+        }
+        else if (author.size() > 0 && categoryId.size() == 0) {
 
             pagedResult = bookRepository.UfindBybookAuthor(author, paging);
         } else if (author.size() == 0 && categoryId.size() > 0) {

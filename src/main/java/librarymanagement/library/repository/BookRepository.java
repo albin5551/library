@@ -70,7 +70,7 @@ public interface BookRepository extends Repository<Book, Integer> {
     @Query(value = "Select * from book where status = 1 AND book_author in (?1)", nativeQuery = true)
     Page<Book> findBybookAuthor(List<String> author, Pageable pageable);
 
-    @Query(value = "Select * from book where status = 1 AND stock !=0 book_author in (?1)", nativeQuery = true)
+    @Query(value = "Select * from book where status = 1 AND stock !=0 AND book_author in (?1)", nativeQuery = true)
     Page<Book> UfindBybookAuthor(List<String> author, Pageable pageable);
 
     @Query(value = "Select distinct (book_author) from book", nativeQuery = true)
