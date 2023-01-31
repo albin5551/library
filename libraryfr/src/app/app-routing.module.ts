@@ -15,6 +15,7 @@ import { ViewBookregComponent } from './admin/view-bookreg/view-bookreg.componen
 import { ViewpgTestComponent } from './admin/viewpg-test/viewpg-test.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
+import { TrhomeComponent } from './login/trhome/trhome.component';
 import { BookListComponent } from './user/book-list/book-list.component';
 import { BookViewTestComponent } from './user/book-view-test/book-view-test.component';
 import { ReturnBookComponent } from './user/return-book/return-book.component';
@@ -40,7 +41,8 @@ const routes: Routes = [
   { path: 'addcat', component: CategoryComponent },
   { path: 'bookuviewtest', component: BookViewTestComponent },
   { path: 'reqviw', component: RequestviewComponent },
-  { path: 'nav', component: NavbarAdminComponent }
+  { path: 'nav', component: NavbarAdminComponent },
+  {path:'trhome',component:TrhomeComponent}
 ];
 
 @NgModule({

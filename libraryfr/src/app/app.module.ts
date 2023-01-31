@@ -41,6 +41,8 @@ import { RequestviewComponent } from './admin/requestview/requestview.component'
 import { MatBadgeModule} from '@angular/material/badge'; 
 import { MatIconModule} from '@angular/material/icon'; 
 import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
+import { TrhomeComponent } from './login/trhome/trhome.component';
+
 
 
 
@@ -68,6 +70,7 @@ import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
     BookViewTestComponent,
     NotificationComponent,
     RequestviewComponent,
+    TrhomeComponent,
 
     
    
@@ -89,6 +92,7 @@ import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
     MatBadgeModule,
     MatIconModule,
     NgxNavbarModule,
+ 
     
   
     
