@@ -1,52 +1,58 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- <a class="navbar-brand" href="#">Navbar w/ text</a> -->
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- <a class="navbar-brand" href="#">Navbar w/ text</a> -->
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
      5555
     </button> -->
-    <div class="collapse navbar-collapse col-md-12" id="navbarText">
-      <ul class="navbar-nav mr-auto txt_cen">
-        <li class="nav-item active">
-          <a class="nav-link nav_clr" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav_clr" href="#">Service</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav_clr" href="#">About us</a>
-        </li>
+  <div class="collapse navbar-collapse col-md-12" id="navbarText">
+    <ul class="navbar-nav mr-auto txt_cen">
+      <li class="nav-item active">
+        <a class="nav-link nav_clr" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link nav_clr" href="#">Service</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link nav_clr" href="#">About us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link nav_clr" href="#">Team</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link nav_clr" href="#">Industries</a>
+      </li>
 
-        <li class="nav-item nav-link ml-5" style="padding-top: 2px;" >
-            <button class="cors_btn">contact us</button>
-        </li>
-      </ul>
-      
+      <li class="nav-item nav-link contact_btn" style="padding-top: 2px;">
+        <button class=" nav_btn">contact us</button>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+<!-- corusel -->
+
+<ngb-carousel>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper text-center" style="padding-top: 200px;">
+      <!-- <img src="assets/pexels-pixabay-33045.jpg" alt="Angular Carousel 1"> -->
+      <!-- <h2 class="text-center">aaaaa</h2> -->
     </div>
-  </nav>
+    <div class="carousel-caption">
+      <h3>Title Goes Here</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <button class="cors_btn">aaa</button>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper" style="padding-top: 200px;">
+      <!-- <img src="assets/tree-736885__480.jpg" alt="Angular Carousel 2"> -->
+      <!-- <h2>bbbb</h2> -->
+    </div>
+    <div class="carousel-caption ">
+      <h3>Title Goes Here</h3>
+      <p>Consectetur tortor volutpat pretium.</p>
+      <button class="cors_btn">bbb</button>
+    </div>
+  </ng-template>
+</ngb-carousel>
 
-  <!-- corusel -->
-
-  <ngb-carousel >
-    <ng-template ngbSlide>
-      <div class="picsum-img-wrapper text-center" style="padding-top: 180px;">
-        <!-- <img src="assets/pexels-pixabay-33045.jpg" alt="Angular Carousel 1"> -->
-        <!-- <h2 class="text-center">aaaaa</h2> -->
-      </div>
-      <div class="carousel-caption">
-        <h3>Title Goes Here</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <button>aaa</button>
-      </div>
-    </ng-template>
-    <ng-template ngbSlide>
-      <div class="picsum-img-wrapper" style="padding-top: 180px;">
-        <!-- <img src="assets/tree-736885__480.jpg" alt="Angular Carousel 2"> -->
-        <!-- <h2>bbbb</h2> -->
-      </div>
-      <div class="carousel-caption ">
-        <h3>Title Goes Here</h3>
-        <p>Consectetur tortor volutpat pretium.</p>
-      </div>
-    </ng-template>
-  </ngb-carousel>
-  
-  

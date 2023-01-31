@@ -46,7 +46,7 @@ ngb-carousel {
     color: white !important;
 }
 .txt_cen{
-   padding-left: 43%;
+   padding-left: 40%;
 }
 .cors_btn{
     background-color: #ffffff !important;
@@ -55,4 +55,16 @@ ngb-carousel {
     height: 30px;
     width: 100px;
 
+}
+
+.nav_btn{
+    background-color: #ffffff !important;
+    border-radius: 5% !important;
+    border: none;
+    height: 30px;
+    width: 100px;
+
+}
+.contact_btn{
+    margin-left: 100px;
 }
