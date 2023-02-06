@@ -71,11 +71,13 @@
         </div>
       </div>
 
-      <a class="carousel-control-prev carousel-control-prev_top" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <a class="carousel-control-prev carousel-control-prev_top" href="#carouselExampleIndicators" role="button"
+        data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="carousel-control-next carousel-control-next_top" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <a class="carousel-control-next carousel-control-next_top" href="#carouselExampleIndicators" role="button"
+        data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
@@ -228,7 +230,7 @@
       <h1 class="mr-1" style="font-weight: 600;">OUR</h1>
       <h1 style="color: #0ea8af;font-weight: 600;">PARTNERS</h1>
     </div>
-    
+
   </div>
 
   <div style="display: flex;padding-left: 160px;margin-top: 20px;">
@@ -372,55 +374,17 @@
   <div>
     <button class="clint_btn ">VIEW ALL</button>
   </div>
-<section>
-  <div class="div_news">
-    <div class="div_2 mt-4 mb-3">
-      <div class="heading_cor4">
-        <h1 class="mr-1" style="font-weight: 600; color: #ffffff;">LATEST</h1>
-        <h1 style="color: #ffffff;font-weight: 600;">NEWS</h1>
-      </div>
-    </div>
-
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active" style="width: 100px;margin-left: 220px;margin-right: 0px;">
-          <div class="" style="display: inline-flex;">
-            <div class="card" style="width: 18rem;margin-right: 20px;">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div>
-
-            <div class="card" style="width: 18rem;margin-right: 20px;">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div>
-          </div>
+  <section>
+    <div class="div_news">
+      <div class="div_2 mt-4 mb-3">
+        <div class="heading_cor4">
+          <h1 class="mr-1" style="font-weight: 600; color: #ffffff;">LATEST</h1>
+          <h1 style="color: #ffffff;font-weight: 600;">NEWS</h1>
         </div>
+      </div>
 
-        <div class="carousel-item" style="width: 100px;">
+      <ngb-carousel [showNavigationIndicators]="showNavigationIndicators" style="padding-left: 225px; ">
+        <ng-template ngbSlide>
           <div class="" style="display: inline-flex;">
             <div class="card" style="width: 18rem;margin-right: 20px;">
               <div class="card-body">
@@ -455,24 +419,163 @@
               </div>
             </div>
           </div>
-        </div>
 
- 
-      </div>
+        </ng-template>
 
-      <a class="carousel-control-prev carousel-control-prev1" href="#carouselExampleControls" role="button"
-        data-slide="prev">
-        <span class="carousel-control-prev-icon carousel-control-prev-icon1" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next carousel-control-next1" href="#carouselExampleControls" role="button"
-        data-slide="next">
-        <span class="carousel-control-next-icon carousel-control-next-icon1" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+        <ng-template ngbSlide>
+          <div class="" style="display: inline-flex;">
+            <div class="card" style="width: 18rem;margin-right: 20px;">
+              <div class="card-body">
+                <h5 class="card-title">AAAA</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+              </div>
+            </div>
+
+            <div class="card" style="width: 18rem;margin-right: 20px;">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+              </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+              </div>
+            </div>
+          </div>
+
+        </ng-template>
+
+      </ngb-carousel>
+
+    </div>
+  </section>
+
+
+  <div class="div_2 ,mt-4 mb-3">
+    <div class="heading_cor3">
+      <h1 class="mr-1" style="font-weight: 600;">OUR</h1>
+      <h1 style="color: #0ea8af;font-weight: 600;">TEAM</h1>
     </div>
   </div>
-</section>
 
+  <ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+      <div class="col-md-12 caption_outer">
+        <div class="col-md-6 picsum-img-wrapper image_wrapper">
+          <img [src]="images[0]" alt="Random first slide" style="width: 400px;height: 300px;" />
+        </div>
+        <div class="caption_wrapper col-md-6">
+          <h2>NAME</h2>
+          <h3 style="color: #e5e5e6;">POST</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <button class="btn_lern">Learn more</button>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template ngbSlide>
+      <div class="caption_outer col-md-12 ">
+        <div class="col-md-6 picsum-img-wrapper image_wrapper">
+          <img [src]="images[0]" alt="Random first slide" style="width: 400px;height: 300px;" />
+        </div>
+        <div class="caption_wrapper col-md-6">
+          <h2>NAME</h2>
+          <h3 style="color: #e5e5e6;">POST</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <button class="btn_lern">Learn more</button>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template ngbSlide>
+      <div class="caption_outer col-md-12 ">
+        <div class="col-md-6 picsum-img-wrapper image_wrapper">
+          <img [src]="images[0]" alt="Random first slide" style="width: 400px;height: 300px;" />
+        </div>
+        <div class="caption_wrapper col-md-6">
+          <h2>NAME</h2>
+          <h3 style="color: #e5e5e6;">POST</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <button class="btn_lern">Learn more</button>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
+  <div class="footer-dark">
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-md-3 item" style="display: inline-flex;">
+            <h4 class="ml-5">Home</h4>
+            <h4 class="ml-5">Services</h4>
+            <h4 class="ml-5">About Us</h4>
+            <h4 class="ml-5">Industries </h4>
+
+
+
+            <!-- <ul>
+              <li><a href="#">Web design</a></li>
+              <li><a href="#">Development</a></li>
+              <li><a href="#">Hosting</a></li>
+            </ul> -->
+          </div>
+          <!-- <div class="col-sm-6 col-md-3 item">
+            <h3>About</h3>
+            <ul>
+              <li><a href="#">Company</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6 item text">
+            <h3>Company Name</h3>
+            <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus
+              elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+          </div> -->
+
+          <div style="display: inline-flex;">
+            <div style="display: inline-flex;">
+              <span style="padding-top: 5px;" class="material-symbols-outlined">
+                location_on
+              </span>
+              <div style="padding-left: 5px;"> Akshya Nagar 1st Block 1st Cross,<br> Rammurthy nagar, Bangalore-560016
+              </div>
+            </div>
+            <div style="margin-left: 15%; display: inline-flex; padding-top: 4px;">
+              <span class="material-symbols-outlined">
+                mail
+              </span>
+              <div style="padding-left: 5px;">testing@email.com</div>
+            </div>
+            <div style="margin-left: 15%; display: inline-flex; padding-top: 4px;">
+              <span class="material-symbols-outlined">
+                phone_in_talk
+              </span>
+              <div style="padding-left: 5px;">999.666.22.55</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="copyright">Company Name © 2018</p>
+        </div>
+      </div>
+    </footer>
+  </div>
 
 </div>
