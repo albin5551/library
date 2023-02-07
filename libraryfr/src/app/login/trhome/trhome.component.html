@@ -1,12 +1,13 @@
 <div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse col-md-12" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto txt_cen">
+    <div class="collapse navbar-collapse col-md-12 txt_cen" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto ">
         <li class="nav-item active">
           <a class="nav-link nav_clr" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
@@ -19,7 +20,7 @@
         <li class="nav-item">
           <a class="nav-link nav_clr" href="#">Team</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" style="margin-right: 50px;">
           <a class="nav-link nav_clr" href="#">Industries</a>
         </li>
         <li class="nav-item nav-link contact_btn" style="padding-top: 2px;">
@@ -174,7 +175,7 @@
     <div style="display: inline-flex; padding-left: 80px;">
       <div style="width: 350px; margin-left: 155px;">
         <div class="heading_cor2">
-          <h1 class="mr-1" style="font-weight: 600;">BULDING BETTER</h1>
+          <h1 class="mr-1 div_3_heading" >BULDING BETTER</h1>
           <h1 style="color: white;font-weight: 600;">TEAMS</h1>
         </div>
         <p class="p_clr" style="padding-top: 15px;">If you ask enough top executives about their leadership style,
@@ -383,10 +384,10 @@
         </div>
       </div>
 
-      <ngb-carousel [showNavigationIndicators]="showNavigationIndicators" style="padding-left: 225px; ">
+      <ngb-carousel [showNavigationIndicators]="showNavigationIndicators" >
         <ng-template ngbSlide>
-          <div class="" style="display: inline-flex;">
-            <div class="card" style="width: 18rem;margin-right: 20px;">
+          <div class="carousel_outer_div">
+            <div class="card " style="width: 18rem;margin-right: 20px;">
               <div class="card-body">
                 <h5 class="card-title">AAAA</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
@@ -423,7 +424,7 @@
         </ng-template>
 
         <ng-template ngbSlide>
-          <div class="" style="display: inline-flex;">
+          <div class="carousel_outer_div" >
             <div class="card" style="width: 18rem;margin-right: 20px;">
               <div class="card-body">
                 <h5 class="card-title">AAAA</h5>
@@ -517,7 +518,7 @@
     </ng-template>
   </ngb-carousel>
 
-  <div class="footer-dark">
+  <!-- <div class="footer-dark">
     <footer>
       <div class="container">
         <div class="row">
@@ -529,13 +530,13 @@
 
 
 
-            <!-- <ul>
+            <ul>
               <li><a href="#">Web design</a></li>
               <li><a href="#">Development</a></li>
               <li><a href="#">Hosting</a></li>
-            </ul> -->
+            </ul>
           </div>
-          <!-- <div class="col-sm-6 col-md-3 item">
+          <div class="col-sm-6 col-md-3 item">
             <h3>About</h3>
             <ul>
               <li><a href="#">Company</a></li>
@@ -547,35 +548,100 @@
             <h3>Company Name</h3>
             <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus
               elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
-          </div> -->
-
-          <div style="display: inline-flex;">
-            <div style="display: inline-flex;">
-              <span style="padding-top: 5px;" class="material-symbols-outlined">
-                location_on
-              </span>
-              <div style="padding-left: 5px;"> Akshya Nagar 1st Block 1st Cross,<br> Rammurthy nagar, Bangalore-560016
-              </div>
-            </div>
-            <div style="margin-left: 15%; display: inline-flex; padding-top: 4px;">
-              <span class="material-symbols-outlined">
-                mail
-              </span>
-              <div style="padding-left: 5px;">testing@email.com</div>
-            </div>
-            <div style="margin-left: 15%; display: inline-flex; padding-top: 4px;">
-              <span class="material-symbols-outlined">
-                phone_in_talk
-              </span>
-              <div style="padding-left: 5px;">999.666.22.55</div>
-            </div>
           </div>
+
+          
         </div>
         <div>
           <p class="copyright">Company Name © 2018</p>
         </div>
       </div>
     </footer>
+  </div> -->
+
+
+
+
+  <div class="foot p-2">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed">
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+
+      <div class="collapse navbar-collapse col-md-12 txt_cen" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item active">
+            <a class="nav-link nav_clr" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav_clr" href="#">Service</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav_clr" href="#">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav_clr" href="#">Team</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link nav_clr" href="#">Industries</a>
+          </li>
+          <!-- <li class="nav-item nav-link contact_btn" style="padding-top: 2px;">
+          <button class=" nav_btn">contact us</button>
+        </li> -->
+        </ul>
+      </div>
+    </nav>
+    <hr>
+
+    <div class="foot_cnt col-md-12">
+      <div style="display: inline-flex;" class="col-md-4">
+        <span style="padding-top: 5px; color: #ffffff;" class="material-symbols-outlined">
+          location_on
+        </span>
+        <div style="padding-left: 5px; color: #ffffff;"> Akshya Nagar 1st Block 1st Cross,<br> Rammurthy nagar,
+          Bangalore-560016
+        </div>
+      </div>
+      <div style=" display: inline-flex; padding-top: 4px;"class="col-md-4">
+        <span style="color: #ffffff;" class="material-symbols-outlined">
+          mail
+        </span>
+        <div style="padding-left: 5px; color: #ffffff;">testing@email.com</div>
+      </div>
+      <div style=" display: inline-flex; padding-top: 4px;"class="col-md-4">
+        <span style="color: #ffffff;" class="material-symbols-outlined">
+          phone_in_talk
+        </span>
+        <div style="padding-left: 5px;color: #ffffff;">999.666.22.55</div>
+      </div>
+    </div>
+    <hr>
+
+
+    <div class="col-md-12 foot_cnt" >
+      <div class="col-md-4">
+        <span class="copyright">Terms and Conditions | Privacy policy</span>
+      </div>
+      <div class="col-md-4">
+        <span class="copyright">Company Name © 2018</span>
+      </div>
+      <div class="scl_icon col-md-4">
+        <div class="fb mr-1">
+          <i class="fa fb_icn">&#xf09a;</i>
+        </div>
+        <div class="fb mr-1">
+          <i class="fa link_icn">&#xf08c;</i>
+        </div>
+        <div class="fb mr-1">
+          <i class="fa link_icn">&#xf099;</i>
+        </div>
+        <div class="fb">
+          <i class="fa g_icn">&#xf0d5;</i>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>
