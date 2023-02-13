@@ -11,8 +11,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.validator.constraints.UniqueElements;
-
 
 
 
@@ -130,18 +128,6 @@ public void setCategoryId(Integer categoryId) {
     this.categoryId = categoryId;
 }
 
-
-
-
-// public Csv(String bookName,String bookAuthor,Integer stock){
-//     // this.bookId=bookId;
-//     this.bookName=bookName;
-//     this.bookAuthor=bookAuthor;
-//     this.stock=stock;
-//     this.status=Status.ACTIVE.value;
-//     this.createDate=new Date();
-
-// }
 
 
 public Csv(String bookName, String bookAuthor, Integer stock,Integer categoryId) {

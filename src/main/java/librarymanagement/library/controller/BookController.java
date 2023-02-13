@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +29,6 @@ import librarymanagement.library.repository.BookRepository;
 import librarymanagement.library.security.util.FileUpload;
 import librarymanagement.library.service.BookService;
 import librarymanagement.library.view.BookListView;
-import lombok.val;
 
 import org.springframework.util.StringUtils;
 
@@ -97,7 +94,6 @@ public class BookController {
             @RequestParam(defaultValue = "1") Integer pageNo,
             @RequestParam(defaultValue = "10") Integer pageSize,
             @RequestParam(defaultValue = "id") String sortBy) {
-        System.out.println("paage size" + pageSize);
         Page<Book> list = bookService.getAllBookStocks(keyword, pageNo - 1, pageSize, sortBy);
         return new ResponseEntity<Page<Book>>(list, new HttpHeaders(),
                 HttpStatus.OK);

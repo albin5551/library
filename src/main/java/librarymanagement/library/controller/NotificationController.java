@@ -5,7 +5,6 @@ import java.util.Collection;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +28,6 @@ public class NotificationController {
 
     @PostMapping("/addmsg")
     public NotificationListView add(@Valid @RequestBody NotificationForm form) {
-        // System.out.println(form);
         return notificationService.add(form);
 
     }
@@ -41,7 +39,6 @@ public class NotificationController {
 
     @PostMapping("/addmsgs")
     public void aad(@Valid @RequestBody NotificationForm form) {
-        // System.out.println(form);
         notificationService.aad(form);
 
     }
@@ -53,7 +50,6 @@ public class NotificationController {
 
     @DeleteMapping("/read")
     void read() {
-        System.out.println("+++");
         notificationService.deleteAllbyUserid();
     }
     @PutMapping("/userread")

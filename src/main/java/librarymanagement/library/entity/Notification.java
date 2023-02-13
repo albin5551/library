@@ -3,7 +3,6 @@ package librarymanagement.library.entity;
 import java.util.Date;
 import java.util.Objects;
 
-import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -129,18 +128,9 @@ public class Notification {
         this.status = Status.ACTIVE.value;
         this.readStatus=notificationStatus.UNREAD.value;
     }
-    // public Notification add(Book book) {
-    //     // this.message = form.getMessage();
-    //     Date dt = new Date();
-    //     this.createDate = dt;
-    //     this.book=book;
-    //     this.status = Status.ACTIVE.value;
-    //     this.readStatus=notificationStatus.UNREAD.value;
-    //     return this;
-    // }
+
 
     public Notification update() {
-        // this.message = form.getMessage();
         Date dt = new Date();
         this.readStatus=notificationStatus.READ.value;
         this.updateDate = dt;

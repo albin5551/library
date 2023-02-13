@@ -1,14 +1,10 @@
 package librarymanagement.library.service;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
-import javax.validation.Valid;
 
 import org.springframework.data.domain.Page;
-import org.springframework.stereotype.Service;
-
 import librarymanagement.library.entity.Rent;
 import librarymanagement.library.exception.NotFoundException;
 import librarymanagement.library.form.RentForm;

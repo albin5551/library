@@ -9,8 +9,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-
-import org.hibernate.validator.internal.util.privilegedactions.IsClassPresent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
@@ -29,10 +27,8 @@ import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
 
-import librarymanagement.library.entity.Book;
 import librarymanagement.library.entity.Rent;
 import librarymanagement.library.form.RentForm;
-import librarymanagement.library.json.Json.DateFormat;
 import librarymanagement.library.service.RentService;
 import librarymanagement.library.service.impl.RentServiceImpl;
 import librarymanagement.library.view.RentCharView;
@@ -109,9 +105,7 @@ public class RentController {
         String[] nameMapping = { "rentId", "name", "bookName", "rentDate", "returnDate", "status" };
         csvWriter.writeHeader(csvHeader);
         for (Rent rent : rents) {
-            // System.out.println("         :"+rent.getStatus());
             if(rent.getStatus().matches("1")){
-                // System.out.println("         :"+rent.getStatus());
                     rent.setStatus("Approved");
 
             }
@@ -152,9 +146,7 @@ public class RentController {
         String[] nameMapping = { "rentId", "name", "bookName", "rentDate", "returnDate", "status" };
         csvWriter.writeHeader(csvHeader);
         for (Rent rent : rents) {
-            // System.out.println("         :"+rent.getStatus());
             if(rent.getStatus().matches("1")){
-                // System.out.println("         :"+rent.getStatus());
                     rent.setStatus("Approved");
 
             }
@@ -172,8 +164,8 @@ public class RentController {
 //     }
 @GetMapping("/chart") //chart
     public RentCharView getchart(){
-        RentCharView test =rentServices.getChart();
-        return test;
+        // RentCharView test =rentServices.getChart();
+        return rentServices.getChart();
     }
 
     

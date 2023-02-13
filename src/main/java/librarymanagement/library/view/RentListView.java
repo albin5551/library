@@ -7,7 +7,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import librarymanagement.library.entity.Rent;
-import librarymanagement.library.entity.User;
 
 public class RentListView {
 
