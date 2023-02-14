@@ -13,7 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import librarymanagement.library.form.RequestForm;
 
 @Entity
 public class Request {

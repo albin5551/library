@@ -4,7 +4,6 @@ import librarymanagement.library.entity.User;
 import librarymanagement.library.exception.BadRequestException;
 import librarymanagement.library.exception.NotFoundException;
 import librarymanagement.library.form.LoginForm;
-import librarymanagement.library.form.LoginForm;
 import librarymanagement.library.form.UserForm;
 import librarymanagement.library.repository.UserRepository;
 import static librarymanagement.library.security.AccessTokenUserDetailsService.PURPOSE_ACCESS_TOKEN;
@@ -17,11 +16,8 @@ import librarymanagement.library.security.util.TokenGenerator.Status;
 import librarymanagement.library.security.util.TokenGenerator.Token;
 import librarymanagement.library.service.UserService;
 import librarymanagement.library.view.LoginView;
-// import  librarymanagement.library.view.ContactListView;
-import librarymanagement.library.view.LoginView;
 import librarymanagement.library.view.UserView;
 
-import java.security.cert.CertPathValidatorException.Reason;
 import java.util.Collection;
 import java.util.*;
 

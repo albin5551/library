@@ -158,13 +158,9 @@ public class RentController {
         csvWriter.flush();
         csvWriter.close();
     }
-// @GetMapping("/chart")
-//     public List<Rent>chart(){
-//         return rentService.listBetweenDates();
-//     }
-@GetMapping("/chart") //chart
+//chart
+@GetMapping("/chart") 
     public RentCharView getchart(){
-        // RentCharView test =rentServices.getChart();
         return rentServices.getChart();
     }
 

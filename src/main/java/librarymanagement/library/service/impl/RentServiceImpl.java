@@ -1,8 +1,6 @@
 package librarymanagement.library.service.impl;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
@@ -127,11 +125,7 @@ public class RentServiceImpl implements RentService {
         Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
         Page<Rent> pagedResult = rentRepository.findAll(paging);
         return pagedResult;
-        // if (pagedResult.hasContent()){
-        // return pagedResult.getContent();
-        // }else{
-        // return new ArrayList<Rent>();
-        // }
+  
     }
 
     public Page<Rent> getAllRentKey(String keyword, Integer pageNo, Integer pageSize, String sortBy) {
@@ -139,14 +133,7 @@ public class RentServiceImpl implements RentService {
         Page<Rent> pagedResult = rentRepository.findByKey(keyword, paging);
         return pagedResult;
     }
-    // public List<Rent>listBetweenDates(){
-    // LocalDateTime ed=LocalDateTime.now();
-    // System.out.println(ed);
-    // LocalDateTime st=LocalDateTime.now().minusDays(7);
-    // System.out.println(st);
 
-    // return rentRepository.findBybetweenDate();
-    // }
 
     public RentCharView getChart() {
         RentCharView result = new RentCharView();
@@ -176,11 +163,9 @@ public class RentServiceImpl implements RentService {
                 hm.put(c.getDayOfWeek().getValue(), new Result(hm.get(c.getDayOfWeek().getValue()).getRentCount(),
                         hm.get(c.getDayOfWeek().getValue()).getReturnCount() + 1));
 
-                System.out.println(hm.get(c.getDayOfWeek().getValue()).getReturnCount());
             }
 
-            // System.out.println(b.getDayOfWeek().getValue());
-            // System.out.println(hm.get(b.getMonth().getValue()).getReturnCount());
+
 
         }
         for (Map.Entry<Integer, Result> mapElement : hm.entrySet()) {
@@ -225,7 +210,6 @@ public class RentServiceImpl implements RentService {
     // @Scheduled(cron = "0 */1 * 1/1 * ? ")
     @Scheduled(cron="0 0 12 * * ?")
     public void sendMails() {
-        System.out.println("Email send");
         Collection<Rent> rent = rentRepository.findbyDueDate();
         for (Rent r : rent) {
             User user = userRepository.findbyuserId(r.getUser().getUserId());
@@ -248,15 +232,11 @@ public class RentServiceImpl implements RentService {
     // @Scheduled(cron = "0 */1 * 1/1 * ? ")
     @Scheduled(cron="0 0 12 * * ?")
     public void fineGen(){
-        System.out.println("Fine gen");
         Collection<Rent> rent = rentRepository.findbyDueDateFine();
         for(Rent r:rent){
-            System.out.println(r.getRentId());
             Date d=new Date();
             Long due=d.getTime()-r.getDueDate().getTime(); //date conversion to time
-            // System.out.println(due);
             due=due/86400000; //time conversion to dat
-            // System.out.println(due);
             r.setDueDays(due);
             r.setFine(due*5);
         }

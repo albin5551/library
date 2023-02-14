@@ -1,14 +1,12 @@
 package librarymanagement.library.form;
 
-import java.sql.Date;
+
 
 public class RentForm {
 
     private Integer userId;
     private Integer bookId;
-    // private String status;
-    // private Date rentDate;
-    // private Date returDate;
+
 
     
     public Integer getUserId() {
@@ -23,24 +21,6 @@ public class RentForm {
     public void setBookId(Integer bookId) {
         this.bookId = bookId;
     }
-    // public Date getRentDate() {
-    //     return rentDate;
-    // }
-    // public void setRentDate(Date rentDate) {
-    //     this.rentDate = rentDate;
-    // }
-    // public Date getReturDate() {
-    //     return returDate;
-    // }
-    // public void setReturDate(Date returDate) {
-    //     this.returDate = returDate;
-    // }
-    // public String getStatus() {
-    //     return status;
-    // }
-    // public void setStatus(String status) {
-    //     this.status = status;
-    // }
 
 
 

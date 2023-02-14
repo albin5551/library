@@ -3,8 +3,6 @@ package librarymanagement.library.service;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpEntity;
@@ -22,10 +20,6 @@ public interface BookService {
 
     
     BookListView get(Integer bookId)throws NotFoundException;
-
-    // void delete(Integer bookId)throws NotFoundException;
-    
-
     BookListView update(Integer bookId,BookForm form)throws NotFoundException;
     
     Page<Book>getAllBook(Integer pageNo,Integer pageSize,String sortBy);

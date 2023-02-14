@@ -11,7 +11,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import javax.mail.Multipart;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -30,7 +29,6 @@ public class CsvHelper {
     static String[] HEADERs={"book_name","book_author","stock"};
 
     public static boolean hasCSVFormat(MultipartFile file){
-        System.out.println(file.getContentType());
         if(TYPE.equals(file.getContentType())||file.getContentType().equals("application/vnd.ms-excel")){
             return true;
         }
