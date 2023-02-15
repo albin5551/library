@@ -3,12 +3,9 @@ package librarymanagement.library.service.impl;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 import javax.transaction.Transactional;
 
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
-import org.aspectj.weaver.ast.And;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -68,21 +65,12 @@ public class BookServiceImpl implements BookService {
                 }).orElseThrow(NotFoundException::new);
     }
 
-    // @Override
-    // @Transactional
-    // public void delete(Integer bookId) throws NotFoundException {
-    // bookRepository.delete(bookRepository.findById(bookId).orElseThrow());
-    // }
 
     @Override
     public Page<Book> getAllBook(Integer pageNo, Integer pageSize, String sortBy) {
         Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
         Page<Book> pagedResult = bookRepository.findAll(paging);
-        // if (pagedResult.hasContent()){
-        // return pagedResult.getContent();
-        // }else{
-        // return new ArrayList<Book>();
-        // }
+   
         return pagedResult;
     }
 
@@ -91,37 +79,25 @@ public class BookServiceImpl implements BookService {
         Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
         Page<Book> pagedResult = bookRepository.findAllStockNative(paging);
         return pagedResult;
-        // if (pagedResult.hasContent()){
-        // return pagedResult.getContent();
-        // }else{
-        // return new ArrayList<Book>();
-        // }
+ 
     }
 
     @Override
     public Page<Book> getAllBookStocks(String keyword, Integer pageNo, Integer pageSize, String sortBy) {
         Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
-        System.out.println(keyword);
         String k = keyword;
         String k1 = keyword;
         String k2 = keyword;
         Page<Book> pagedResult = bookRepository.findByKeywords(keyword, k, k1, k2, paging);
-        // System.out.println(pagedResult.getTotalElements());
+
         return pagedResult;
-        // Long p= pagedResult.getTotalElements();
-        // System.out.println(p);
-        // if (pagedResult.hasContent()){
-        // return pagedResult.getContent();
-        // }else{
-        // return new ArrayList<Book>();
-        // }
+   
     }
 
     @Override
     @Transactional
     public BookListView delete(Integer bookId) throws NotFoundException {
         Book book = bookRepository.findById(bookId).get();
-        // User user= userRepository.findById(currentUser.getUserId()).get();
         return new BookListView(bookRepository.save(book.delete()));
     }
 
