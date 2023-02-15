@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminServiceService } from 'src/app/service/admin/admin-service.service';
 import { UserServiceService } from 'src/app/service/user/user-service.service';
 
@@ -39,7 +39,6 @@ a={
           console.log(result);
           this.upload()
           alert("Added")
-          // let msg="NewBook"+result.bookName;
           let ag={
             message:"Newbook "+result.bookName+" is added",
             bookId:result.bookId
@@ -78,9 +77,7 @@ a={
       if (file) {
         this.currentFile = file;
       }
-      //this.assi.assignmentId=
-      //this.assi.studentId=this.studentDetails.studentId
-      // this.assi.file=this.currentFile;
+
       console.log(this.data.bookId)
       this.adminService.imageUpload(this.currentFile,this.data.bookId).subscribe(
       response =>{
