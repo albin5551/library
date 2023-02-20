@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminServiceService } from 'src/app/service/admin/admin-service.service';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { PageEvent } from '@angular/material/paginator';
-import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { of } from 'rxjs';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { saveAs } from 'file-saver'
 @Component({
   selector: 'app-testview',
@@ -48,8 +44,7 @@ f:any=0;
 key:any;
 selectedFiles?: FileList;
 currentFile?: File;
-// message = '';
-// errorMsg = '';
+
 
 
 data:any
@@ -65,7 +60,7 @@ data:any
   ngOnInit(): void {
 
        this.key=this.search.controls['inp'].value
-      // console.log('````````````````',this.key);
+   
 
 if(this.key==""){
     this.adminService.pagenate(this.page,this.tableSize,this.sortBy).subscribe(response=>{
@@ -73,7 +68,6 @@ if(this.key==""){
       console.log(this.result);
       this.data=this.result;
       this.count=response.totalElements;
-      // this.totalrec=this.data.length;
       console.log("!!!!!!!!!",this.count);
       console.log(this.f);
     });
@@ -86,7 +80,6 @@ if(this.key==""){
            this.count=response.totalElements;
            console.log("llllllll",this.count);
            
-          // console.log(this.f);
     });
   }
   
@@ -163,10 +156,7 @@ if(this.key==""){
         this.result=response.content;
        console.log(this.result);
         this.data=this.result;
-        //  this.count=response.totalElements;
-        //  console.log("llllllll",this.count);
-         
-        // console.log(this.f);
+
   });
     }
   }
@@ -192,26 +182,7 @@ if(this.key==""){
             }
           })
   
-        //   this.adminService.uploadCsv(this.currentFile).subscribe({
-        //    next: (event: any) => {
-        //       if (event.type === HttpEventType.UploadProgress) {
-        //         console.log(Math.round(100 * event.loaded / event.total));
-  
-        //       } else if (event instanceof HttpResponse) {
-        //         this.message = event.body.responseMessage;
-        //       }
-        //     },
-        //     error:(err: any) => {
-        //       console.log(err);
-  
-        //       if (err.error && err.error.responseMessage) {
-        //         this.errorMsg = err.error.responseMessage;
-        //       } else {
-        //         this.errorMsg = 'Error occurred while uploading a file!';
-        //       }
-  
-        //       this.currentFile = undefined;
-        // }});
+
         }
   
         this.selectedFiles = undefined;
