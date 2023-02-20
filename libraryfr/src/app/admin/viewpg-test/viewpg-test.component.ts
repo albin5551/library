@@ -1,4 +1,3 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AdminServiceService } from 'src/app/service/admin/admin-service.service';
@@ -62,11 +61,9 @@ if(this.key==null){
     this.adminService.search(this.key,this.page,this.tableSize,this.sort).subscribe(response=>{
           this.result=response.content;
          console.log(this.result);
-          // this.data=this.result;
            this.count=response.totalElements;
            console.log("llllllll",this.count);
            
-          // console.log(this.f);
     });
   }
     this.adminService.categoryView().subscribe(res=>{
@@ -76,7 +73,6 @@ if(this.key==null){
     this.adminService.byAuthor().subscribe(res=>{
       this.author=res;
       this.au.push(res);
-      // console.log(this.au);
       
       console.log(this.author)
 
@@ -84,28 +80,13 @@ if(this.key==null){
 
 
 
-    // this.adminService.getBook().subscribe(result=>{
-    //   this.bookDetail=result;
-    //   console.log(this.bookDetail);
-    // })
+
 
   }
 
 
 
-  // paginate(pageNO:any,pageSize:any,sortBy:any){
 
-  //   this.i=pageNO;
-  //   this.sortBy=sortBy;
-  //   this.adminService.pagenate(pageNO,pageSize,sortBy).subscribe(
-  //     response=>{
-  //       this.result=response;
-  //       this.count=response.toalElements;
-  //       console.log(this.paginated)
-  //     }
-  //   )
-
-  // }
 
   onTableDataChange(event: any) {
     if(this.key==null){
@@ -113,7 +94,6 @@ if(this.key==null){
     this.adminService.pagenate(event, this.tableSize, this.sortBy).subscribe(
       response => {
         this.result = response.content;
-        // this.count=response.toalElements;
         console.log(this.paginated)
       }
     )
@@ -122,11 +102,7 @@ if(this.key==null){
       this.adminService.search(this.key,this.page,this.tableSize,this.sort).subscribe(response=>{
         this.result=response.content;
        console.log(this.result);
-        // this.data=this.result;
-        //  this.count=response.totalElements;
-        //  console.log("llllllll",this.count);
-         
-        // console.log(this.f);
+       
   });
     }
 
@@ -154,26 +130,7 @@ if(this.key==null){
             
            })
    
-         //   this.adminService.uploadCsv(this.currentFile).subscribe({
-         //    next: (event: any) => {
-         //       if (event.type === HttpEventType.UploadProgress) {
-         //         console.log(Math.round(100 * event.loaded / event.total));
-   
-         //       } else if (event instanceof HttpResponse) {
-         //         this.message = event.body.responseMessage;
-         //       }
-         //     },
-         //     error:(err: any) => {
-         //       console.log(err);
-   
-         //       if (err.error && err.error.responseMessage) {
-         //         this.errorMsg = err.error.responseMessage;
-         //       } else {
-         //         this.errorMsg = 'Error occurred while uploading a file!';
-         //       }
-   
-         //       this.currentFile = undefined;
-         // }});
+
          }
    
          this.selectedFiles = undefined;
@@ -216,16 +173,13 @@ if(this.key==null){
         //How to remove the value from array if we uncheck it
         console.log(this.newArray);
       
-        // console.log('++++++',id);
-        // this.array.push(id);
+       
       this.adminService.bookByAuthorlistandcatid(this.newArray,this.newArrays,this.pageNo,this.tableSize,"").subscribe(res=>{
         this.result = res.content;
         this.count = res.totalElements;
         console.log(this.result);
         console.log(this.count)
-        // if(this.result==""){
-        //  window.location.reload();
-        // }
+ 
       })
 
       }
@@ -244,7 +198,6 @@ if(this.key==null){
 
       newArrays : any = [];
       getCheckbox2Values(ev: any,data: any) {
-        // throw new Error('Method not implemented.');
 
         let obj = {
           "order" : data
@@ -267,16 +220,13 @@ if(this.key==null){
         //How to remove the value from array if we uncheck it
         console.log(this.newArray);
       
-        // console.log('++++++',id);
-        // this.array.push(id);
+        
       this.adminService.bookByAuthorlistandcatid(this.newArray,this.newArrays,this.pageNo,this.tableSize,"").subscribe(res=>{
         this.result = res.content;
         this.count = res.totalElements;
         console.log(this.result);
         console.log(this.count)
-        // if(this.result==""){
-        //  window.location.reload();
-        // }
+     
       })
 
         }
